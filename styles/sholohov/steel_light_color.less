@@ -1,0 +1,22 @@
+// Material Light
+
+@borderColor:				mix(@color, @postColor, 25%);   // цвет границы болока
+@bg-quote: 					rgba(50,150,200,0.5);   // цвет блока цитаты
+@bg-hidden:					rgba(180,180,180,0.5);   // цвет блока скрытого текста
+@bg-code:					rgba(50,150,0,0.5);   // цвет блока кода
+@scroll-color:				rgba(0,0,0,0.2);   // цвет скролла
+@colorPoll:					mix(#79c, @color, 80%);   // цвет акцента опроса
+@footerButtonColor:			rgba(127,127,127,0.7);
+@color:						black;
+@bgColor:					white;
+@postColor:					darken(@bgColor,5%);
+@tmColor:					#ccc;
+@blue:						rgba(0,50,160,0.05);
+@nick-online-color:			rgba(0, 130, 0, 0.8);
+@spoilColor:				lighten(desaturate(#0288d1, 40%), 7%);
+@spoilCloseColor:			rgba(158,158,158,0.4);
+@linkColor:					#57a;
+@hrefButtonColor:			gray;
+@msgColor:					@postColor;
+.Border						{-webkit-box-shadow: 0 0 2px rgba(0,0,0,0.5);}
+.Gradient					{ background: -webkit-linear-gradient(top, (@postColor + 25%) 0%, (@postColor - 35%) 100%);}

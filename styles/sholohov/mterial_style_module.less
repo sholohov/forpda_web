@@ -1,0 +1,35 @@
+.panel_navi {
+	background: @bgColor;
+	.BoxShadow(1);
+	&.top {
+//		border-bottom: 1px solid @borderColor;
+	}
+	&.bottom {
+//		position: absolute;
+//		bottom: 5rem;
+//		border-top: 1px solid @borderColor;
+	}
+	&.bottom .topic_title_post {
+		display: block !important;
+	}	
+}
+.posts_list {
+//	border-top: 1px solid @borderColor;
+//	border-bottom: 1px solid @borderColor;
+	background: @bgColor;
+	.BoxShadow(1);
+}
+.post_container {
+	margin: 0;
+	border-radius: 0;
+	border-bottom: 1px solid @borderColor;
+	background: none;
+	.BoxShadow(0);
+	&:last-child {
+		border-bottom: none;
+	}
+}
+.poll {
+	margin-left: 0;
+	margin-right: 0;
+}

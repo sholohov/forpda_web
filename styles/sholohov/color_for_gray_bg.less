@@ -1,0 +1,43 @@
+/*
+ *	DARK-COLOR
+*/
+
+*[style*="color:royalblue"]{
+	color: lighten(#4169e1, 32%) !important;
+}
+*[style*="color:blue"]{
+	color: lighten(#0000ff, 30%) !important;
+}
+*[style*="color:darkblue"]{
+	color: lighten(#00008b, 35%) !important;
+}
+*[style*="color:indigo"]{
+	color: lighten(#4b0082, 35%) !important;
+}
+*[style*="color:crimson"]{
+	color: lighten(#dc143c, 12%) !important;
+}
+*[style*="color:red"]{
+	color: lighten(#ff0000, 13%) !important;
+}
+*[style*="color:darkred"]{
+	color: lighten(#8b0000, 30%) !important;
+}
+*[style*="color:deeppink"]{
+	color: lighten(#ff1493, 15%) !important;
+}
+*[style*="color:purple"] {
+	color: lighten(#C400AB, 23%) !important;
+}
+*[style*="Black"]:not([style*="background"]),
+*[style*="black"]:not([style*="background"]),
+*[style*="#000000"]:not([style*="background"]),
+*[style*="#000"]:not([style*="background"]),
+*[style*="background-color:white"] *[style*="color:black"], 
+*[style*="color:black"] *[style*="background-color:white"], 
+*[style*="background-color:white"] *[style*="color:#000000"], 
+*[style*="color:#000000"] *[style*="background-color:white"], 
+*[style*="background-color:white"] *[style*="color:#000"], 
+*[style*="color:#000"] *[style*="background-color:white"]{
+	color: @color !important;
+}

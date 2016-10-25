@@ -1,0 +1,22 @@
+div[id^="msg"][name^="msg"] {
+    .post_footer_style(){
+        opacity:1;
+        max-height:99px;
+        height:auto;
+        overflow-y:visible;
+    }
+    + .post_footer {
+        overflow-y:hidden;
+        max-height:0;
+        opacity:0;
+        transition:all 2s; 
+        &:hover {
+            .post_footer_style();
+        }
+    }
+    &:hover {
+        + .post_footer {
+            .post_footer_style();
+        }
+    }
+}

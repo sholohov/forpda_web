@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/styles/${style}">
+		<link rel="stylesheet" type="text/css" href="/fonts/roboto/import.css">
+		<link rel="stylesheet" type="text/css" href="/fonts/flaticons/import.css">
+		<link rel="stylesheet" type="text/css" href="/fonts/fontello/import.css">
+		<script type="text/javascript" src="/js/theme.js"></script>
+		<script type="text/javascript" src="/js/emoticons.js"></script>
+		<title>${title}</title>
+	</head>
+
+	<body id="${topicId}" class="${tipicClass}">
+		${dev_disable}
+		<div class="panel top ${nav_disabe}">
+			<div class="navi top">
+				<a class="button first ${btn_disabe}" onclick="window.HTMLOUT.firstPage()"><span>&lt;&lt;</span></a>
+				<a class="button prev ${btn_disabe}" onclick="window.HTMLOUT.prevPage()"><span>&lt;</span></a>
+				<a class="button page ${btn_disabe}" onclick="window.HTMLOUT.jumpToPage()"><span>Выбор</span></a>
+				<a class="button next ${btn_disabe}" onclick="window.HTMLOUT.nextPage()"><span>&gt;</span></a>
+				<a class="button last ${btn_disabe}" onclick="window.HTMLOUT.lastPage()"><span>&gt;&gt;</span></a>
+			</div>
+			<div class="topic_title_post">
+				<a href="${tittl_post_link}">
+					<span class="name">${title_post_name}</span><span class="comma">, </span><span class="description">${title_post_description}</span>
+				</a>
+			</div>
+		</div>
+		<div class="poll">
+			<div class="hat">
+				<div class="hidetop close" style="cursor:pointer;"><input class="spoiler_button" type="button" value="+" onclick="toggleSpoilerVisibility(this)"><b><span>Опрос</span></b></div>
+				<div class="hidemain" style="">
+					<form action="modules.php" method="get">
+						<div class="poll_title"><span>Тестовый опрос</span></div>
+						<div class="poll_body">
+							<div class="poll_theme">
+								<div class="theme_title"><span>Выберете один из вариантов</span></div>
+								<div class="items">
+									<label class="item">
+										<input type="radio" name="choice[1]" value="1" class="radiobutton"><span class="icon"></span><span class="item_body"><span class="name">Вариант один</span></span>
+									</label>
+									<label class="item">
+										<input type="radio" name="choice[1]" value="2" class="radiobutton"><span class="icon"></span><span class="item_body"><span class="name">Вариант два</span></span>
+									</label>
+									<label class="item">
+										<input type="radio" name="choice[1]" value="3" class="radiobutton"><span class="icon"></span><span class="item_body"><span class="name">Вариант три</span></span>
+									</label>
+								</div>
+							</div>
+							<div class="poll_theme">
+								<div class="theme_title"><span>Выберете несколько вариантов</span></div>
+								<div class="items">
+									<label class="item">
+										<input type="checkbox" name="choice_2_1" value="1" class="checkbox"><span class="icon"></span><span class="item_body"><span class="name">Вариант один</span></span>
+									</label>
+									<label class="item">
+										<input type="checkbox" name="choice_2_2" value="1" class="checkbox"><span class="icon"></span><span class="item_body"><span class="name">Вариант два</span></span>
+									</label>
+									<label class="item">
+										<input type="checkbox" name="choice_2_3" value="1" class="checkbox"><span class="icon"></span><span class="item_body"><span class="name">Вариант три</span></span>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="votes_info"><span>Всего голосов: 0</span></div>
+						<div class="buttons">
+							<input class="button" type="button" name="submit" value="Голосовать!" title="Проголосуйте в опросе">&nbsp;
+							<input class="button" type="button" value="Показать результаты" title="Просмотр результатов (перед добавлением вашего голоса)" onclick="HTMLOUT.go_gadget_show()">
+						</div>
+						<input type="hidden" name="addpoll" value="1">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="poll">
+			<div class="hat">
+				<div class="hidetop close" style="cursor:pointer;"><input class="spoiler_button" type="button" value="+" onclick="toggleSpoilerVisibility(this)"><b><span>Опрос</span></b></div>
+				<div class="hidemain" style="">
+					<form action="modules.php" method="get">
+						<div class="poll_body">
+							<div class="poll_theme">
+								<div class="theme_title"><span>Обнаруженные неисправности(не лечащиеся перепрошивкой)</span></div>
+								<div class="items voted">
+									<div class="item">
+										<span class="name">
+											<span>Проблемы с внешним динамиком.</span>
+										</span>
+										<span class="num_votes">
+											<span>57</span>
+										</span>
+										<div class="range">
+											<div class="range_bar" style="width:12.1%;"></div>
+											<span class="value">
+												<span>12.1%</span>
+											</span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Проблемы со связью.</span></span><span class="num_votes"><span>71</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:15.07%;"></div><span class="value"><span>15.07%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Проблемы с экраном.</span></span><span class="num_votes"><span>61</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:12.95%;"></div><span class="value"><span>12.95%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Пыль в неположенных местах.</span></span><span class="num_votes"><span>17</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:3.61%;"></div><span class="value"><span>3.61%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Нету!</span></span><span class="num_votes"><span>192</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:40.76%;"></div><span class="value"><span>40.76%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Проблема с зарядкой/батареей</span></span><span class="num_votes"><span>73</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:15.5%;"></div><span class="value"><span>15.5%</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="poll_theme">
+								<div class="theme_title"><span>Как вы ремонтируете телефон?</span></div>
+								<div class="items voted">
+									<div class="item"><span class="name"><span>Сдаю в СЦ.</span></span><span class="num_votes"><span>125</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:26.54%;"></div><span class="value"><span>26.54%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Пробую сам, не получается - СЦ.</span></span><span class="num_votes"><span>186</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:39.49%;"></div><span class="value"><span>39.49%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Только сам.</span></span><span class="num_votes"><span>100</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:21.23%;"></div><span class="value"><span>21.23%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Покупаю новый.</span></span><span class="num_votes"><span>60</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:12.74%;"></div><span class="value"><span>12.74%</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="poll_theme">
+								<div class="theme_title"><span>Как вам в целом качество сборки? (качество крышки не включено)</span></div>
+								<div class="items voted">
+									<div class="item"><span class="name"><span>Качество отменное.</span></span><span class="num_votes"><span>340</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:72.19%;"></div><span class="value"><span>72.19%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Видали и лучше.</span></span><span class="num_votes"><span>116</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:24.63%;"></div><span class="value"><span>24.63%</span></span>
+										</div>
+									</div>
+									<div class="item"><span class="name"><span>Просто хлам. Просто хлам. Просто хлам. Просто хлам. Просто хлам. Просто хлам. Просто хлам. Просто хлам.  Просто хлам.</span></span><span class="num_votes"><span>15</span></span>
+										<div class="range">
+											<div class="range_bar" style="width:3.18%;"></div><span class="value"><span>3.18%</span></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="votes_info"><span>Всего голосов: 471</span></div>
+						<div class="buttons">Вы уже голосовали в этом опросе</div>
+						<input type="hidden" name="addpoll" value="1">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="posts_list">
+			<div name="entry28775111" class="jump" style="position: absolute; width: 100%; margin-top:-89px; left: 0;" id="entry28775111"></div>
+			<div class="post_container" name="del28775111">
+				<div class="post_header">
+					<div class="header_wrapper">
+						<div class="avatar " onclick="window.HTMLOUT.showUserMenu('28775111', '96664', 'Морфий')">
+							<div class="img" style="background-image:url(http://s.4pda.to/forum/uploads/64/96664-3757577.gif);"></div>
+						</div><a class="inf nick online curator" onclick="window.HTMLOUT.showUserMenu('28775111', '96664', 'Морфий')"><span><b>Морфий</b></span></a>
+						<div class="inf group"><span style="color:#FF9900">Друзья 4PDA</span> | у.п.: &nbsp;(0%)&nbsp;</div><a class="inf reputation" onclick="window.HTMLOUT.showRepMenu('28775111', '96664', 'Морфий', '0', '0')"><span>1349</span></a>
+						<div class="date-link"><span class="inf date"><span>25.01.2014, 12:06</span></span><a class="inf link" onclick="window.HTMLOUT.showPostLinkMenu('28775111')"><span><span class="sharp">#</span>81</span></a></div><a class="inf menu" onclick="window.HTMLOUT.showPostMenu('28775111', '25.01.2014, 12:06', '96664', 'Морфий', '1', '1')"><span>Меню</span></a></div>
+				</div>
+				<div class="hat">
+					<div class="hidetop close" style="cursor:pointer;"><input class="spoiler_button" type="button" value="+" onclick="toggleSpoilerVisibility(this)"><b><span>Показать шапку</span></b></div>
+					<div class="hidemain" style="display:none">
+						<div class="post_body ">
+							<div align="center"><img attach_id="4102436" s="0" src="http://cs3-2.4pda.to/4102436.png" class="linked-image" alt="Прикрепленное изображение"></div>
+							<br><span style="font-size:10pt;line-height:100%"><div align="center"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?act=boardrules" target="_blank"><span style="color:red"><b>Правила форума</b></span></a> | <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=271502" target="_blank"><span style="color:royalblue"><b>Неофициальный клиент 4PDA</b></span></a> | <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=671139&amp;st=740&amp;view=findpost&amp;p=41471261" target="_blank"><b>Клуб пользователей "Неофициального клиента 4pda.ru"</b></a></div>
+							</span>
+							<br>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title"><span style="font-size:12pt;line-height:100%"><span style="color:red">!!! ЧИТАТЬ ОБЯЗАТЕЛЬНО !!!</span></span>
+								</div>
+								<div class="block-body"> <span style="color:limegreen"><span style="font-size:10pt;line-height:100%"><i><b>Разрешено</b></i></span></span>
+									<br><span style="color:limegreen"><i><b>+</b></i></span>Задавать вопросы, касающиеся стилей и модификаций к "неофициальному клиенту форума 4pda"
+									<br><span style="color:limegreen"><i><b>+</b></i></span>Оставлять заявки на изменение стилей и модификаций
+									<br><span style="color:limegreen"><i><b>+</b></i></span>Выкладывать свои наработки
+									<br>
+									<br><span style="font-size:10pt;line-height:100%"><span style="color:red"><i><b>Запрещено</b></i></span></span>
+									<br><span style="color:red"><i><b>-</b></i></span>Задавать вопросы, касающиеся работы клиента
+									<br><span style="color:red"><i><b>-</b></i></span>Нарушать правила форума
+									<br>
+									<br><b><i><span style="color:seagreen">Несоблюдение правил карается повышением УП и РО</span></i></b>
+									<br>
+									<br>
+									<div align="center"><b><span style="font-size:10pt;line-height:100%"><span style="color:red">Помните: <br>Все что вы делаете - вы делаете на свой страх и риск! <br>Авторы модификаций и Администрация форума не несёт ответственности за работоспособность ваших девайсов!</span></span></b></div>
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title"><b>Стили</b></div>
+								<div class="block-body">
+									<div class="post-block spoil close">
+										<div class="block-title"><span style="font-size:10pt;line-height:100%"><span style="color:orangered">Морфий</span></span>
+										</div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=35296302" target="_blank">Material Style</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29042857" target="_blank">Steel</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32263288" target="_blank">Стандартный 4PDA</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29842997" target="_blank">White &amp; Black OLD (стандартные из 2.х)</a>
+											<br>
+											<br><b>Поддержка приостановлена:</b>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32779483" target="_blank">WhiteR (remake)</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28925254" target="_blank">White-trablone (remake)</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=23218500" target="_blank">NEON White &amp; Black</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <span style="font-size:10pt;line-height:100%"><span style="color:orangered">Radiation15</span></span>
+										</div>
+										<div class="block-body">
+											<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33296401" target="_blank">Material стиль Coba</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>Kirhe</b></div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33363001" target="_blank">Coba Inspired</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>tufi</b></div>
+										<div class="block-body">
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32269567" target="_blank">Dark-STEEL (remake)</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32297243" target="_blank">White-STEEL (remake)</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33507796" target="_blank">coba (remake)- тёмный</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33381705" target="_blank">coba (remake) - серый</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33340403" target="_blank">coba (remake) - светлый</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>Anton 13.09</b></div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=33306234" target="_blank">Gray Light</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29365164" target="_blank">Ashes</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29451045" target="_blank">Brilliant topic</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29479366" target="_blank">Negative Theme</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=30340203" target="_blank">Domination</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32869414" target="_blank">gray (remake)</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>ilya-fedin</b></div>
+										<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=35263587" target="_blank">Coba(ремейк) [white+blue]</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>andro1d</b></div>
+										<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=38496591" target="_blank">BlueGrey</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>Dzhyn</b></div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=38568757" target="_blank"> Coba Dzhyn(ремeйк)</a>
+											<br>• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=39805039" target="_blank">Round `n` 4PDA</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>shust_blr</b></div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=41179904" target="_blank">стиль - ВКонтакте</a>
+											<br>
+											<br>
+										</div>
+									</div>
+									<div class="post-block spoil close">
+										<div class="block-title">Стили от <b>Rainontheradio</b></div>
+										<div class="block-body">• <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=41455207" target="_blank">Simplified</a></div>
+									</div>
+									<br>
+									<br>
+									<div class="post-block spoil close">
+										<div class="block-title"><span style="color:orangered">архив</span></div>
+										<div class="block-body">
+											<br>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от dimans171061</div>
+												<div class="block-body">
+													<br><span style="color:black">•</span> <a title="Ссылка" rel="nofollow" href="http:// http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=30367720 " target="_blank"><span style="color:seagreen">Dark-STEEL (Gray mod by dimans171061)</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от trablone</div>
+												<div class="block-body"> [/url]
+													<a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=271502&amp;view=findpost&amp;p=28769123" target="_blank">
+														<br><span style="color:black">•</span><span style="color:seagreen">Gray</span> </a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от vetalorlov</div>
+												<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28800749" target="_blank"><span style="color:black">•</span><span style="color:seagreen">White</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от Remie-I</div>
+												<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=271502&amp;view=findpost&amp;p=28792145" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Black</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=28922160" target="_blank"><span style="color:black">•</span><span style="color:seagreen">PlasticBlack</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http:// http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=30260673 " target="_blank"><span style="color:black">•</span><span style="color:seagreen">WhiteR</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=28913825" target="_blank"><span style="color:#000000">•</span><span style="color:seagreen">WhiteR (edit by _lom_)</span></a>
+													<br>
+													<a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28961521" target="_blank"> <span style="color:black">•</span><span style="color:seagreen">Pl_silver_black (by cobra3435)</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от Tresh680</div>
+												<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28783193" target="_blank"><span style="color:black">•</span><span style="color:seagreen">StyleByTresh680</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=28843517" target="_blank"><span style="color:#000000">•</span><span style="color:seagreen">StyleByTresh680 (BLACKENED MOD Baphomet666)</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28783193" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Dark</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29073791" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Dark (Light mod by xandervv)</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от nikita...nikita</div>
+												<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=28859067" target="_blank"><span style="color:#000000">•</span><span style="color:seagreen">Black</span></a>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28887841" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Black (Modification)</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от Evgenark</div>
+												<div class="block-body"><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=29200390" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Black</span></a>
+													<br>
+													<br>
+												</div>
+											</div>
+											<div class="post-block spoil close">
+												<div class="block-title">Стили от Smashik</div>
+												<div class="block-body"><span style="color:red"><i><b>Качать архив внизу поста!</b></i></span>
+													<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=271502&amp;view=findpost&amp;p=22877954" target="_blank"><span style="color:black">•</span><span style="color:seagreen">Dark</span> <br><span style="color:black">•</span><span style="color:seagreen">Holo</span> <br><span style="color:black">•</span><span style="color:seagreen">GP</span> <br><span style="color:black">•</span><span style="color:seagreen">Gray</span> </a></div>
+											</div>
+										</div>
+									</div>
+									<br>
+									<br>
+								</div>
+							</div>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title"><span style="color:green"><b>Моды. Инструкции.</b></span></div>
+								<div class="block-body">
+									<ul>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=35224872" target="_blank">Material мод (стиль Coba) от <b>Radiation15</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=27868548" target="_blank">МОД от <b>corola</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=38496591" target="_blank">Мод Coba BlueGrey от <b>andro1d</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=32809790" target="_blank">Инструкция по замене иконок в экшн-баре от <b>dva974</b> </a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=34662163" target="_blank">"ночной режим" от <b>ilya-fedin</b> </a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=36914449" target="_blank">Ник бегущей строкой от <b>ilya-fedin</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=38765565" target="_blank">Мод с заменой иконок от <b>marcha</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=38736544" target="_blank">Мод и стиль от <b>dva974</b></a></li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=38314450" target="_blank">Мод от <b>iva37</b></a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=41455207" target="_blank">Мод от <b>Rainontheradio</b></a>
+											<br>
+										</li>
+									</ul>
+									<br>
+									<br>
+								</div>
+							</div>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title"><b>Создание стилей</b></div>
+								<div class="block-body"><b>Разработчикам стилей:</b>
+									<ul>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=41050998" target="_blank">Информация для разрабочиков + HTML - разметка</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=541046&amp;view=findpost&amp;p=31457087" target="_blank">Инструменты разработчика и HTML исходники форума</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=36417635" target="_blank">Список названий селекторов элементов </a>
+											<br>
+											<br>
+										</li>
+									</ul>
+									<br><b>Совет тем, кто ковыряет стили: Учите css.</b>
+									<br>На сайте <a title="Ссылка" rel="nofollow" href="http://htmlbook.ru/" target="_blank">htmlbook</a> в разделе самоучитель вы найдете всю нужную вам информацию, чтоб создать собственный стиль для клиента 4PDA.
+									<ul>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28819796" target="_blank">Книга рецептов CSS</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28820050" target="_blank">Справочник по CSS</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541030&amp;view=findpost&amp;p=28780365" target="_blank">Уроки по созданию собственного стиля - тема.</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://jigsaw.w3.org/css-validator/#validate_by_upload" target="_blank">Онлайн-валидатор CSS - jigsaw.w3.org</a></li>
+									</ul>
+									<br><b>Тестовые посты:</b>
+									<ul>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28827885" target="_blank">Пост 1</a></li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=271502&amp;view=findpost&amp;p=22872213" target="_blank">Пост 2</a>
+											<br>
+											<br>
+										</li>
+									</ul>
+									<br><b>Полезные программы:</b>
+									<ul>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=225777&amp;st=600&amp;view=findpost&amp;p=27933601" target="_blank">Jota Text Editor</a> - если проблемы с работой, устанавливайте версию 2.26, она 100% стабильная
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=324730" target="_blank">Droid Editor</a> - возможность связи с DropBox
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=28830058" target="_blank">ColorPicker </a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=331616" target="_blank">Photo Editor</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?s=&amp;showtopic=228998&amp;view=findpost&amp;p=7052078" target="_blank">Web Master</a>
+											<br>
+										</li>
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=277847&amp;view=findpost&amp;p=9576558" target="_blank">920 Text Editor</a></li>
+									</ul>
+									<br>
+									<br>
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title"><b>Установка стилей</b></div>
+								<div class="block-body"><span style="font-size:12pt;line-height:100%"><b>1. Автоматически.</b></span>
+									<br>
+									<ol type="1">
+										<li><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=38709196" target="_blank"><span style="color:royalblue"><b>Плагин для быстрой установки</b></span></a> <sup><span style="color:red">new</span></sup>
+											<br><span style="color:green"><b>Примечание:</b></span>
+											<br>Требуется изменить путь папки данных приложения.
+											<br>Боковое меню клиента: <b>Настройки программы &gt; Системное &gt; Путь к папке с данными</b>&gt; <b>"Внешняя память"</b> &gt; <b>Ok</b></li>
+									</ol>
+									<br><span style="font-size:12pt;line-height:100%"><b>2. Вручную.</b></span>
+									<br>
+									<ol type="1">
+										<li>Входите в боковое меню клиента: <b>Настройки программы &gt; Системное &gt; Путь к папке с данными</b>
+											<br>
+										</li>
+										<li>Нажимаете <b>"Внешняя память"</b> - изменение пути к папке с данными приложения
+											<br>
+										</li>
+										<li>Переходиите на поле <b>"Ручной ввод"</b> (строка ниже) запоминаете/копируете путь
+											<br>
+										</li>
+										<li>Жмете <b>OK</b>
+											<br>
+										</li>
+										<li>Открываете любой файловый менеджер, проходите по пути который вы узнали через манипуляции выше, часть его должна быть такой <b>.../Android/data/org.softeg.slartus.forpdaplus/files/</b>
+											<br>
+										</li>
+										<li>Создаёте три папки: <b>styles/</b> и в ней <b>white/</b> и <b>black/</b> <span style="color:red">ВАЖНО,</span> что бы названия папок были в нижнем регистре (без заглавных букв) иначе стили могут не отобразиться в списке клиента.
+											<br>
+										</li>
+										<li>Затем скачиваете стили с форума, либо берёте заранее сохранённые где-либо и копируете:
+											<br>Светлые - в папку <b>white/</b>
+											<br>Тёмные - в папку <b>black/</b></li>
+									</ol>
+									<br>
+									<br><a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showtopic=541046&amp;view=findpost&amp;p=35675435" target="_blank"><b><span style="color:blue"><span style="font-size:12pt;line-height:100%">Почему у меня не отображается стиль?</span></span></b></a>
+									<br>
+									<br>
+								</div>
+							</div>
+							<br>
+							<div class="post-block spoil close">
+								<div class="block-title">Опросы</div>
+								<div class="block-body">
+									<table style="width:auto;display:inline;" id="ipb-attach-table-6545176-bb" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+												<td>
+													<div id="ipb-attach-div-6545176-bb">
+														<div id="ipb-attach-ct-6545176-bb"></div>
+														<a attach_id="6545176" s="0" id="ipb-attach-url-6545176-bb" href="http://4pda.ru/forum/dl/post/6545176/%CE%EF%F0%EE%F1+%CA%E0%EA%E8%E5+%F1%F2%E8%EB%E8+%EF%EE+%E4%F3%F8%E5.jpg" rel="lytebox[28775111]" title="Опрос Какие стили по душе.jpg - Размер: 71,95 КБ" target="_blank"><img src="http://cs3-2.4pda.to/6545176.jpg" id="ipb-attach-img-6545176-bb" class="attach" rel="lytebox[28775111]" style="width:400;height:199" width="400" height="199" alt="Прикрепленное изображение"></a>
+														<div id="ipb-attach-cb-6545176-bb" style="margin:0px"></div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("6545176-bb", parseInt("872"), parseInt("434"), "71,95 КБ");
+</script>
+									<table style="width:auto;display:inline;" id="ipb-attach-table-6123946-bb" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+												<td>
+													<div id="ipb-attach-div-6123946-bb">
+														<div id="ipb-attach-ct-6123946-bb"></div>
+														<a attach_id="6123946" s="0" id="ipb-attach-url-6123946-bb" href="http://4pda.ru/forum/dl/post/6123946/%EE%EF%F0%EE%F1+%F1%F2%F0%E5%EB%EA%E8+%E8+%EA%ED%EE%EF%EA%E8+%E3%F0%EE%EC%EA%EE%F1%F2%E8.png" rel="lytebox[28775111]" title="опрос стрелки и кнопки громкости.png - Размер: 94,89 КБ" target="_blank"><img src="http://cs3-2.4pda.to/6123946.png" id="ipb-attach-img-6123946-bb" class="attach" rel="lytebox[28775111]" style="width:400;height:138" width="400" height="138" alt="Прикрепленное изображение"></a>
+														<div id="ipb-attach-cb-6123946-bb" style="margin:0px"></div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("6123946-bb", parseInt("2048"), parseInt("709"), "94,89 КБ");
+</script>
+								</div>
+							</div>
+							<br>
+							<br>
+							<div align="right"><span style="color:green"><b>Куратор темы</b>:</span> <a title="Ссылка" rel="nofollow" href="http://4pda.ru/forum/index.php?showuser=96664" target="_blank"><b>Морфий</b></a>
+								<br>По наполнению шапки информацией в QMS</div>
+							<br>
+							<br><span class="edit">Сообщение отредактировал <b>Морфий</b> - 31.08.2015, 14:04</span>
+							<div class="post-edit-reason">Причина редактирования: Стили и мод от Rainontheradio</div>
+						</div>
+					</div>
+				</div>
+				<div class="post_footer"><a class="link button claim" href="/forum/index.php?act=report&amp;t=541046&amp;p=28775111&amp;st=80"><span>Жалоба</span></a><a class="button nick" onclick="window.HTMLOUT.insertTextToPost('[SNAPBACK]28775111[/SNAPBACK] [B]Морфий,[/B] \n')"><span>Ник</span></a><a class="button quote" onclick="window.HTMLOUT.quote('490', '541046', '28775111', '25.01.2014, 12:06', '96664', 'Морфий')"><span>Цитата</span></a><a class="button edit" id="edit-but-28775111" href="/forum/index.php?act=post&amp;do=edit_post&amp;f=490&amp;t=541046&amp;p=28775111&amp;st=80"><span>Изменить</span></a><a class="button delete" href="/forum/index.php?act=Mod&amp;CODE=04&amp;f=490&amp;t=541046&amp;p=28775111&amp;st=80&amp;auth_key=da2cceaba9c77a856611200bad5be02f"><span>Удалить</span></a></div>
+				<div class="between_messages"></div>
+			</div>
+			<div name="entry28822707" class="jump" style="position: absolute; width: 100%; margin-top:-89px; left: 0;" id="entry28822707"></div>
+			<div class="post_container active" name="del28822707">
+				<div class="post_header">
+					<div class="header_wrapper">
+						<div class="avatar " onclick="window.HTMLOUT.showUserMenu('28822707', '96664', 'Морфий')">
+							<div class="img" style="background-image:url(http://s.4pda.to/forum/uploads/64/96664-3757577.gif);"></div>
+						</div><a class="inf nick online curator" onclick="window.HTMLOUT.showUserMenu('28822707', '96664', 'Морфий')"><span><b>Морфий</b></span></a>
+						<div class="inf group"><span style="color:#FF9900">Друзья 4PDA</span></div><a class="inf reputation" onclick="window.HTMLOUT.showRepMenu('28822707', '96664', 'Морфий', '0', '0')"><span>1349</span></a>
+						<div class="date-link"><span class="inf date"><span>26.01.2014, 23:16</span></span><a class="inf link" onclick="window.HTMLOUT.showPostLinkMenu('28822707')"><span><span class="sharp">#</span>93</span></a></div><a class="inf menu" onclick="window.HTMLOUT.showPostMenu('28822707', '26.01.2014, 23:16', '96664', 'Морфий', '1', '1')"><span>Меню</span></a></div>
+				</div>
+				<div class="post_body "><b>diBAG,</b> на него стили не идут, только автор клиента этим занимается</div>
+				<div class="post_footer"><a class="link button claim" href="/forum/index.php?act=report&amp;t=541046&amp;p=28822707&amp;st=92"><span>Жалоба</span></a><a class="button nick" onclick="window.HTMLOUT.insertTextToPost('[SNAPBACK]28822707[/SNAPBACK] [B]Морфий,[/B] \n')"><span>Ник</span></a><a class="button quote" onclick="window.HTMLOUT.quote('490', '541046', '28822707', '26.01.2014, 23:16', '96664', 'Морфий')"><span>Цитата</span></a><a class="button edit" id="edit-but-28822707" href="/forum/index.php?act=post&amp;do=edit_post&amp;f=490&amp;t=541046&amp;p=28822707&amp;st=92"><span>Изменить</span></a><a class="button delete" href="/forum/index.php?act=Mod&amp;CODE=04&amp;f=490&amp;t=541046&amp;p=28822707&amp;st=92&amp;auth_key=da2cceaba9c77a856611200bad5be02f"><span>Удалить</span></a></div>
+
+				<div class="between_messages"></div>
+			</div>
+			<div name="entry28827885" class="jump" style="position: absolute; width: 100%; margin-top:-89px; left: 0;" id="entry28827885"></div>
+			<div class="post_container" name="del28827885">
+				<div class="post_header">
+					<div class="header_wrapper">
+						<div class="avatar " onclick="window.HTMLOUT.showUserMenu('28827885', '96664', 'Морфий')">
+							<div class="img" style="background-image:url(http://s.4pda.to/forum/uploads/64/96664-8404983.gif);"></div>
+						</div><a class="inf nick online curator" onclick="window.HTMLOUT.showUserMenu('28827885', '96664', 'Морфий')"><span><b>Морфий</b></span></a>
+						<div class="inf group"><span style="color:#FF9900">Друзья 4PDA</span></div><a class="inf reputation" onclick="window.HTMLOUT.showRepMenu('28827885', '96664', 'Морфий', '0', '0')"><span>1737</span></a>
+						<div class="date-link"><span class="inf date"><span>27.01.2014, 09:06</span></span><a class="inf link" onclick="window.HTMLOUT.showPostLinkMenu('28827885')"><span><span class="sharp">#</span>96</span></a></div><a class="inf menu" onclick="window.HTMLOUT.showPostMenu('28827885', '27.01.2014, 09:06', '96664', 'Морфий', '1', '1')"><span>Меню</span></a></div>
+				</div>
+				<div class="post_body ">
+					<div align="center"> <span style="font-size:18pt;line-height:100%">~ Тестовый Пост (ТП) ~</span> </div><br><br><br><span style="font-size:36pt;line-height:100%"> SIZE=7 </span><span style="font-size:24pt;line-height:100%"> SIZE=6 </span><span style="font-size:18pt;line-height:100%"> SIZE=5 </span><span style="font-size:14pt;line-height:100%"> SIZE=4 </span><span style="font-size:12pt;line-height:100%"> SIZE=3 </span><span style="font-size:10pt;line-height:100%"> SIZE=2 </span><span style="font-size:8pt;line-height:100%"> SIZE=1 </span><br>Основной размер текста поста (должен быть чуть больше SIZE=1)<br><br><span style="font-size:18pt;line-height:100%">Текст <span style="color:royalblue">одного <span style="color:coral">размера</span></span>
+					</span><br><br><span style="color:black">Black</span><span style="color:white"> white </span> <span style="color:skyblue"> skyblue </span><span style="color:royalblue"> royalblue </span><span style="color:blue"> blue </span><span style="color:darkblue"> darkblue </span><span style="color:orange"> orange </span><span style="color:orangered"> orangered </span><span style="color:crimson"> crimson </span><span style="color:red"> red </span><span style="color:darkred"> darkred </span><span style="color:green"> green </span><span style="color:limegreen"> limegreen </span><span style="color:seagreen"> seagreen </span><span style="color:deeppink"> deeppink </span><span style="color:tomato"> tomato </span><span style="color:coral"> coral </span><span style="color:purple"> purple </span><span style="color:indigo"> indigo </span><span style="color:burlywood"> burlywood </span><span style="color:sandybrown"></span><span style="color:sienna"> sienna </span><span style="color:chocolate"> chocolate </span><span style="color:teal"> teal </span><span style="color:silver"> silver </span><br><br><a title="Ссылка" rel="nofollow" href="Http://ssilka.test/ne_kuda_ne_vedet" target="_blank">Http://ssilka.test/ne_kuda_ne_vedet</a><br><br>
+					<ul>
+						<li>Обычный текст <br></li>
+						<li><b>Жирный текст</b><br></li>
+						<li><b><i>Жирный наклонный</i></b><br></li>
+						<li><i>Наклонный</i><br>
+							<ol type="1">
+								<li>
+									<font style="font-size:9px;color:gray;">Оффтоп</font><br></li>
+								<li><u>Подчеркнутый</u><br></li>
+								<li><sub>Нижний регистр</sub><br></li>
+								<li><sup>Верхний регистр</sup></li>
+							</ol>
+						</li>
+					</ul><br>
+					<div align="left">Текст слева</div>
+					<div align="center">Текст по центру</div>
+					<div align="right">Текст справа</div><br><br><b>Список с блоками</b><br>
+					<span style="font-family:monospace">[!] Важное замечание<br>[+] Нововведение<br>[-] Исправлена ошибка<br>[*] Изменения<br><br><br></span>
+					<ul>
+						<li>
+							<div class="post-block quote">
+								<div class="block-title"></div>
+								<div class="block-body">содержимое блока цитаты</div>
+							</div><br></li>
+						<li>
+							<font style="font-size:9px;color:gray;">содержимое блока оффтопа</font><br></li>
+						<li>
+							<div class="post-block code ">
+								<div class="block-title"></div>
+								<div class="block-body ">содержимое блока кода<br></div>
+							</div><br></li>
+						<li>
+							<div class="post-block hidden">
+								<div class="block-title"></div>
+								<div class="block-body">содержимое блока скрытого текста</div>
+							</div><br></li>
+					</ul><br><br>
+					<font style="font-size:9px;color:gray;">*** OFFTOP ***<br> Текст <a href="#" title="Ссылка">ссылка</a> текст<br>
+						<a href="/forum/index.php?act=findpost&amp;pid=12345678" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a> <b>snapback</b><br>
+						<div class="post-block quote">
+							<div class="block-title">Name @ 00.00.0000
+								<a href="/forum/index.php?act=findpost&amp;pid=28827885" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>
+							</div>
+							<div class="block-body"><span>Содержимое цитаты  <img alt=":offtopic:" title=":offtopic:" src="/forum/style_emoticons/default/offtopic.gif"> </span><br>
+								<div class="post-block spoil   close">
+									<div class="block-title"></div>
+									<div class="block-body">Содержимое спойлера<br></div>
+								</div>
+							</div>
+						</div>
+					</font><br><br>
+					<a href="/forum/index.php?act=findpost&amp;pid=12345678" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a> <b>snapback</b><br>
+					<a href="/forum/index.php?act=findpost&amp;pid=12345678" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a> <b>snapback</b>
+					<br>
+					<a name="test" title="test">ˇ</a> Якорь
+					<br>
+					<div class="post-block spoil close">
+						<div class="block-title">Якорь</div>
+						<div class="block-body">
+							<a name="testspoil" title="testspoil">ˇ</a> Якорь
+						</div>
+					</div>
+					<br>
+					<div class="post-block quote">
+						<div class="block-title">Name @ 00.00.0000
+							<a href="/forum/index.php?act=findpost&amp;pid=28827885" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>
+						</div>
+						<div class="block-body">Цитата<br>
+							<div class="post-block spoil close">
+								<div class="block-title"></div>
+								<div class="block-body">-<br>-<br>-<br></div>
+							</div>
+						</div>
+					</div><br>
+					<div class="post-block code box">
+						<div class="block-title"></div>
+						<div class="block-body "> .poll {<br>margin: 0.2rem 0;<br>}<br>.poll .hidetop {<br> background: #E4EAF2;<br> border-right: 1px dotted #4373C3;<br> color: #000;<br> font-weight: bold;<br> font-size: 100%;<br> padding: 0.2em;<br> margin: 3px 0px;<br> text-align: center;<br> margin: 0 !important;<br> height: 1.6rem;<br> line-height: 1.6rem;<br> border-top: 1px dotted #4373C3;<br>}<br>.poll .hidetop b {<br> position: relative;<br> font-size: 1.2rem;<br>}<br>.poll .hidetop b {<br> position: relative;<br> top: 0;<br>}<br>.poll .hidemain {<br> padding: 0;<br> margin: 1px 0 0 !important;<br> overflow-x: auto;<br>}<br>.poll .hidemain form &gt; .ipbtable {<br> display: table-block;<br> border-spacing: 0;<br> width: 100%;<br> background: #ddecff;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody {<br> border-spacing: 0;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody &gt; tr {<br> display: block;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody &gt; tr:first-child {<br> display: block;<br> margin: 0;<br> padding: 0.2rem;<br> color: #2e4f86;<br> border-top: 0.1rem solid white;<br> border-bottom: 0.1rem solid #4373c3;<br> background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b2e8ff), color-stop(80%, #94caf4));<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody &gt; tr td[align="center"] {<br> display: block;<br> padding: 0.3rem 0;<br> margin: 0 !important;<br> color: black;<br> border-top: 1px solid white;<br> border-bottom: 1px solid white;<br> background: #ddecff;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody &gt; tr .formbuttonrow {<br> display: block;<br> padding: 0.3rem 0;<br> color: black;<br> text-align: center;<br> border-top: 1px solid #4373c3;<br> background: #ddecff;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody &gt; tr .formbuttonrow .button {<br> display: inline-block;<br> padding: 0.2rem 0.5rem;<br> border: 1px solid #4373c3;<br> background: #ebeff5;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 {<br> display: block;<br> border-top: 0.1rem solid white;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap {<br> display: block;<br> margin: 0.3rem 0;<br> padding: 0;<br> border: 1px solid #4373c3;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .row1 {<br> display: block;<br> color: black;<br> padding: 0.4rem 0.5rem;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable {<br> width: 100%;<br> background: #f0f7ff;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable tbody tr .post2 {<br> color: black;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable tbody tr .post2 img {<br> border: 1px solid #3b5377;<br> height: 0 !important;<br> padding: 0.35rem 0;<br> margin-top: -0.2em;<br> vertical-align: middle;<br> background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #89b9ff), color-stop(25%, #4d7dcd), color-stop(80%, #75a5f5), color-stop(100%, #4373c3));<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable tbody tr .post2 img:first-child,<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable tbody tr .post2 img:last-child {<br> display: none;<br>}<br>.poll .hidemain form &gt; .ipbtable &gt; tbody tr &gt; .row1 &gt; .borderwrap .ipbtable tbody tr .post2 .radiobutton ~ b {<br> position: relative;<br> top: 0.15rem;<br>}<br> </div>
+					</div><br>
+					<div class="post-block hidden">
+						<div class="block-title"></div>
+						<div class="block-body">Скрытый Текст</div>
+					</div><br><br>
+					<div class="post-block spoil close">
+						<div class="block-title">Spoiler - Матрёшка</div>
+						<div class="block-body">
+							<div class="post-block spoil close">
+								<div class="block-title">Spoiler 1</div>
+								<div class="block-body">
+									<div class="post-block spoil close">
+										<div class="block-title">Spoiler 2</div>
+										<div class="block-body">
+											<div class="post-block spoil close">
+												<div class="block-title">Spoiler 3</div>
+												<div class="block-body">
+													<div class="post-block spoil close">
+														<div class="block-title">Spoiler 4</div>
+														<div class="block-body">
+															<div class="post-block tbl cur">
+																<div class="block-title">K</div>
+																<div class="block-body"> Тест </div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><br><br>
+					<div class="post-block tbl cur">
+						<div class="block-title">K</div>
+						<div class="block-body">
+							<div class="post-block spoil close">
+								<div class="block-title">спойлер</div>
+								<div class="block-body"></div>
+							</div>
+							<div class="post-block quote">
+								<div class="block-title"></div>
+								<div class="block-body">цитата</div>
+							</div>
+							<div class="post-block hidden">
+								<div class="block-title"></div>
+								<div class="block-body">скрытый текст</div>
+							</div>
+							<div class="post-block code ">
+								<div class="block-title"></div>
+								<div class="block-body ">код</div>
+							</div>
+						</div>
+					</div><br>
+					<div class="post-block spoil close">
+						<div class="block-title">Картинка в двух спойлерах</div>
+						<div class="block-body">
+							<div class="post-block spoil close">
+								<div class="block-title"></div>
+								<div class="block-body">
+									<table style="width:auto;display:inline;" id="ipb-attach-table-7692762-bb" cellspacing="0" cellpadding="0">
+										<tbody>
+											<tr>
+												<td>
+													<div id="ipb-attach-div-7692762-bb">
+														<div id="ipb-attach-ct-7692762-bb"></div>
+														<a id="ipb-attach-url-7692762-bb" href="http://4pda.ru/forum/dl/post/7692762/AoynvvQaY1g.jpg" rel="lytebox[28827885]" title="AoynvvQaY1g.jpg - Размер: 130,25 КБ" target="_blank"><img id="ipb-attach-img-7692762-bb" class="attach" rel="lytebox[28827885]" style="width:400;height:266" width="400" height="266" alt="Прикрепленное изображение" data-image-src="http://cs3-2.4pda.to/7692762.jpg"></a>
+														<div id="ipb-attach-cb-7692762-bb" style="margin:0px"></div>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div><br><img src="http://cs3-2.4pda.to/7692813.png" class="linked-image" alt="Прикрепленное изображение"><img src="http://cs3-2.4pda.to/7692813.png" class="linked-image" alt="Прикрепленное изображение"><br><br>
+					<br>
+					<a name="test" title="test">ˇ</a>
+					<br>
+					<br>
+					<div><strong><span class="edit">Прикрепленные изображения</span></strong></div><br><img src="http://cs3-2.4pda.to/6440977.png" class="linked-image" alt="Прикрепленное изображение"><br><br>
+					<div><strong><span class="edit">Прикрепленные файлы</span></strong></div><br>
+					<a href="http://4pda.ru/forum/dl/post/7181444/white.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать white.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">white.css</a> ( 68,94 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>
+					<a href="http://4pda.ru/forum/dl/post/7181446/black.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать black.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">black.css</a> ( 69,92 КБ )<span class="desc">Кол-во скачиваний: 0</span><br><br><br><span class="edit">Сообщение отредактировал <b>Морфий</b> - 04.03.2016, 08:04</span></div>
+				<div class="post_footer delete edit"><a class="link button claim" href="/forum/index.php?act=report&amp;t=541046&amp;p=28827885&amp;st=95"><span>Жалоба</span></a><a class="button nick" onclick="window.HTMLOUT.insertTextToPost('[SNAPBACK]28827885[/SNAPBACK] [B]Морфий,[/B] \n')"><span>Ник</span></a><a class="button quote" onclick="window.HTMLOUT.quote('490', '541046', '28827885', '27.01.2014, 09:06', '96664', 'Морфий')"><span>Цитата</span></a><a class="button edit" id="edit-but-28827885" href="/forum/index.php?act=post&amp;do=edit_post&amp;f=490&amp;t=541046&amp;p=28827885&amp;st=95"><span>Изменить</span></a><a class="button delete" href="/forum/index.php?act=Mod&amp;CODE=04&amp;f=490&amp;t=541046&amp;p=28827885&amp;st=95&amp;auth_key=da2cceaba9c77a856611200bad5be02f"><span>Удалить</span></a></div>
+
+				<div class="between_messages"></div>
+			</div>
+			<div name="entry28830058" class="jump" style="position: absolute; width: 100%; margin-top:-89px; left: 0;" id="entry28830058"></div>
+			<div class="post_container" name="del28830058">
+				<div class="post_header">
+					<div class="header_wrapper">
+						<div class="avatar " onclick="window.HTMLOUT.showUserMenu('28830058', '323878', 'corola')">
+							<div class="img" style="url(profile/av.png);"></div>
+						</div><a class="inf nick " onclick="window.HTMLOUT.showUserMenu('28830058', '323878', 'corola')"><span><b>corola</b></span></a>
+						<div class="inf group"><span style="color:#FF9900">Друзья 4PDA</span></div><a class="inf reputation" onclick="window.HTMLOUT.showRepMenu('28830058', '323878', 'corola', '1', '1')"><span>8046</span></a>
+						<div class="date-link"><span class="inf date"><span>27.01.2014, 10:52</span></span><a class="inf link" onclick="window.HTMLOUT.showPostLinkMenu('28830058')"><span><span class="sharp">#</span>101</span></a></div><a class="inf menu" onclick="window.HTMLOUT.showPostMenu('28830058', '27.01.2014, 10:52', '323878', 'corola', '1', '1')"><span>Меню</span></a></div>
+				</div>
+				<div class="post_body ">
+					<button onclick="scrollToAnchor()">go to anchor</button>
+					<br>
+					<div class="post-block quote">
+						<div class="block-title">Baphomet666 @ 27.1.2014, 11:47
+							<a href="/forum/index.php?act=findpost&amp;pid=28829953" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>
+						</div>
+						<div class="block-body">Такой вот вопрос: на компе например есть софтинка которая работает примерно как инструмент "Пипетка" в Фотошопе. То есть указываешь на любой цвет на экране монитора и она выдает код цвета. Интересно существует ли нечто подобное на Андроиде?
+							<br>
+						</div>
+					</div>
+					<br>
+					<div align="center"><b>ColorPicker</b></div>
+					<br>Программа позволяет выбрать код цвета из предлагаемой палитры, любого изображения или сделанного фото.
+					<br>
+					<div class="post-block spoil close">
+						<div class="block-title">Скриншоты</div>
+						<div class="block-body">
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086136-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086136-bb">
+												<div id="ipb-attach-ct-4086136-bb"></div>
+												<a attach_id="4086136" s="0" id="ipb-attach-url-4086136-bb" href="http://4pda.ru/forum/dl/post/4086136/Screenshot_2014-01-27-11-53-35.png" rel="lytebox[28830058]" title="Screenshot_2014-01-27-11-53-35.png - Размер: 384,08 КБ" target="_blank"><img src="http://cs3-2.4pda.to/4086136.png" id="ipb-attach-img-4086136-bb" class="attach" rel="lytebox[28830058]" style="width:225;height:400" width="225" height="400" alt="Прикрепленное изображение"></a>
+												<div id="ipb-attach-cb-4086136-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086136-bb", parseInt("720"), parseInt("1280"), "384,08 КБ");
+</script>
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086137-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086137-bb">
+												<div id="ipb-attach-ct-4086137-bb"></div>
+												<a attach_id="4086137" s="0" id="ipb-attach-url-4086137-bb" href="http://4pda.ru/forum/dl/post/4086137/Screenshot_2014-01-27-11-53-46.png" rel="lytebox[28830058]" title="Screenshot_2014-01-27-11-53-46.png - Размер: 362,84 КБ" target="_blank"><img src="http://cs3-2.4pda.to/4086137.png" id="ipb-attach-img-4086137-bb" class="attach" rel="lytebox[28830058]" style="width:225;height:400" width="225" height="400" alt="Прикрепленное изображение"></a>
+												<div id="ipb-attach-cb-4086137-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086137-bb", parseInt("720"), parseInt("1280"), "362,84 КБ");
+</script>
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086139-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086139-bb">
+												<div id="ipb-attach-ct-4086139-bb"></div>
+												<a attach_id="4086139" s="0" id="ipb-attach-url-4086139-bb" href="http://4pda.ru/forum/dl/post/4086139/Screenshot_2014-01-27-11-53-58.png" rel="lytebox[28830058]" title="Screenshot_2014-01-27-11-53-58.png - Размер: 54,09 КБ" target="_blank"><img src="http://cs3-2.4pda.to/4086139.png" id="ipb-attach-img-4086139-bb" class="attach" rel="lytebox[28830058]" style="width:225;height:400" width="225" height="400" alt="Прикрепленное изображение"></a>
+												<div id="ipb-attach-cb-4086139-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086139-bb", parseInt("720"), parseInt("1280"), "54,09 КБ");
+</script>
+						</div>
+					</div>
+					<div class="post-block spoil  open">
+						<div class="block-title">Скриншоты. КАРТИНКИ ОТКЛ.</div>
+						<div class="block-body">
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086136-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086136-bb">
+												<div id="ipb-attach-ct-4086136-bb"></div><img src="/forum/style_images/1/folder_mime_types/gif.gif"><a class="sp_img" onclick="window.HTMLOUT.showImgPreview('Прикрепленное изображение', 'http://cs3-2.4pda.to/4086136.png', 'http://4pda.ru/forum/dl/post/4086136/Screenshot_2014-01-27-11-53-35.png')">Screenshot_2014-01-27-11-53-35.png - Размер: 384,08 КБ</a>
+												<div id="ipb-attach-cb-4086136-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086136-bb", parseInt("720"), parseInt("1280"), "384,08 КБ");
+</script>
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086137-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086137-bb">
+												<div id="ipb-attach-ct-4086137-bb"></div><img src="/forum/style_images/1/folder_mime_types/gif.gif"><a class="sp_img" onclick="window.HTMLOUT.showImgPreview('Прикрепленное изображение', 'http://cs3-2.4pda.to/4086137.png', 'http://4pda.ru/forum/dl/post/4086137/Screenshot_2014-01-27-11-53-46.png')">Screenshot_2014-01-27-11-53-46.png - Размер: 362,84 КБ</a>
+												<div id="ipb-attach-cb-4086137-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086137-bb", parseInt("720"), parseInt("1280"), "362,84 КБ");
+</script>
+							<table style="width:auto;display:inline;" id="ipb-attach-table-4086139-bb" cellspacing="0" cellpadding="0">
+								<tbody>
+									<tr>
+										<td>
+											<div id="ipb-attach-div-4086139-bb">
+												<div id="ipb-attach-ct-4086139-bb"></div><img src="/forum/style_images/1/folder_mime_types/gif.gif"><a class="sp_img" onclick="window.HTMLOUT.showImgPreview('Прикрепленное изображение', 'http://cs3-2.4pda.to/4086139.png', 'http://4pda.ru/forum/dl/post/4086139/Screenshot_2014-01-27-11-53-58.png')">Screenshot_2014-01-27-11-53-58.png - Размер: 54,09 КБ</a>
+												<div id="ipb-attach-cb-4086139-bb" style="margin:0px"></div>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+<script type="text/javascript" class="">
+fix_linked_img_thumb("4086139-bb", parseInt("720"), parseInt("1280"), "54,09 КБ");
+</script>
+						</div>
+					</div>
+					<br><u>Скачать:</u>
+					<a href="http://4pda.ru/forum/dl/post/8264044/material_black.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать material_black.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">material_black.css</a> ( 73,17 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>
+					<a href="http://4pda.ru/forum/dl/post/8264045/material_dark.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать material_dark.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">material_dark.css</a> ( 73,11 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>
+					<a href="http://4pda.ru/forum/dl/post/8264046/material_light.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать material_light.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">material_light.css</a> ( 71,54 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>
+					<a href="http://4pda.ru/forum/dl/post/8264055/material_src.zip" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать material_src.zip" target="_blank"><img src="http://s.4pda.to/rPN7FVe26ksEaz0ypikxHirHCaCU26U7jDKVfoB2i0VGoCUpjwU0CSFO1SeG9.gif" alt="Прикрепленный файл" style="margin-right:3px;">material_src.zip</a> ( 4,68 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>
+					<br>
+					<br>
+					<img src="/forum/style_images/1/folder_mime_types/gif.gif"><a class="sp_img" onclick="window.HTMLOUT.showImgPreview('Прикрепленное изображение', 'http://cs3-2.4pda.to/6991728.png', 'http://cs3-2.4pda.to/6991728.png')">Прикрепленное изображение</a>
+					<br>
+					<a attach_id="7168251" s="0" href="http://4pda.ru/forum/dl/post/7168251/white.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать white.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">white.css</a> ( 68,94 КБ )<span class="desc">Кол-во скачиваний: 3</span>
+					<br>
+					<a attach_id="7168253" s="0" href="http://4pda.ru/forum/dl/post/7168253/black.css" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать black.css" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">black.css</a> ( 69,92 КБ )<span class="desc">Кол-во скачиваний: 5</span>
+					<br>
+
+					<div class="post-block quote ">
+						<div class="block-title ">@shoghicp <a title="Ссылка " rel="nofollow " href="https://twitter.com/shoghicp/status/680182082715447296 " target="_blank ">25.12.2015, 03:23</a></div>
+						<div class="block-body ">Merry Christmas everyone! Feliz Navidad a todos!</div>
+					</div>
+					<div class="post-block quote ">
+						<div class="block-title ">Google Translate</div>
+						<div class="block-body ">Всех с Рождеством! Фелис НавидадTodos!
+							<br>
+						</div>
+					</div>
+					<font style="font-size:9px;color:gray; ">Это сообщение было отправлено Twitter-ботом</font>
+
+					<br><span class="edit">Сообщение отредактировал <b>corola</b> - 27.01.2014, 11:00</span></div>
+				<div class="post_footer"><a class="link button claim" href="/forum/index.php?act=report&amp;t=541046&amp;p=28830058&amp;st=100"><span>Жалоба</span></a><a class="button nick" onclick="window.HTMLOUT.insertTextToPost('[SNAPBACK]28830058[/SNAPBACK] [B]corola,[/B] \n')"><span>Ник</span></a><a class="button quote" onclick="window.HTMLOUT.quote('490', '541046', '28830058', '27.01.2014, 10:52', '323878', 'corola')"><span>Цитата</span></a><a class="button vote bad" onclick="window.HTMLOUT.postVoteBad('28830058')"><span>Плохо</span></a><a class="button vote good" onclick="window.HTMLOUT.postVoteGood('28830058')"><span>Хорошо</span></a><a class="button edit" id="edit-but-28830058" href="/forum/index.php?act=post&amp;do=edit_post&amp;f=490&amp;t=541046&amp;p=28830058&amp;st=100"><span>Изменить</span></a><a class="button delete" href="/forum/index.php?act=Mod&amp;CODE=04&amp;f=490&amp;t=541046&amp;p=28830058&amp;st=100&amp;auth_key=da2cceaba9c77a856611200bad5be02f"><span>Удалить</span></a></div>
+
+				<div class="between_messages"></div>
+			</div>
+		</div>
+		<div name="entryEnd" id="entryEnd"></div>
+		<div class="panel bottom">
+			<div class="navi bottom">
+				<a class="button first" onclick="window.HTMLOUT.firstPage()"><span>&lt;&lt;</span></a>
+				<a class="button prev" onclick="window.HTMLOUT.prevPage()"><span>&lt;</span></a>
+				<a class="button page" onclick="window.HTMLOUT.jumpToPage()"><span>Выбор</span></a>
+				<a class="button next disable"><span>&gt;</span></a>
+				<a class="button last disable"><span>&gt;&gt;</span></a>
+			</div>
+			<div class="who"><a id="viewers" onclick="window.HTMLOUT.showReadingUsers()"><span>Кто читает тему</span></a>
+				<a id="writers" onclick="window.HTMLOUT.showWriters()"><span>Кто писал сообщения</span></a></div>
+			<div class="topic_title_post">
+				<a href="http://4pda.ru/forum/index.php?showtopic=541046&amp;st=80#entry28827885"><span class="name">Стили и модификации для неофициального клиента 4PDA</span><span class="comma">, </span><span class="description">CSS стили, моды, мануалы</span></a>
+			</div>
+		</div>
+		<div id="bottomMargin"></div>
+		<div id="page_rewind">
+			<span class="button"></span>
+			<span class="button"></span>
+		</div>
+
+<script>
+jsEmoticons.parseAll('/forum/style_emoticons/default/');
+initPostBlock();
+</script>
+	</body>
+
+</html>
+<!--
+<css /> - стили CSS
+
+<fonts /> - шрифты, иконки-шрифты
+<flaticons />
+<fontello />
+<roboto />
+
+<img /> - графические файлы
+<emoticons /> - смайлы
+<forum /> - вспомогательные картинки с форума
+<src /> - элементы дизайна
+
+<js /> - скрипты
+<dev /> - для разработчиков
+
+<tmpl /> - папка для шаблонов html
+
+<styles /> - less, css - для разработчиков
+<sholohov /> - папка стилей Алексея Шолохова
+<radiationx /> - папка стилей Евгения Низамиева
+
+<дальше файлы для разработки -->
+
+

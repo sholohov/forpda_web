@@ -1,0 +1,53 @@
+/*** MARGIN TOP ***/
+
+
+div[style*="margin-top"]:not([name*="entry"]) {
+	border-top: 1px solid transparent;
+}
+div[name*="entry"] {
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+#writers ~ div[style*="margin-top"] {
+	display: none;
+}
+
+/*** SMARTPHONES ***/
+
+@media screen and (orientation: portrait) and (max-width: 479px) {
+	.modification div[style*="margin-top"]:not([name*="entry"]) {
+		margin-top: 77px !important; /* отступ в портретной ориентации */
+	}
+	.modification div[name*="entry"] {
+		margin-top: -77px !important; /* ввести то же число, но с знаком минуса */
+	}
+}
+@media screen and (orientation: landscape) and (max-width: 799px) {
+	.modification div[style*="margin-top"]:not([name*="entry"]) {
+		margin-top: 69px !important; /* отступ в альбомной ориентации */
+	}
+	.modification div[name*="entry"] {
+		margin-top: -69px !important; /* ввести то же число, но с знаком минуса */
+	}
+}
+
+/*** TABLETS ***/
+
+@media screen and (orientation: portrait) and (min-width: 480px) {
+	.modification div[style*="margin-top"]:not([name*="entry"]) {
+		margin-top: 89px !important; /* отступ в портретной ориентации */
+	}
+	.modification div[name*="entry"] {
+		margin-top: -89px !important; /* ввести то же число, но с знаком минуса */
+	}
+}
+@media screen and (orientation: landscape) and (min-width: 800px) {
+	.modification div[style*="margin-top"]:not([name*="entry"]) {
+		margin-top: 89px !important; /* отступ в альбомной ориентации */
+	}
+	.modification div[name*="entry"] {
+		margin-top: -89px !important; /* ввести то же число, но с знаком минуса */
+	}
+}
+

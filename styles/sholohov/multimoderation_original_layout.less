@@ -1,0 +1,38 @@
+#multimoderation {
+	> form {
+		margin: 0.5rem;
+		padding: 0.75rem;
+		background-color: @bgColor;
+		.BoxShadow;
+		hr {
+			display: block;
+			height: 0.5rem;
+			margin: 0.75rem -(0.75rem+1*@rem) 0.5rem;
+			box-sizing: border-box;
+			border: none;
+			border-top: 1px solid rgba(0,0,0,0.1);
+			background: @tmColor;
+			+ br {display: none;}
+		}
+		input[type="checkbox"] {
+			position: absolute;
+			right: 0.7rem;
+		}
+		A[href*="findpost"]:not([title="Перейти к сообщению"]) {
+			display: inline-block;
+			margin: -1.5rem 0 0;
+		}
+		.quote > .block-title {
+			a[title="Перейти к сообщению"] {
+				margin: -0.5rem 0.25rem 0 -0.25rem;
+			}
+		}
+		A[href*="showuser"] {
+			display: block;
+			font-size: 20*@rem;
+			font-weight: bold;
+			text-decoration: none;
+			color: @color;
+		}
+	}
+}

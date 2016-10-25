@@ -1,0 +1,36 @@
+#page_rewind {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 1.25rem;
+}
+#page_rewind .button {
+  display: inline-block;
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  cursor: pointer;
+}
+#page_rewind .button:before {
+  display: inline-block;
+  font-size: 1em;
+  content: '';
+  height: 1em;
+  width: 1em;
+  margin: 1rem 0 0;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: 0.25em solid rgb(0,150,200);
+  border-bottom: 0.25em solid rgb(0,150,200);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+#page_rewind .button:first-child:before {
+  -webkit-transform: rotate(-135deg) translate(-0.175rem, -0.175rem);
+  transition: 0.3s ease;
+}
+#page_rewind .button:last-child:before {
+  -webkit-transform: rotate(45deg) translate(-0.175rem, -0.175rem);
+}

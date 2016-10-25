@@ -1,84 +1,62 @@
+/**
+ * STEELE STYLE
+ * Стиль для неофициального клиента 4PDA
+ * Автор: Морфий
+*/
 
-//								- MATERIAL STYLE -
-//						Стиль для неофициального клиента 4PDA
-//									Автор: Морфий
+//                                ---- COLOR ----
 
+	@import 'styles/steel_light_color';
+//	@import 'styles/steel_dark_color';
 
-//                                ---- ЦВЕТ СТИЛЯ ----
+@width:				800px;
+@widthPoll:			480px;
+@rem:				0.0625rem;
+@em:				0.0625em;
 
-@color:					black;   // цвет текста
-@bgColor:				white;   // цвет фона 
-@bodyColor:				#c0c0c0;   // цвет body
-@tmColor:				mix(desaturate(#03a0f4, 80%), @bgColor, 20%);
-@postColor:				#f0f0f0;
-@borderColor:			mix(@color, @postColor, 30%);   // цвет границы болока шапки
-@linkColor:				mix(#7090CD, @color, 80%);   // цвет ссылки
-@bg-quote: 				#b8c8da;   // цвет блока цитаты
-@bg-hidden:				#ccc;   // цвет блока скрытого текста
-@bg-code:				#bbcbb6;   // цвет блока кода
-@width:					800px;   // переключение на планшетный вид
-@scroll-color:			rgba(0,0,0,0.2);   // цвет скролла
-@widthPoll:				480px;   // переключение вида опроса
-@colorPoll:				mix(#79c, @color, 80%);   // цвет акцента опроса
-@headerColor:			mix(#5577cc, @tmColor, 5%);
-@rem:						0.0625rem;
-@em:						0.0625em;
+.Radius()			{ border-radius: 0.25rem; }   // радиус блоков
 
-.radius()	 		{ border-radius: 5*@rem; }   // радиус блоков
-.shadow()			{ -webkit-box-shadow: 0.1rem 0.2rem 0.4rem rgba(0,0,0,0.15); }
-.shadow_header()	{ -webkit-box-shadow: 0.1rem 0.2rem 0.3rem rgba(0,0,0,0.1); }
-.textShadow()			{ text-shadow: 0 0 0.3rem rgba(255,255,255,0.5); }
-
-.boxShadow(@level: 1) {
-	& when (@level = 1) { -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2) }
-	& when (@level = 2) { -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.2) }
-	& when (@level = 3) { -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 6px 6px rgba(0,0,0,0.2) }
-	& when (@level = 4) { -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.2), 0 10px 10px rgba(0,0,0,0.2) }
-	& when (@level = 5) { -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.3), 0 15px 12px rgba(0,0,0,0.2) }
+.BoxShadow(@level: 1) {
+	& when (@level = 1) { -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1) }
+	& when (@level = 2) { -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1); box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1) }
+	& when (@level = 3) { -webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1); box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1) }
+	& when (@level = 4) { -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1); box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1) }
+	& when (@level = 5) { -webkit-box-shadow: 0 19px 38px rgba(0,0,0,0.1), 0 15px 12px rgba(0,0,0,0.1); box-shadow: 0 19px 38px rgba(0,0,0,0.1), 0 15px 12px rgba(0,0,0,0.1) }
 }
-
-// DARK
-//	@import "styles/steel_dark_color.less"; @import 'styles/color_for_gray_bg'; .textShadow(){ text-shadow: 0 0 0.3rem rgba(0,0,0,0.2); }
-
-@charset "utf-8";
 
 HTML{
 	font-size: 1rem;
 	margin: 0;
 	padding: 0;
 	body{
-		display: block;
 		position: relative;
 		font-family: 'Roboto';
-		background: @bodyColor;
-		color: @color;
+		margin: 0;
+		padding: 0 0 60px;
 		font-size: 1em;
-		line-height: 1.4em;
-		margin: 0 auto;
-		padding: 0 0.5rem;
+		font-weight: 1.4;
 		word-break: break-word;
+		overflow: auto;
+		color: @color;
+		background-color: @tmColor;
 		box-sizing: border-box;
-		&#topic {
-//			margin-top: ;
+//		*,
+		&.ongpuimg {
+			img,
+			.img {
+				-webkit-transform: translateZ(0);
+				transform: translateZ(0);
+			}
 		}
-		* {
-			word-break: break-word;
+		ul, ol {
+			padding-left: 1.5rem;
+		}
+		a {
+			cursor: pointer;
+			text-decoration: none;
+			color: @linkColor;
 		}
 	}
-}
-
-/*
-* BUTTON STYLE
-*/
-
-.buttonStyle {
-	font-size: 1rem;
-	padding: 0 0.5rem;
-	.radius;
-	-webkit-box-shadow: 0 0 0 1px @borderColor;
-	background: -webkit-gradient(linear, left top, left bottom, 
-				from(@bodyColor + 70%),
-				to(@bodyColor + 10%));
 }
 
 /*
@@ -90,6 +68,7 @@ HTML{
 #main {
 	img {
 		height: auto;
+		width: auto;
 		max-width: 100%;
 	}
 }
@@ -104,86 +83,88 @@ HTML{
 *         POST_BLOCK
 */
 
-.post-blockStyle {
-	display: block;
-	margin: 0.8rem 0;
-	.radius;
-	overflow: hidden;
-}
-.block-titleStyle {
-	font-weight: bold;
-	margin: 0;
-	border-radius: 0.2rem 0.2rem 0 0;
-	padding: 0 0.3rem 0.1rem;
-	.textShadow;
-	border-top: 1px solid rgba(255,255,255,0.4);
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
 .post-block {
-	font-size: 1rem;
-	> .block-body {
-		background: @postColor + 5%;
-	}
-	&.close {
-		> .block-body {
-			display: none;
+	display: block;
+	&.quote,
+	&.code,
+	&.hidden {
+		display: block;
+		padding: 0;
+		margin: 0.5rem 0;
+		.Radius;
+		> .block-title {
+			font-weight: bold;
+			font-style: italic;
+			margin: 0.5rem;
 		}
-	}
-	&.box {
-		> .block-body {
-			max-height: 10rem;
-			overflow: auto;
+		>.block-body{
+			margin: 0.5rem;
 		}
 	}
 	&.quote {
-		&:extend(.post-blockStyle);
-		border: 1px solid mix(@color, @bg-quote, 20%);
-		>.block-title{
-			&:extend(.block-titleStyle);
-			color: mix(@color, @linkColor, 20%);
-			border-top: 1px solid lighten(@bg-quote, 20%);
-			border-left: 1px solid mix(@color, @bg-quote, 7%);
-			border-right: 1px solid mix(@color, @bg-quote, 7%);
-			background: @bg-quote;
-			&:empty:before {
-				content:'"Цитата"';
+		position: relative;
+		border: 1px solid @bg-quote;
+		background: mix(@bg-quote, @postColor, 40%);
+		>.block-title {
+			color: mix(@color, @linkColor, 8%);
+			&:empty {
+				&:before {
+					content:'Цитата';
+				}
+			}
+			a[title="Перейти к сообщению"] {
+				float: left;
+				overflow: hidden;
+				margin: 0 0.125rem 0 -0.25rem !important;
+				opacity: 0.8;
+				font-style: normal;
+				&:after {
+					color: mix(@color, @linkColor, 8%);
+				}
+			}
+			a[title="Ссылка "] {
+				margin: 0 0.5rem;
+				box-sizing: border-box;
+				color: @linkColor;
+				border-bottom: 1px solid mix(@linkColor, @bgColor, 50%);
 			}
 		}
-		>.block-body{
-			padding: 0.5rem 0.3rem;
+		>.block-body {
+			color: saturate(mix(@bg-quote, @color, 20%),50%);
 		}
 	}
 	&.code {
-		&:extend(.post-blockStyle);
-		border: 1px solid mix(@color, @bg-code, 20%);
+//		border-radius: 0;
+//		border-left: 0.4rem solid @bg-code;
+		border: 1px solid @bg-code;
+		background: mix(@bg-code, @postColor, 30%);
 		> .block-title, .block-title:empty {
 			&:before {
 				content:'Код';
 			}
 		}
 		&.box {
+			position: relative;
 			> .block-title, .block-title:empty {
 				position: relative;
 				&:before {
-					content:'Код ( + )';
+					content:'Раскрыть КОД';
 				}
+			}
+			> .block-body {
+				max-height: 10rem;
+				overflow: hidden;
 			}
 		}
 		&.unbox {
 			> .block-title, .block-title:empty {
 				&:before {
-					content:'Код ( – )';
+					content:'Свернуть КОД';
 				}
 			}
 		}
 		>.block-title{
-			&:extend(.block-titleStyle);
-			color: mix(@color, @bg-code, 50%);
-			border-top: 1px solid lighten(@bg-code, 20%);
-			border-left: 1px solid mix(@color, @bg-code, 7%);
-			border-right: 1px solid mix(@color, @bg-code, 7%);
-			background: @bg-code;
+			color: saturate(mix(@bg-code, @color, 50%),50%);
 			&:before{
 				content:'Код: ';
 			}
@@ -192,24 +173,20 @@ HTML{
 			}
 		}
 		>.block-body {
-			padding: 0.5rem;
 			font-family: Courier, Courier New, Verdana, Arial;
-			font-size: 0.9rem;
-			.post-block.spoil {
-//				.shadow;
-			}
+			font-size: 1rem;
+			line-height: 1.4em;
+			white-space: pre-wrap;
+			color: mix(@color, @bg-code, 80%);
+			background: linear-gradient(transparent 1.4em, rgba(130,130,130,0.1) 1.4em);
+			background-size: 2.8em 2.8em;
 		}
 	}
 	&.hidden {
-		&:extend(.post-blockStyle);
-		border: 1px solid mix(@color, @bg-hidden, 20%);
+		border: 1px solid mix(@color, @bg-hidden, 5%);
+		background: mix(@postColor, @bg-hidden, 30%);
 		>.block-title{
-			&:extend(.block-titleStyle);
-			color: mix(@color, @bg-hidden, 60%);
-			border-top: 1px solid lighten(@bg-hidden, 20%);
-			border-left: 1px solid mix(@color, @bg-hidden, 7%);
-			border-right: 1px solid mix(@color, @bg-hidden, 7%);
-			background: @bg-hidden;
+			color: mix(@color, @bg-hidden, 50%);
 			&:before{
 				content:'Скрытый текст: ';
 			}
@@ -218,63 +195,194 @@ HTML{
 			}
 		}
 		>.block-body {
-			padding: 0.5rem;
 			a { color: @linkColor; }
-			.post-block.spoil {
-//				.shadow;
-			}
 		}
 	}
 	&.spoil {
-		margin: 0.5rem 0;
+		position: relative;
+		box-sizing: border-box;
 		>.block-title {
-			display: block;
-			&:extend(.buttonStyle);
-			margin-bottom: 0.3rem;
-			padding: 0.2rem 0.4rem 0.3rem;
-			* {
-				line-height: 1.4em !important;
+			margin: 0.5rem 0;
+			padding: 6*@rem 7*@rem;
+			font-style: normal;
+			color: @color;
+			font-size: 1rem;
+			overflow: hidden;
+			.Radius;
+//			.Border;
+			.Gradient;
+			border: 1px solid @borderColor + 10%;
+			border-bottom: 1px solid @borderColor;
+			&:before {
+				display: inline-block;
+				font-size: 1rem;
+				content:'';
+				height: 1.4rem;
+				margin: -0.2em 0.5rem 0 0;
+				border-left: 0.3rem solid;
+				vertical-align: middle;
 			}
-		}
+			&:empty:after {
+				position: relative;
+				display: inline;
+				content:'Спойлер';
+			}
+		}	
 		>.block-body {
 			padding: 0.5rem;
-			margin: 0 0 0.3rem 0;
-			.radius;
-			border: 1px solid mix(@postColor, @borderColor, 20%);
+			margin: 0.5rem 0;
+			box-sizing: border-box;
+			.Radius;
+			border: 1px solid @borderColor;
 			background: @postColor;
 		}
-		&.open {
-//			.shadow;
-			> .block-title {
-				&:before {
-					content:'';
-					font-weight: normal !important;
-					border-left: 0.3rem solid gray;
-					opacity: 0.8;
-					padding-left: 0.4em;
-				}
-			}
-		}
 		&.close {
-//			-webkit-box-shadow: none;
 			> .block-title {
 				&:before {
-					content:'';
-					font-weight: normal !important;
-					border-left: 0.3rem solid mix(@color, #58f, 10%);
-					opacity: 0.8;
-					padding-left: 0.4em;
+					border-left-color: #58c;
 				}
 			}
+			> .block-body {
+				display: none;
+			}
 		}
-		&.open, &.close {
+		&.open {
 			> .block-title {
-				&:empty:after {
-					content:'Спойлер';
+				color: mix(@color, @bgColor, 60%);
+				&:before {
+					border-left-color: mix(@color, @bgColor, 40%);
 				}
 			}
 		}
+	}
+}
 
+/*
+*	ADM TAGS
+*/
+
+.cur {
+	 border: 1px solid rgb(0,150,0);
+	 > .block-title {
+	 	background: rgb(0,150,0);
+	 }
+}
+.mod {
+	border: 1px solid rgb(0,150,225);
+	> .block-title {
+		background: rgb(0,150,225);
+	}
+}
+.ex {
+	 border: 1px solid rgb(225,70,40);
+	 > .block-title {
+	 	background: rgb(225,70,40);
+	 }
+}
+
+.cur, .mod, .ex{
+	margin: 1rem 0;
+	display: table;
+	width: 100%;
+	min-height: 5rem;
+	overflow: hidden;
+	.Radius;
+	> .block-title{
+		display: table-cell;
+		vertical-align: middle;
+		color: @bgColor;
+		width: 5rem;
+		text-align: center;
+		height: 100%;
+		font-size: 3rem;
+		border-radius: 0;
+	}
+	> .block-body{
+		display: table-cell;
+		vertical-align: middle;
+		text-align: left;
+		padding: 0.5rem;
+		height: 100%;
+		margin: 0;
+		background: mix(@color, @bgColor, 5%);
+	}
+}
+
+/*
+*	PANEL
+*/
+
+.panel {
+	text-align: center;
+	.navi {
+		display: block;
+		margin: 0.5rem 0 1rem;
+		padding: 0.5rem 0 0;
+		.button {
+			display: inline-block;
+			padding: 0.5rem 5%;
+			margin: 0 0.25rem 0 0;
+			vertical-align: middle;
+			text-decoration: none !important;
+			font-weight: bold;
+			text-align: center;
+			.Radius;
+//			.Border;
+			border: 1px solid @borderColor;
+			border-bottom: 1px solid @borderColor - 15%;
+			.Gradient;
+			.BoxShadow(2);
+			&:last-child {
+				margin-right: 0;
+			}
+			span {
+//				text-transform: uppercase;
+			}
+			&.disable {
+				color: rgba(0,0,0,0.2);
+				text-shadow: 0 0.1rem 0.1rem rgba(255,255,255,0.2);
+			}
+		}
+		&.top {
+//			border-bottom: 1px solid @borderColor;
+		}
+		&.bottom {
+			width: 100%;
+		}
+	}
+	.topic_title_post {
+		margin: 1rem 0;
+		a {
+			display: block;
+			padding: 0.7rem 1rem;
+			text-decoration: none;
+			background: -webkit-linear-gradient(left, @tmColor 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.2) 80%, @tmColor 100%);
+			span {
+				&.name {
+					display: block;
+					font-weight: bold;
+				}
+				&.comma {
+					display: none;
+				}
+			}
+		}
+	}
+	&.bottom .topic_title_post {
+		display: none;
+	}	
+	.who {
+		margin: 1rem 0;
+		#viewers, 
+		#writers {
+			display: inline-block;
+			margin: 0 -0.2rem 0 0;
+			padding: 0.7rem 1rem;
+			font-weight: bold;
+//			text-transform: uppercase;
+			cursor: pointer;
+			text-shadow: 0 1px 2px rgba(255,255,255,0,1);
+		}
 	}
 }
 
@@ -285,25 +393,27 @@ HTML{
 
 .hat {
 	.hidetop {
-		padding-top: 0.25rem;
-		padding-bottom: 0.25rem;
-		&:extend(.buttonStyle);
+		position: relative;
+		padding: 6*@rem;
 		span { display: none; }
-	}
-	.hidemain {
-		.radius;
-		.boxShadow(1);
 	}
 }
 .post_container {
 	.hat {
+		position: relative;
 		.hidetop {
 			text-align: center;
+			margin: 0 -1px;
+			border: 1px solid @borderColor;
+			border-bottom: 1px solid @borderColor - 15%;
+			.Gradient;
 			@media screen and (min-width: (@width)) {
-				margin-left: 13.1rem;
-				line-height: 12.6rem;
+				margin: 0;
+				margin-left: 13.25rem + (1*@rem);
+				line-height: 13rem;
+				border: none;
 				&.open {
-					line-height: 1.4rem;
+					line-height: 1.4;
 				}
 			}
 			B:after {
@@ -321,7 +431,7 @@ HTML{
 		.hidemain {
 			@media screen and (min-width: (@width)) {
 				.post_body {
-					margin-top: 0 !important;
+					margin-top: 0.75rem;
 				}
 			}
 			.post-body {
@@ -330,9 +440,34 @@ HTML{
 		}
 	}
 }
+.hidetop {
+	> input {
+		position: absolute;
+		top: 0; left: 0;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		box-sizing: border-box;
+	}
+	b,b:before,b:after { pointer-events: none; }
+}
+
+/*
+*	POLL
+*/
+
 .poll {
+	box-sizing: border-box;
+	margin: 1rem 0;
+//	overflow: hidden;
 	.hidetop {
-		margin: 0.5rem 0;
+		margin: 0.5rem;
+		padding: 6*@rem 7*@rem;
+		.Radius;
+		border: 1px solid @borderColor;
+		border-bottom: 1px solid @borderColor - 15%;
+		.Gradient;
+		.BoxShadow(2);
 		B:before {
 			&:extend(.post-block.spoil > .block-title:before);
 		}
@@ -343,143 +478,20 @@ HTML{
 			&:extend(.post-block.spoil.open > .block-title:before);
 		}
 		B:after {
-			content:"ОПРОС";
+			content: "ОПРОС";
 		}
 	}
 	.hidemain {
-		background: @postColor;
-	}
-}
-
-/*
-*	ADM TAGS
-*/
-
-.post-block {
-	&.cur {
-		border: 1px solid #0a8f08;
-		> .block-title { background: #0a8f08; }
-	}
-	&.mod {
-		border: 1px solid #039be5;
-		> .block-title { background: #039be5; }
-	}
-	&.ex {
-		border: 1px solid #e84e40;
-		> .block-title { background: #e84e40; }
-	}
-}
-
-.cur, .mod, .ex{
-	margin: 1rem 0;
-	display: table;
-	width: 100%;
-	overflow: hidden;
-	.radius;
-	> .block-title{
-		display: table-cell;
-		vertical-align: middle;
-		color: @bgColor;
-		width: 5rem;
-		text-align: center;
-		padding: 2rem 0;
-		height: 100%;
-		font-size: 3rem;
-	}
-	> .block-body{
-		display: table-cell;
-		vertical-align: middle;
-		text-align: left;
-		padding: 0.7rem;
-		height: 100%;
-		margin: 0;
-//		white-space:  pre-wrap !important;
-	}
-}
-
-/*
-*	PANEL
-*/
-
-.panel {
-	margin: 1rem 0;
-	.navi {
-		display: block;
-		font-size: 1rem;
-		margin: 1.5rem 0;
-		padding: 0;
-		text-align: center;	
-		.button {
-			display: inline-block;
-			&:extend(.buttonStyle);
-			margin: 0 0.1rem;
-			padding: 0.2rem 1rem 0.3rem;
-			line-height: 1.4em;
-			font-weight: bold;
-			color: @linkColor;
-			text-shadow: 1px 1px 1px rgba(255,255,255,0.2);
-			@media screen and (max-width: 400px) {
-				padding: 0.2rem 0.8rem 0.3rem;	
-			}
-			@media screen and (max-width: 310px) {
-				padding: 0.2rem 0.6rem 0.3rem;	
-			}
-			&.disable {
-				color: rgba(0,0,0,0.3);
-				text-shadow: none;
-			}
-		}
-	}
-	.topic_title_post {
-		margin: 1rem;
-		padding: 0.5rem 1rem;
-		text-align: center;
-		background: -webkit-gradient(linear, left top, right top, 
-		color-stop(0%,  @bodyColor), 
-		color-stop(10%, @bodyColor + #252525), 
-		color-stop(90%, @bodyColor + #252525),
-		color-stop(100%, @bodyColor));
-		a{
-			text-decoration: none;
-			color: mix(#58c, @color, 68%);
-			line-height:1.2;
-		}
-	}
-	&.bottom .topic_title_post {
-		display: none;
-	}	
-	.who {
-		text-align: center;
-		#viewers, 
-		#writers {
-			display: inline-block;
-			margin: 0;
-			padding: 0.5rem 1rem;
-			text-align: center;
-			font-size: 0.95rem;
-			color: mix(@color, @bodyColor, 50%);
-			&:active {
-				background: rgba(130,130,130,0.3);
-				color: @tmColor;
-			}
-		}
-	}
-}
-
-/*
-*	POLL
-*/
-
-.poll {
-	font-size: 1rem;
-	line-height: 1.4em;
-	.hidemain {
+		.Radius;
+		.Border;
+		margin: 0.5rem;
 		border: 1px solid @borderColor;
+		background: @postColor;
+		.BoxShadow(2);
 		FORM {
 			overflow: hidden;
 			.poll_title {
 				padding: 0.5rem;
-				text-align: center;
 				span {
 					font-size: 20*@rem;
 					font-weight: bold;
@@ -510,54 +522,102 @@ HTML{
 								display: none;
 								+ .icon {
 									display: inline-block;
+									position: relative;
 									height: 1rem;
 									width: 1rem;
 									margin-right: 1rem;
-									vertical-align: bottom;
-									border-radius: 1rem;
-									border: 0.125rem solid mix(@color, @postColor, 50%);
-									transition: all 0.25s;
+									vertical-align: middle;
 									overflow: hidden;
+									border: 0.125rem solid mix(@color, @bgColor, 50%);
 									background: @postColor;
-									-webkit-box-shadow: inset 0 0 0 1rem @postColor;
+								}
+							}
+							.radiobutton {
+								+ .icon {
+									border-radius: 1rem;
+									&:before {
+										position: absolute;
+										content:'';
+										display: inline-block;
+										height: 1rem;
+										width: 1rem;
+										border-radius: 100%;
+										background: @linkColor;
+										-webkit-transition: -webkit-transform 0.3s;
+										transition: transform 0.3s;
+										-webkit-transform: scale(0,0);
+										transform: scale(0,0);
+									}
+								}
+								&:checked + .icon {
+									border-color: @linkColor;
+									&:before {
+										-webkit-transform: scale(0.65,0.65);
+										transform: scale(0.65,0.65);
+									}
+								}
+							}
+							.checkbox {
+								+ .icon {
+									.Radius;
+									&:before {
+										content:'';
+										position: absolute;
+										display: inline-block;
+										height: 12*@rem;
+										width: 6*@rem;
+										border-bottom: 2.5*@rem solid @bgColor;
+										border-right: 2.5*@rem solid @bgColor;
+										-webkit-transition: -webkit-transform 0.3s;
+										transition: transform 0.3s;
+										-webkit-transform: rotate(45deg) translate(2*@rem, -3*@rem) scale(0,0);
+										transform: rotate(45deg) translate(2*@rem, -3*@rem) scale(0,0);
+									}
 								}
 								&:checked + .icon {
 									background: @linkColor;
-									border: 0.125rem solid @linkColor;
-									-webkit-box-shadow: inset 0 0 0 0.2rem @postColor;
+									border-color: @linkColor;
+									&:before {
+										-webkit-transform: rotate(45deg) translate(2*@rem, -3*@rem) scale(1,1);
+										transform: rotate(45deg) translate(2*@rem, -3*@rem) scale(1,1);
+									}
 								}
 							}
-							.checkbox + .icon {
-								.radius;
+							.name {
+								vertical-align: middle;
 							}
 							.num_votes {
 								position: absolute;
 								display: inline-block;
-								right: 0.5rem;
 								bottom: 0.625rem;
-								padding: 0 5*@rem;
+								left: 0.5rem;
+								padding: 0 6*@rem;
+								z-index: 99;
+								opacity: 0.5;
+								color: @color;
 							}
 							.range {
 								position: relative;
+								margin-top: 0.25rem;
 								&:before {
 									content:'';
 									position: absolute;
 									display: block;
 									height: 1.5rem;
 									width:  100%;
-									.radius;
+									.Radius;
 									background: rgba(130,130,130,0.1);
 								}
 								.range_bar {
 									display: block;
 									height: 1.5rem;
-									.radius;
-									background: mix(@linkColor, @postColor, 70%);
+									.Radius;
+									background: mix(grey, @spoilColor, 20%);
 								}
 								.value {
 									position: absolute;
-									margin-top: -1.5rem;
-									margin-left: 5*@rem;
+									right: 5*@rem;
+									margin-top: -22*@rem;
 								}
 							}
 						}
@@ -572,6 +632,7 @@ HTML{
 								}
 								.num_votes {
 									bottom: 50%;
+									left: auto;
 									margin-bottom: -0.625rem;
 								}
 								.range {
@@ -593,67 +654,99 @@ HTML{
 				margin: 0.5rem;
 				color: mix(@color, @bgColor, 50%);
 				.button {
+					padding: 6*@rem 0.5rem;
+					cursor: pointer;
 					font-size: 1rem;
-					padding-top: 2*@rem;
-					padding-bottom: 5*@rem; 
+					font-weight: bold;
+					text-transform: uppercase;
+					.Radius;
+					color: @linkColor;
 					outline: none;
-					border: none;
-					text-transform: lowercase;
-					color: mix(@color, @postColor, 60%);
-					&:extend(.buttonStyle);
-					&:active {
-						&:extend(.panel .navi .button:active);
-					}
+					border: 1px solid @borderColor;
+					.Gradient;
 				}
 			}
 		}
 	}
 }
 
+
+/*
+*	POST LIST
+*/
+
+.posts_list {
+	margin: 0;
+	padding: 0 0.5rem;
+}
+.post_container {
+	position: relative;
+	margin: 0.5rem 0;
+	padding: 0;
+//	overflow: hidden;
+	.Radius;
+	box-sizing: border-box;
+	border: 1px solid @borderColor;
+	border-bottom: 1px solid mix(@postColor,@borderColor,10%);
+	background: @postColor;
+	.BoxShadow(2);
+	@media screen and (min-width: (@width)) {
+		&:before {
+			content:'';
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			width: 13.25rem;
+			border-bottom: 1px solid rgba(0,0,0,0.1);
+			.BoxShadow(2);
+		}
+	}
+	&.active {
+		margin-top: 3rem;
+		&:after {
+			content:'- Новые сообщения -';
+			font-weight: bold;
+			position: absolute;
+			top: -2.125rem;
+			left: 50%;
+			width: 12rem;
+			margin-left: -6rem;
+			display: block;
+			text-align: center;
+			color: mix(@color,@tmColor,35%);
+			background-color: @tmColor;
+		}
+	}
+}
+
+
 /*
 *	POST HEADER
 */
 
-.post_container {
-	margin: 0.5rem 0;
-	padding: 0;
-	overflow: hidden;
-	border-radius: 7*@rem;
-	background-clip: padding-box;
-	border: 1px solid @borderColor;
-	border-top: 1px solid mix(@postColor, @borderColor, 50%);
-	border-bottom: 1px solid mix(@postColor, @borderColor, 50%);
-	background: @postColor;
-	.shadow;
-}
-.jump {
-	margin-top:;
-}
 .post_header {
-	position: relative;
 	display: block;
-	font-size: 1rem;
-	min-height: 3.8rem;
-	overflow: hidden;
-	text-decoration: none;
-	padding: 2.1rem 0.3rem 0.3rem;
-	.radius;
-	border-bottom: 1px solid @borderColor;
+	position: relative;
+	padding: 2.25rem 0.5rem 0.5rem;
+	min-height: 4rem;
+    -webkit-user-select: none;
+    user-select: none;
+    border-radius: 0.2rem 0.2rem 0 0;
+    border-top: 1px solid lighten(@postColor, 20%);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+//	border-bottom: 1px solid @borderColor - 20%;
 	background: -webkit-gradient(linear, left top, left bottom,
-				color-stop(2%, @tmColor), 
-				color-stop(50%, @tmColor), 
+				color-stop(2%, @blue), 
 				color-stop(100%, @postColor));
-	-webkit-box-shadow: inset 0 0.15rem 0.15rem -0.1rem @tmColor + #444;	
 	@media screen and (min-width: (@width)) {
-		z-index: 12;
 		float: left;
-		margin-top: 0.05rem;
-		margin-left: 0.05rem;
-		width: 12.4rem;
+		padding: 2rem 0.5rem 0.5rem;
+		width: 12.25rem;
 		text-align: center;
-		border: none;
-		border-radius: 0.2rem 0 0 0.2rem !important;
-		-webkit-box-shadow: inset 0 0.15rem 0.15rem -0.1rem @tmColor + #444;
+		border-bottom: none;
 	}
 	&[title*="Просмотреть репутацию"] {
 		color: #000 !important;
@@ -662,140 +755,140 @@ HTML{
 	.header_wrapper {
 		.avatar {
 			float: left;
-			margin: 0.1rem 0.5rem 0 0.2rem;
+			margin: 0 0.5rem 0 0;
 			@media screen and (min-width: (@width)) {
-				diasplay: inline-block;
 				float: none;
-				margin: 0.4rem 0 0.2rem;
+				margin: 0.5rem 0;
+				padding: 0;
 			}
 			&.disable {
+				margin: 4*@rem 0 0;
 				overflow: hidden;
-				margin: 0.3rem 0 0;
 				@media screen and (max-width: (@width)) {
-					height: 3.8rem;
-					margin: 0 0.2rem 0 0;
+					height: 4rem;
+					margin: 0 3*@rem 0 0;
 				}
 				.img {
 					display: none;
 				}
 			}
+			&.circle {
+				.img {
+					overflow: hidden;
+					border-radius: 60*@rem;
+				}
+			}
 			.img {
-				display: inline-block;
-				width: 3.8rem;
-				height: 3.8rem;
-				border-radius: 0.2rem;
-//				border-radius: 8rem;
+				display: block;
+				position: relative;
+				width: 64*@rem;
+				height: 64*@rem;
+				margin: 0 auto;
+				padding: 0;
+				.Radius;
 				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;				
-				border-top: 0.1rem solid @tmColor - #111;
-				border-left: 0.1rem solid @tmColor + #050505;
-				border-right: 0.1rem solid @tmColor + #050505;
-				border-bottom: 0.1rem solid @tmColor + #222;
+				background-size: contain;
+				background-repeat: no-repeat;
+				&[style*="av.png"] {
+					@media screen and (min-width: (@width)) {
+						height: 2rem;
+					}
+				}
 			}
 		}
 		.inf {
 			color: mix(@color, @bgColor, 50%);
+			line-height: 22*@rem;
 		}
 		.nick {
-			font-size: 1.1rem;
+			font-size: 1.1875rem;
 			color: mix(@color, @bgColor, 75%);
+			@media screen and (min-width: (@width)) {
+				text-align: center;
+			}
 			&.online {
-				color: lighten(green, 5%);
-				text-shadow: 0 0 0.1rem rgba(0,0,0,0.1), 0 0 0.5rem rgba(255,255,255,0.2);
+				color: @nick-online-color;
 			}
 			&.curator {
 				&:before {
-					content:' K ';
-					margin-right: 0.3rem;
+					content:'к';
 					display: inline-block;
 					position: relative;
-					top: -0.2rem;
-					font-weight: bold;
-					font-size: 0.6rem;
-					text-align: center;
+					margin-right: 4*@rem;
+					font-size: 1rem;
+					top: -3*@rem;
 					width: 1rem;
 					height: 1rem;
-					line-height: 1rem;
-					border-radius: 2rem;
-					color: @postColor;
-					background: lighten(green, 5%);
-					-webkit-box-shadow: 0 0 0.1rem rgba(0,0,0,0.1), 0 0 0.5rem rgba(255,255,255,0.2);
+					text-align: center;
+					line-height: 0.85em;
+					border-radius: 1rem;
+					color: @bgColor;
+					background: @nick-online-color;
 				}
 			}
 		}
 		.group {
-			font-size: 0.9rem;
+			font-size: 0.875rem;
 			* {
 				color: mix(@color, @bgColor, 50%) !important;
+				font-weight: normal !important;
 			}
 		}
 		.reputation {
-			display: inline-block;
-			font-size: 0.9rem;
+			font-size: 0.875rem;
+			font-weight: bold;
 			@media screen and (min-width: (@width)) {
 				display: block;
 			}
 			& span:before {
-				content:'Реп(';
+				content:'Реп.';
 				display: inline-block;
-				margin-right: 0.1rem;
-			}
-			& span:after {
-				content:')';
-				display: inline-block;
-				margin-left: 0.1rem;
+				@media screen and (max-width: (@width)) {
+					margin-right: 3*@rem;
+				}
 			}
 		}
 		.date-link {
 			position: absolute;
-			padding: 0 0.4rem;
+			top: 0.25rem;
+			left: 0.25rem;
+			right: 0.25rem;
+			padding: 0 0.25rem;
 			text-align: left;
-			left: 0.2rem; right: 0.2rem; top: 0.2rem;
-			border-radius: 0.2rem;
-			display: block;
-			line-height: 1.5rem;
-			font-size: 0.8rem;
-			border-top: 1px solid rgba(0,0,0,0.2);
-			border-bottom: 1px solid @postColor + 30%;
-			border-left: 1px solid @postColor + 15%;
-			border-right: 1px solid @postColor + 15%;
-			-webkit-box-shadow: inset 1px 1px 0.3rem rgba(0,0,0,0.1);
-			background: darken(@tmColor, 2%);
-			@media screen and (min-width: (@width)) {
-				padding: 0.1rem 0.4rem;
-			}
-			.date {			
-				color: mix(@color, @bgColor, 70%) !important;
+			font-size: 0.875rem;
+			border-radius: 0.125rem;
+			color: mix(@color, @bgColor, 70%) !important;
+			border: 1px solid mix(white, @postColor, 10%);
+			border-top-color: mix(black, @postColor, 20%);
+			background: rgba(0,0,0,0.01);
+			-webkit-box-shadow: inset 0 1*@rem 2*@rem rgba(0,0,0,0.1);
+			@media screen and (max-width: (@width)) {
+				display: inline-block;
 			}
 			.link {
 				float: right;
-				color: mix(@color, @bgColor, 70%) !important;
+				font-weight: bold;
 			}
 		}
 		.menu {
+			display: block;
 			position: relative;
-			display: inline-block;
+			margin: 0 auto;
+			width: 2rem;
+			height: 2rem;
 			text-align: center;
-			padding: 0.2rem;
-			&:before {
-				font-family: roboto !important;
-				content:'•••';
-				position: relative;
-				font-size: 1.25rem;
-			}
-			&:active {
-				background: rgba(127,127,127,0.2);
+			background: url(steel_src/more.svg) center no-repeat;
+			background-size: 1.5rem;
+			cursor: pointer;
+			@media screen and (max-width: (@width - 1px)) {
+				position: absolute;
+				right: 0.125rem;
+				bottom: 0.5rem;
+				-webkit-transform: rotate(90deg);
+				transform: rotate(90deg);
 			}
 			span {
-				display: none ;
-				text-transform: lowercase;
-			}
-			@media screen and (max-width: (@width)) {
-				position: absolute;
-				right: 0;
-				bottom: 0.3rem;
-				-webkit-transform: rotate(90deg);
+				display: none;
 			}
 		}
 	}
@@ -805,144 +898,196 @@ HTML{
 *	POST_BODY
 */
 
-.post_body {
+.post_body,
+#multimoderation > form {
 	position: relative;
 	display: block;
-	padding: 0.5rem 0.5rem 0.75rem;
 	margin: 0;
+    border-radius: 0 0 0.2rem 0.2rem;
+	padding: 0.5rem;
 	text-align: left;
+	background-clip: padding-box;
+	border-top: 1px solid lighten(@bgColor, 5%);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
 	@media screen and (min-width: (@width)) {
-		margin: 0;
-		padding-left: 13.7rem;
-		padding-right: 0.7rem;
-		min-height: 12rem;
-		&:before {
-			content:'';
-			position: absolute;
-			top: 0;
-			width: 13.0625rem;
-			left: 0rem;
-			bottom: 0;
-			.shadow_header;
-		}
+		margin-left: 13.25rem;
+		padding: 0.75rem;
+		border: none;
+		border-radius: 0.2rem;
 	}
-	a[href*="act=findpost&pid="][title="Перейти к сообщению"] {
+	table[id*="ipb-attach"] * {
 		display: inline-block;
 		margin: 0;
+		padding: 0;
 		text-decoration: none;
-		> img {
-			display: none;
-		}
-		&:after {
-			content:'«';
-			display: inline-block;
-			position: relative;
-			top: -0.15em;
-			width: 1rem;
-			height: 1rem;
-			vertical-align: middle;
-			font-size: 1.5rem;
-			font-weight: bold;
-			line-height: 1rem;
-			text-align: center;
-			color: @linkColor;
-		}
+		.attach { margin-bottom: 0.2rem; }
 	}
-	table[id*="ipb-attach"] *{
-		display: inline-block;
-		margin: 0;
-		padding: 0 ;
-		text-decoration: none;
-		.attach { margin-bottom: 0.3rem; }
+	img[src*="folder_mime_types"],
+	img[alt="Прикрепленный файл"] {
+		display: none;
 	}
 	a {
 		color: @linkColor;
 		text-decoration: none;
+		&[data-rel="lyteframe"],
+		&.sp_img {
+			display: inline-block;
+			margin: 0.25rem 0;
+			&:before {
+				display: inline-block;
+				width: 1.4rem;
+				height: 1.4rem;
+				margin-right: 0.3rem;
+				content:'';
+				background-image: url(steel_src/attach.svg);
+				background-repeat: no-repeat;
+				background-size: contain;
+				vertical-align: bottom;
+			}
+		}
 	}
 	font {
-		font-size: 0.8rem !important;
-//		color: gray !important;
+		font-size: 0.875rem !important;
 		> * {
 			opacity: 0.7 !important;
 		}
 		* {
-			font-size: 0.8rem !important;
+			font-size: inherit;
 			color: mix(@color, @bgColor, 70%);
+		}
+		a[title="Перейти к сообщению"] {
+//			font-size: 0.625rem;
+		}
+		.quote > .block-title A[title="Перейти к сообщению"]:after {
+//			top: -0.0625em;
 		}
 	}
 	.edit{
 		display: block;
-		font-size: 85% !important;
+		font-size: 0.875rem !important;
 		color: mix(@color, @bgColor, 50%);
 	}
 	.post-edit-reason{
 		display: inline-block;
-		font-size: 90%;
-		margin-top: 0.5rem;
+		font-size: 0.9375rem;
+		margin-top: 0.3rem;
 		font-weight: bold;
 		color: mix(@color, @bgColor, 50%);
 		text-align: left;
 	}
-	ul, ol {
-		margin-left: -0.5rem;
+	span[style="font-family:monospace"] {
+		font-family: Courier, Courier New, Verdana, Arial !important;
+		font-size: 1rem;
+	}
+}
+a[title="Перейти к сообщению"] {
+	display: inline-block;
+	margin: 0;
+	padding: 0 0.25em;
+	text-decoration: none;
+	> img {
+		display: none;
+	}
+	&:after {
+		content:'«';
+		display: inline-block;
+		position: relative;
+		width: 1rem;
+		height: 1rem;
+		margin: 0;
+		font-size: 1.5rem;
+		font-weight: bold;
+		line-height: 1rem;
+		text-align: center;
+		color: @linkColor;
 	}
 }
 
+div[data-post] {
+		> a {
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin-top: 0;
+		}
+}
+
+#preview .post_body {
+	margin-left: 0.7rem;
+}
 /*
  *	POST_FOOTER
 */
 
-.post_footer_style() {
+.post_footer {
 	display: block;
 	overflow: hidden;
 	position: relative;
-	z-index: 12;
-	font-size: 1rem;
-	font-weight: bold;
-	padding: 0.4rem 0 0.4rem 0.5rem;
-	margin: 0;
-	text-align: center;
-	.radius;
-//	.shadow;
 	clear: both;
-	border-top: 1px solid @borderColor;
+	font-size: 0.625rem;
+	margin: ;
+	padding: 0.5rem 0 0.5rem  0.5rem;
+	text-align: center;
+	-webkit-user-select: none;
+	user-select: none;
+	border-radius: 0 0 0.2rem 0.2rem;
+	border-top: 1px solid lighten(mix(@color, @postColor, 5%), 7%);
 	background: mix(@color, @postColor, 5%);
-}
-
-.post_footer {
-	.post_footer_style;
-	@media screen and (max-width: (@width)) {
-		padding-right: 0.5rem;
-		text-align: center;
+	@media screen and (min-width: (@width)) {
+		&:before {
+			content:'';
+			display: block;
+			top: 0;
+			left: 0;
+			top: 0;
+			heigth: 20px;
+			background: rgba(0,0,0,0.1);
+		}
+	}
+	~ br {
+		display: none;
 	}
 	.button{
-		text-decoration: none;
 		display: inline-block;
-		&:extend(.buttonStyle);
+		height: 25*@rem;
 		margin-right: 0.5rem;
-		font-size: 0.7rem;
-		line-height: 1.4rem;
-		font-weight: bold;
-		text-transform: uppercase;
+		padding: 0 8*@rem;
 		vertical-align: middle;
-		color: mix(@postColor, @color, 50%);
+		font-size: 14*@rem;
+		line-height: 25*@rem;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+//		text-transform: lowercase;
+		color: mix(@color, @bgColor, 50%);
+		.Radius;
+//		.Border;
+//		.BoxShadow(1);
+		border: 1px solid @borderColor;
+		border-bottom: 1px solid @borderColor - 10%;
+		.Gradient;
+		cursor: pointer;
 		span {
-			display: inline-block;
+			position: relative;
+//			top: -2*@em;
 		}
 		&.claim,
 		&.quote,
 		&.nick {
 			float: left;
 		}
+		&.vote {
+			color: @bgColor;
+			&.good {
+				color: rgba(50,160,50,0.7);
+			}
+			&.bad {
+				color: rgba(200,100,100,0.7);
+			}
+		}
 		&.edit,
 		&.delete {
 			float: right;
-		}
-		&.good {
-			color: lighten(desaturate(green, 50%), 7%);
-		}
-		&.bad {
-			color: lighten(desaturate(red, 50%), 7%);
 		}
 		@media screen and (max-width: (@width)) {
 			&.claim,
@@ -952,66 +1097,56 @@ HTML{
 			}
 			&.quote {
 				float: right;
-				margin-right: 0;
 			}
 		}
 		@media screen and (max-width: 400px) {
-			min-width: 1.8rem;
-			&.quote,
-			&.nick {
+			min-width: 2rem;
+			&.quote {
 				&:before{
-					display: inline-block;
-					font-size: 1rem;
+					content:'Цит';
+					color: transparent;
+					display: inline-bliock;
+					background: url(steel_src/quote.svg) center no-repeat;
+					background-size: 1.5rem;
 				}
 			}
-			&.quote:before {
-				content:'« »';
-				position: relative;
-				top: -0.15rem;
-				font-size: 1.2rem;
-			}
 			&.nick {
-				&:before{
-					content:'➦';
-					-webkit-transform: scale(-1,1);
+				&:before {
+					content:'Ник';
+					color: transparent;
+					display: inline-bliock;
+					background: url(steel_src/reply.svg) center no-repeat;
+					background-size: 1.5rem;
 				}
 			}
 			&.vote,
 			&.nick,
-			&.quote 
-			{
+			&.quote {
 				span {
 					display: none;
 				}
 			}
 			&.bad {
-				line-height: 1.4rem;
-				height: 1.4rem;
 				&:before{
-					display: inline-block;
 					content: "–";
-					font-size: 1rem;
+					font-size: 1.2rem;
 				}
 			}
 			&.good {
-				line-height: 1.4rem;
-				height: 1.4rem;
 				&:after{
-					display: inline-block;
 					content: "+";
-					font-size: 1rem;
+					font-size: 1.2rem;
 				}
 			}
 		}
 		@media screen and (min-width: 401px) {
 			&.bad {
-				
 				padding-left: 0.7rem;
 				padding-right: 0.7rem;
 			}
 			&.good {
-				padding-left: 0.4rem;
-				padding-right: 0.4rem;
+				padding-left: 0.5rem;
+				padding-right: 0.5rem;
 			}
 		}
 	}
@@ -1024,37 +1159,32 @@ HTML{
 
 .search-results {
 	.topic_title_post {
-		margin: 0 !important;
+		margin: -0.25rem 0 0 !important;
 		a {
 			display: block;
 			position: relative;
-			margin-bottom: 0.6rem;
-			padding: 0.7rem;
-			z-index: 20;
+			padding: 0.75rem;
 			text-align: center;
 			text-decoration: none;
 			font-weight: bold;
 			color: mix(@color, @bgColor, 50%);
-			background: -webkit-gradient(linear, left top, right top, 
-			color-stop(0%,  @bodyColor), 
-			color-stop(10%, @bodyColor + #252525), 
-			color-stop(90%, @bodyColor + #252525),
-			color-stop(100%, @bodyColor));
+			border-bottom: 1px solid @borderColor;
+			background: @postColor;
 		}
 	}
 	.post_header {
-		min-height: 3.5rem;
-		padding-top: 0.7rem;
+		min-height: 2.2rem;
+		padding-top: 0.75rem;
 		text-align: center;
 		.date {
 			border: none;
 			color: mix(@color, @bgColor, 50%);
-			font-size: 0.8rem;
+			font-size: 0.875rem;
 		}
 		.nick {
 			span {
 				font-weight: bold;
-				font-size: 1.1rem;
+				font-size: 1.125rem;
 			}
 		}
 	}
@@ -1063,29 +1193,37 @@ HTML{
 	color:#FF6A00;
 }
 .postcolor {
-	display: block;
 	height: auto !important;
 	padding: 0.5rem;
 	margin: 0 -0.5rem;
-	max-height: 20rem;
+	max-height: 18rem;
 }
 .signature{
 	position: relative;
-	font-size: 0.85rem;
+	font-size: 0.875rem;
 	@media screen and (min-width: (@width)) {
 		margin: -2rem 0 0;
 		padding: 0.7rem 0;
 		border-radius: 0;
 		-webkit-box-shadow: none;
-		border-top: 1px dashed @borderColor;
+		box-shadow: none;
+		background: @postColor;
+	}
+	&:before {
+		display: block;
+		content:'Подпись:';
+		font-weight: bold;
+		color: mix(@color, @bgColor, 50%);
+		padding: 0.5rem 0;
 	}
 }
 .s_post_footer{ 
-	.post_footer_style;
+	&:extend(.post_footer);
 	padding: 0.5rem;
-	font-size: 0.85rem;
+	font-size: 0.875rem;
 	font-weight: normal;
 	color: mix(@color, @bgColor, 50%);
+	border-top: 1px solid @borderColor;
 	a {
 		color: @linkColor;
 		text-decoration: none;	
@@ -1096,19 +1234,25 @@ HTML{
 }
 
 .bad-search-result {
-	margin: 20px auto;
-	padding: 1rem;
-	max-width: 16rem;
-	color: @color;
-	.radius;
-	.shadow;
+	font-size: 1rem;
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	width: 19rem;
+	margin: 0.5rem;
+	margin-left: -9.5rem;
+	margin-top: -4rem;
+	.Radius;
+	.BoxShadow(2);
 	background: @bgColor;
 	h3 {
+		font-size: 1.25rem;
 		text-align: left;
-		margin: 0 0 0.7rem;
+		margin: 1.5rem;
 	}
 	span {
-		font-size: 0.8rem;
+		display: block;
+		margin: 1.5rem;
 		color: mix(@color, @bgColor, 50%);
 	}
 }
@@ -1117,160 +1261,249 @@ HTML{
 *	QMS
 */
 
-#thread_form {
-	A[title="Ссылка"] {
+#thread_form,
+#qms {
+	margin: 0;
+	padding: 0 0.5rem 5rem;
+	font-size: 1rem;
+	a {
 		color: @linkColor;
 	}
-	.date{
-		font-size: 1rem;
-		width: 100%;
+	.date {
 		display: block;
-		margin: 3rem 0;
-		padding: 0.5rem 0;
+		margin-top: 2.5rem;
 		text-align: center;
-		background: -webkit-gradient(linear, left top, right top, 
-					color-stop(0%,  @bodyColor), 
-					color-stop(10%, @bodyColor + #252525), 
-					color-stop(90%, @bodyColor + #252525),
-					color-stop(100%, @bodyColor));
-		.text{
+		.text {
 			position: relative;
+			bottom: 1.2rem;
 			display: inline-block;
-			border-radius: 0.3rem;
-			color: mix(@color, @postColor, 40%);
-			font-size: 1.2rem;
-			font-weight: bold;
-			text-transform:lowercase;
+			padding: 0.5rem;
+			font-size: 1.25rem;
+			font-style: italic;
+			color: @hrefButtonColor;
 		}
 	}
-	.list-group-item{
-		font-size:1rem;
-		position: relative;
+	.list-group-item {
 		display: block;
-		margin: 1.2rem 0.2rem;
+		position: relative;
+		text-align: left;
+		margin: 0;
 		padding: 0;
-		border-radius: 0.2rem;
-		border:  1px solid @borderColor;
-//		border-top: 0.1rem solid @borderColor + 20%;
-		background: @tmColor;
-		-webkit-box-shadow:	inset 0 0.15rem 0.15rem -0.1rem @tmColor + #444, 
-							0.1rem 0.2rem 0.4rem rgba(0,0,0,0.15);	
-		.shadow;
-		.check-item{
-			position: relative;
-			float: right;
-			height: 1.3rem;
-			text-align: center;
-			margin: 0;
-			border: none;
-			input {
-				display: none;
-				&:checked + .checkbox > .icon-check {
-					opacity: 1;
-				}
+		.check-item {
+			display: none;
+			input {display: none;}
+			.checkbox {
+				.icon-check,
+				.icon-uncheck {display: none;}
 			}
-            .checkbox {
-            	position: relative;
-				display: block;
-				margin: 0.3rem 0.4rem;
-				width: 1rem;
-				height: 1rem;
-				border-radius: 0.2rem;
-				background: @postColor;
-				border-top: 1px solid darken(@tmColor, 10%);
-				border-bottom: 1px solid lighten(@tmColor, 10%);
-				-webkit-box-shadow: inset 0 0.1rem 0.3rem rgba(0,0,0,0.5);
-				.icon-uncheck,
-				.icon-check {
-					&:before { 
-						display: none; 
-					}
-				}
-				.icon-check {
-					position: absolute;
-					display: block;
-					opacity: 0;
-					top: 0;
-					left: 0;
-					right: 0;
-					bottom: 0;
-					&:after {
-						position: absolute;
-						display: inline-block;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						line-height: 1rem;
-						text-align: center;
-						content:'✔';
-						color: green;
-						font-weight: bold;
-						font-size: 1rem;
-						font-style: normal !important;
-					}
-				}
-			}
+			input:checked + .checkbox {}
 		}
-		.time{
-			position: relative;
-			float: right;
-			height: 1.6rem;
-			margin: 0 0.3rem;
-			line-height: 1.6rem;
-			font-size: 1rem;
-			color: mix(@color, @postColor, 60%);
-			.read-status.unread.big-dot{
+		.time {
+			display: block;
+			margin: 0 0 0 0.5rem;
+			padding: 0.125rem 0;
+			font-size: 0.875rem;
+			font-style: italic;
+			color: @hrefButtonColor;
+			.read-status.unread.big-dot {
 				position: relative;
 				display: inline-block;
-				top:  -0.05rem;
-				height: 0.6rem;
-				width: 0.6rem;
-				border-radius: 0.6rem;
-				background: mix(#900, @postColor, 60%);
+				margin-top: -0.125em;
+				width: 0.5rem;
+				height: 0.5rem;
+				vertical-align: middle;
+				border-radius: 100%;
+				background: #b53;
 			}
 		}
-		.avatar-wrap{
-			display: block;
-			float: left;
-			overflow: hidden;
-			width: 3rem;
-			height: 3rem;
-			line-height: 3rem;
-			border-radius: 0.2rem;
-			margin: 0.3rem;
+		.avatar-wrap {
+			display: inline-block;
+			position: fixed;
+			top: 0.1rem;
+			left: 0.1rem;
+			width: 2rem;
+			height: 2rem;
+			padding: 0.125rem;
+			.Radius;
 			text-align: center;
-			border-top: 0.1rem solid @tmColor - #111;
-			border-left: 0.1rem solid @tmColor + #050505;
-			border-right: 0.1rem solid @tmColor + #050505;
-			border-bottom: 0.1rem solid @tmColor + #222;
+			z-index:100;
+			cursor: pointer;
+			background: @postColor;
+			.BoxShadow(2);
+			-webkit-transition: ease 0.3s;
+			transition: ease 0.3s;
+			&.circle {
+				border-radius: 2.5rem;
+				overflow: hidden;
+			}
 			.avatar {
 				display: inline-block;
-				max-width:3rem;
-				background: mix(white, @postColor, 70%);
+				max-width: 100%;
+				max-height: 100%;
+				.Radius;
+				overflow: hidden;
+			}
+			&:hover {;
+				width: 100px;
+				height: 100px;
 			}
 		}
-		strong{
+		&:not(.our-message) {
+			~ .list-group-item .avatar-wrap {
+				position: relative;
+				display: none;
+			}
+		}
+		strong,
+		strong + br {
+			display: none;
+		}
+		.msg-content {
+			position: relative;
 			display: inline-block;
-			line-height: 1.8rem;
-			font-size: 1.1rem;
-			margin: 0;
-			color: mix(@color, @postColor, 90%);
-			span{
+			padding: 0.5rem;
+			max-width: 26rem;
+			margin: 0 2rem 0 0.5rem;
+			background: @msgColor;
+			border-radius: 0.5rem;
+//			border: 1px solid @borderColor;
+			-webkit-transition: ease 0.3s background;
+			transition: ease 0.3s background;
+			.BoxShadow(2);
+			@media screen and (min-width: (@width)) {
+				max-width: 60%;
+			}
+			font {
+				font-size: 0.75rem !important;
+			}
+			&:before {
+				content:'';
+				display: inline-block;
+				width: 0.5rem;
+				height: 0.5rem;
+				position: absolute;
+				top: 0;
+				left: -0.5rem;
+				box-sizing: border-box;
+				border: 0.5rem solid;
+				border-color: @postColor;
+				border-bottom-color: transparent;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				-webkit-transition: ease 0.3s border-color;
+				transition: ease 0.3s border-color;
 			}
 		}
-		.msg-content{
+		&.our-message {
+			text-align: right;
+			padding: 0;
+			.check-item {
+				left: auto;
+				right: 0;
+			}
+			.time {
+				margin: 0 0.5rem 0 0;
+				.read-status.unread.big-dot {}
+			}
+			.avatar-wrap {
+				display: none;
+			}
+			.msg-content {
+				text-align: left;
+				margin: 0;
+				margin-left: 3rem;
+				margin-right: 0.5rem;
+				color: mix(@bgColor, @color, 10%);
+				background: @msgColor;
+				opacity: 0.8;
+				&:before {
+					left: auto;
+					right: -0.5rem;
+					border-color: @msgColor;
+					border-bottom-color: transparent;
+					border-left-color: transparent;
+					border-right-color: transparent;
+				}
+				.quote {
+					background: mix(@msgColor, @bg-quote, 60%);
+				}
+			}
+		}
+		&.selected {
+			.msg-content {
+				background: mix(@msgColor, @linkColor, 70%);
+				&:before {
+					border-top-color: mix(@msgColor, @linkColor, 70%);
+				}
+			}
+		}
+		&.msgbox.info {
 			display: block;
-			margin: 0;
-			padding: 0.5rem;
-			clear: both;
-			color: @color;
-			word-wrap: break-word;
-			border-top: 2px groove @tmColor;
-			background: @postColor;
-			border-radius: 0 0 0.2rem 0.2rem;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			margin: -2rem 0 0 -9rem;
+			padding: 1rem;
+			width: 16rem;
+			.Radius;
+			z-index: 99;
+			background: mix(@postColor, green, 70%);
+			.BoxShadow(4);
+			.icon-close {
+				display: inline-block;
+				margin: 0;
+				padding: 0;
+				vertical-align: middle;
+				&:before {
+					margin: 0 0.75rem -0.1em 0;
+					font-size: 2rem;
+					color: green;
+				}
+			}
+			@media screen and (max-width: 19rem) {
+				width: auto;
+				margin: 0;
+				left: 1rem;
+				right: 1rem;
+			}
 		}
 	}
+	.list-group-item + .list-group-item {
+		margin-top: 0.3rem;
+//		.avatar-wrap,
+		.msg-content:before {
+			display: none;
+		}
+	}
+	.list-group-item.our-message + .list-group-item.our-message {
+		margin-top: 0.3rem;
+//		.avatar-wrap,
+		.msg-content:before {
+			display: none;
+		}
+	}
+	.list-group-item.our-message + .list-group-item {
+		margin-top: 0.3rem;
+//		.avatar-wrap,
+		.msg-content:before {
+			display: inline-block;
+		}
+	}
+	.list-group-item + .list-group-item.our-message {
+		margin-top: 0.3rem;
+		.avatar-wrap {
+//			display: none;
+		}
+		.msg-content:before {
+			display: inline-block;
+		}
+	}
+}
+
+#qms[class*="noimages"]{
+	.avatar-wrap { display: none !important }
+	.msg-content { margin-left: 0.5rem !important}
+	.time { margin-left: 0.5rem !important}
 }
 
 /*
@@ -1278,8 +1511,9 @@ HTML{
 */
 
 #main {
+	font-size: 1rem;
 	margin: 0;
-	padding: 0.5rem 0;	
+	padding: 0;
 	iframe {
 		max-width: 100%;
 		width: 480px;
@@ -1308,18 +1542,30 @@ HTML{
 		.wp-caption-dd {
 			display: block;
 			color: mix(@color, @bgColor, 50%);
-			font-size: 0.9rem;
+			font-size: 0.875rem;
 		}
 	}
 }
+
+#news.noimages .container .content a[data-lightbox] { 
+	display: inline-block;
+	&:before {
+		content:'Изображение';
+		display: inline-block;
+		padding: 0.5rem;
+		font-weight: bold;
+	}
+}
+
 #news .container {
-	margin: 0;
-	.radius;
+ 	margin: 0.5rem;
+	.Radius;
 	background: @postColor;
 	padding: 0.3rem;
 	overflow: hidden;
 	color: @color;
-	.shadow;
+	border: 1px solid @borderColor;
+	.BoxShadow(1);
 	.content{
 		padding: 0.5rem 0.7rem 0.7rem;
 		a {
@@ -1340,13 +1586,12 @@ HTML{
 				* {
 					margin: 0;
 					padding: 0;
-					line-height: 1.4em;
 				}
 				> li {
 					margin: 0;
 					padding: 2rem 0;
 					border-bottom: 1px solid @borderColor;
-					background: @bgColor;
+					background: @postColor;
 					ol {
 
 					}
@@ -1375,8 +1620,8 @@ HTML{
 	display: block;
 	padding: 0;
 	margin: -0.3rem -0.3rem 0;
-	background: mix(@color, @tmColor, 5%);
-	border-bottom: 1px solid @borderColor;
+	background: mix(@color, @postColor, 5%);
+	.BoxShadow(2);
 	@media screen and (min-width: (@width)) {
 		display: table-block;
 		margin-bottom: 1rem;
@@ -1385,6 +1630,7 @@ HTML{
 		position: relative;
 		display: block;
 		text-align: center;
+		min-height: 3.5rem;
 		@media screen and (min-width: (@width)) {
 			display: table-cell;
 			vertical-align: middle;
@@ -1409,6 +1655,7 @@ HTML{
 			&.orange {
 				color: orange !important;
 			}
+			i:before { color: white !important; }
 		}
 	}
 	.description {
@@ -1426,32 +1673,32 @@ HTML{
 		}
 		h1{
 			margin-top: 2rem;
-			font-size: 1.2rem;
-			color: @color;
+			font-size: 1.25rem;
+			color: mix(@color, @bgColor, 70%);
 		}
 		.info-holder{
 			display: block;
 			color: mix(@color, @bgColor, 30%);
 			.date {
 				position: absolute;
-				top: -0.7rem;
+				top: -0.6875rem;
 				right: 0;
-				line-height: 1.4rem;
-				padding: 0 0.5rem 0 0.4rem;
+				height: 1.375rem;
+				padding: 0 0.5rem;
 				text-align: center;
-				color: @bgColor;
-				background: @linkColor;
+				color: white;
+				background: grey;
 				@media screen and (min-width: (@width)) {
 					top: auto;
-					bottom: -0.7rem;
+					bottom: -0.6875rem;
 				}
 				&:before {
 					position: absolute;
-					left: -1.3rem;
+					left: -1.365rem;
 					display: inline-block;
 					content:'';
-					border: 0.7em solid transparent;
-					border-right: 0.7em solid @linkColor;
+					border: 0.6875rem solid transparent;
+					border-right: 0.6875rem solid grey;
 				}
 			}
 			.name {
@@ -1459,7 +1706,7 @@ HTML{
 				right: 1rem;
 				bottom: 0.5rem;
 				display: block;
-				font-size: 0.8rem;
+				font-size: 0.75rem;
 				text-align: right;
 				font-style: italic;
 				@media screen and (min-width: (@width)) {
@@ -1479,14 +1726,16 @@ HTML{
 				display: block;
 				text-align: center;
 				border-radius: 3rem;
+				font-weight: bold;
 				width: 3rem;
 				height: 3rem;
 				line-height: 3rem;
-				font-size: 1.2rem;
+				font-size: 1.125rem;
 				text-decoration: none;
-				color: @bgColor !important;
-				background: @linkColor;
-//				-webkit-box-shadow: 0 0.15rem 0.3rem rgba(0,0,0,0.25);
+				color: white !important;
+				background: grey;
+				-webkit-box-shadow: 0 0.125rem 0.3rem rgba(0,0,0,0.25);
+				box-shadow: 0 0.125rem 0.3rem rgba(0,0,0,0.25);
 				@media screen and (min-width: (@width)) {
 					top: auto;
 					bottom: -1.5rem;
@@ -1496,7 +1745,7 @@ HTML{
 			.meta {
 				display: block;
 				margin-bottom: 2rem;
-				font-size: 0.8rem;
+				font-size: 0.75rem;
 				a {
 					color: @linkColor !important;
 					text-decoration: none;
@@ -1507,25 +1756,26 @@ HTML{
  }
 
 
-
 #news BLOCKQUOTE {
 	display: block;
 	padding: 0;
 	margin: 1rem 0;
 	overflow: hidden;
-	.radius;
-	border: 1px solid  @borderColor;
+	text-align: left !important;
+	.Radius;
+	border: 1px solid @bg-quote;
+	background: mix(@postColor, @bg-quote, 50%);
 	&:before {
 		content:'Цитата';
-		&:extend(.block-titleStyle);
+		font-weight: bold;
+		font-style: italic;
+		color: saturate(mix(@bg-quote, @color, 50%),50%);
+		padding: 0.3rem 0.5rem;
 		display: block;
-		color: mix(@color, @bg-quote, 70%);
-		background: @bg-quote;
 	}
 	p {
 		padding: 0.5rem;
 		margin: 0;
-		background: mix(@bg-quote, @postColor, 5%);
 	}
 	H3 {	
 		text-align: left;
@@ -1533,6 +1783,48 @@ HTML{
 	}
 }
 
+#news {
+.btn.iblock {
+	display: inline-block;
+	position: relative;
+	margin: 0.5rem 0;
+	padding: 0.5rem 1rem;
+	text-decoration: none !important;
+	vertical-align: middle;
+	.Radius;
+	outline: 0;
+	color: @postColor !important;
+	background: @linkColor;
+}
+.btn.nomargin {
+	margin: 0;
+}
+.btn.rounded {
+	.Radius;
+}
+.btn.noborder {
+	border: 0;
+}
+.btn.big {
+	font-size: 1rem;
+}
+.btn.cancel {
+	background: #03a9f4;
+}
+.btn.orange {
+	background: #fb8c00;
+}
+.btn.green {
+	background: #4caf50;
+}
+.btn.gray {
+	background: #9e9e9e;
+}
+.btn.white {
+	background: @color;
+	color: @bgColor;
+}
+}
 #news .review-bottom-informer {
 	display: block;
 	padding: 0;
@@ -1544,15 +1836,16 @@ HTML{
 	.item {
 		display: block;
 		text-align: center;
-		margin: 0.3rem;
-		.radius;
+		margin: 0.5rem;
+		.Radius;
 		padding: 0.5rem;
 		text-decoration: none !important;
 		background: mix(@color, @bgColor, 30%);
+		.BoxShadow(1);
 		@media screen and (min-width: (@width)) {
 			display: inline-block;
 			width: 13rem;
-			height: 6rem;
+			height: 5rem;
 			vertical-align: top;
 		}
 		.title {
@@ -1577,9 +1870,9 @@ HTML{
 		}
 	}
 }
-#news h3{
+#news h3 {
 	text-align: center;
-	a{
+	a {
 		text-decoration: none;
 		font-size: 1.4em;
 		color: mix(@color, @bgColor, 70%);
@@ -1588,15 +1881,15 @@ HTML{
 #news .mlinks {
 	display: block;
 	overflow: hidden;
-	.radius;
-	border: 1px solid  @borderColor;
+	.Radius;
+	border: 1px solid @borderColor;
 	&.desc {
 		display: block;
 		margin-bottom: 1rem;
 		overflow: hidden;
 		.mlhead {
-			min-height: 4.6rem;
-			border-radius: 0.15rem 0.15rem 0 0;
+			min-height: 4.5rem;
+			border-radius: 0.125rem 0.125rem 0 0;
 		}
 		.mlright {
 			.mlcell.th {
@@ -1617,12 +1910,12 @@ HTML{
 	}
 	.mlhead,
 	&.desc .mlright {
-		background: mix(@color, @postColor, 50%);
+		background: mix(@color, @bgColor, 50%);
 		border-bottom: 1px solid mix(@color, @bgColor, 10%);
 		.do-vam {
 			> div {
 				.mlicon {
-					width: 4rem;
+					width: 4rem !important;
 					float: left;
 					margin: 0.3rem;
 					margin-right: 0.5rem;
@@ -1631,7 +1924,7 @@ HTML{
 					display: block;
 					margin: 0;
 					padding: 0.5rem;
-					font-size: 1.2rem;
+					font-size: 1.125rem;
 					color: @bgColor;
 					text-align: left;
 				}
@@ -1641,7 +1934,7 @@ HTML{
 					padding: 0.5rem;
 					font-size: 1rem;
 					font-weight: normal;
-					color: mix(@color, @postColor, 20%);
+					color: mix(@color, @bgColor, 20%);
 					text-align: left;
 				}
 				.mltbl.platforms {
@@ -1649,14 +1942,14 @@ HTML{
 					border-spacing: 0;
 					margin: 0;
 					width: 101%;
-					background: @postColor;
+					background: @bgColor;
 					.mlrow {
 						display: table-row;
 						&:first-child {
-							background: mix(@color, @postColor, 10%);
+							background: mix(@color, @bgColor, 10%);
 						}
 						.mlcell.th {
-							color: mix(@color, @postColor, 60%);
+							color: mix(@color, @bgColor, 65%);
 						}
 						.mlcell.th,
 						.mlcell {
@@ -1665,7 +1958,6 @@ HTML{
 							width: 34%;
 							padding: 0.5rem 0;
 							text-align: center;
-//							border: 1px solid red;
 							&:first-child {
 								width: 10%;
 							}
@@ -1685,8 +1977,8 @@ HTML{
 					padding: 0.5rem;
 					font-size: 1rem;
 					font-weight: normal;
-					color: mix(@color, @postColor, 60%);
-					background: mix(@color, @postColor, 10%);
+					color: mix(@color, @bgColor, 60%);
+					background: mix(@color, @bgColor, 10%);
 				}
 			}
 		}
@@ -1701,7 +1993,7 @@ HTML{
 		.sc-btn.right{
 			display: none ;
 			height: 0.3rem;
-			color: @postColor;
+			color: @bgColor;
 		}
 		.sc-content { 
 			position: relative;
@@ -1709,7 +2001,7 @@ HTML{
 			white-space: nowrap;
 			margin-top: 0.4rem;
 			padding: 0;
-			a  { 
+			a { 
 				display: inline-block;
 				padding: 0;
 				text-decoration: none;
@@ -1739,7 +2031,7 @@ HTML{
 				display: inline-block;
 				padding: 0;
 				text-decoration: none;
-				font-size: 1.6rem;	
+				font-size: 1rem;	
 				img { 
 					display: inline-block;
 					max-height: 300px;
@@ -1751,21 +2043,23 @@ HTML{
 	}
 }
 
-#news .table4site {
-	display: table;
-	width: 100%;
+#news .table4site {-
+	display: block;
 	color: @color !important;
 	overflow-x: auto;
-	border: 1px solid  @borderColor;
 	box-sizing: border-box;
-	background: @postColor;
 	border-spacing: 0;
-	.radius;
+	word-break: normal;
+	.Radius;
+	border: 1px solid @borderColor;
 	tbody {
+		display: table;
+		width: 100%;
 		TR {
 			margin: 0;
+			bacground: mix(@color, @postColor, 3%);
 			&:nth-child(2n) {
-				background: mix(@color, @postColor, 4%);
+				background: mix(@color, @postColor, 5%);
 			}
 			&:last-child {
 				border-bottom: none;
@@ -1777,8 +2071,8 @@ HTML{
 				margin: -0.2rem !important;
 				padding: 1rem 0.5rem;
 				box-sizing: border-box;
-				border-right: 1px solid mix(@color, @postColor, 15%);	
-				border-bottom: 1px solid mix(@color, @postColor, 15%);	
+				border-right: 1px solid mix(@color, @bgColor, 15%);	
+				border-bottom: 1px solid mix(@color, @bgColor, 15%);	
 				&:last-child {
 					border-right: none;
 				}
@@ -1788,7 +2082,7 @@ HTML{
 				}
 			}
 			.icon {
-				width: 3.4rem;
+				width: 3.5rem;
 				vertical-align: middle;
 				text-align: right;
 				border: none;
@@ -1803,7 +2097,7 @@ HTML{
 				width: 1%;
 				border: none;
 				p {
-					padding: 0 0.6rem 0 0.2rem;
+					padding: 0 0.5625rem 0 0.2rem;
 					&:last-child {
 						border: none;
 					}
@@ -1814,25 +2108,25 @@ HTML{
 							position: relative;
 							overflow: hidden;
 							width: 3rem;
-							height: 2.5rem;
+							height: 3.5rem;
 							color: transparent;
-							background: url(material_src/home.png) no-repeat center;
+							background: url(steel_src/home.png) no-repeat center;
 							background-size: 2.5rem;
 						}
 						a[href="https://play.google.com/store/apps/details?id=com.clamotty"] {
-							background: url(material_src/play_shopping.png) no-repeat center;
+							background: url(steel_src/play_shopping.png) no-repeat center;
 							background-size: 2.5rem;
 						}
 					}
 				}
-			}			
+			}
 		}	
 	}
 }
 
 #news .mb_source {
 	margin: 2rem 0 0;
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 	+ br { display: none; }
 	NOINDEX {
 		A {
@@ -1842,98 +2136,113 @@ HTML{
 }
 
 #news .materials-box{
-	position: relative;
 	display: block;
+	padding: 1rem 0.7rem;
+	margin: 0.5rem 0.5rem 1.2rem;
 	text-align: center;
-	margin: 2rem 0 1rem;
-	padding: 0;
-	.box-title{
-		&:extend(.panel .topic_title_post);
-		color: mix(@color, @postColor, 50%);
+	max-width: 75rem;
+	.BoxShadow(2);
+	.Radius;
+	border: 1px solid @borderColor;
+	background: @postColor;
+	.box-title {
+		display: block;
+		font-size: 1.5rem;
+		margin: 0 0 1.2rem;
+		padding: 0;
+		text-align: left;
+		color: @hrefButtonColor;
 	}
 	.materials-slider{
-		display: table-block;
+		position: relative;
+		display: block;
 		padding: 0;
-		margin: 0 auto;
-		text-align: center;
-		border-spacing: 0.7rem;
 		overflow-x: auto;
-		z-index: 10;
+		white-space: nowrap;
 		.slider-item{
-			position: relative;
-			display: table-cell;
-			width: 25%;
-			max-width: 15rem;
+			display: inline-block;
 			padding: 0;
-			margin: 0;
+			width: 24.5%;
+			max-height: 100%;
 			font-size: 1rem;
 			list-style-type: none;
 			text-decoration: none;
 			overflow: hidden;
-			background: mix(@color, @bgColor, 10%);
-			.shadow;
-			.radius;
-			@media screen {
-				@media (max-width: (@width)) {
-					width: 1%;
-					> a {
-						width: 10rem !important;
-					}
-				}
+			vertical-align: top;
+			@media screen and (max-width: (@width)) {
+				width: 12.5rem;
 			}
 			> a {
-				display: block;
+				display: inline-block;
+				margin: 0;
+				width: 100%;
 				img {
+					display: inline-block;
 					width: 100%;
-					height: 75%;
-					border-bottom: 1px solid @tmColor;
+					height: auto;
 				}
 			}
 			h3 {
-				display: block;
 				margin: 0;
 				padding: 0.3rem;
-				vertical-align: middle;
+				text-align: left;
+				white-space: normal;
 				a {
-					display: inline-block;
-					margin: 0;
-					padding: 0;
-					text-align: left;
-					font-size: 0.8rem;
-					font-weight: normal;
-					color: @color;
+					font-size: 1rem;
+					color: @linkColor;
 				}
 			}
 		}
 	}
 }
+
 #news .page-nav.box{
 	display: block;
-	margin: 1rem 0.5%;
-	padding: 0.6rem 0;
+	margin: 0.7rem 0.5%;
+	padding: 0;
 	text-align: center;
+	font-size: 1.25rem;
 	li{
 		display: inline-block;
 		width: 48%;
+		padding: 0;
 		list-style-type: none;
 		a{
 			display: block;
 			width: 100%;
 			margin: 0;
-			line-height: 1.2rem;
-			font-size: 1.3rem;
+			padding: 0.7rem 0;
 			text-decoration: none; 
-//			text-transform: uppercase;
-			color: grey !important;
-//			font-weight: bold;
+			text-transform: uppercase;
+			color: @hrefButtonColor !important;
+			font-weight: bold;
 			text-decoration: none;
 			.icon-right-small,
 			.icon-left-small {
+				i { display: none; }
 				&:before {
-					line-height: 1.2rem;
-					font-size: 1.4rem;
-					font-weight: normal;
-					color: grey;
+					display: inline-block;
+					content:'';
+					height: 1rem;
+					width: 1rem;
+					position: relative;
+					top: 0;
+					margin: 0 1rem;
+					box-sizing: border-box;
+					border-top: 0.125rem solid @hrefButtonColor;
+					border-left: 0.125rem solid @hrefButtonColor;
+				}
+			}
+			.icon-left-small {
+				&:before {
+					-webkit-transform: rotate(-45deg);
+					transform: rotate(-45deg);
+				}
+			}
+			.icon-right-small {
+				&:before {
+					-webkit-transform: rotate(135deg);
+					transform: rotate(135deg);
 				}
 			}
 		}
@@ -1943,18 +2252,27 @@ HTML{
 	z-index: 10;
 	font-size: 1rem;
 	display: block;
-	padding: 0 0;
+	padding: 0;
 	position: relative;
-	margin: 0.2rem 0;
-	.radius;
+	margin: 0;
+	.Radius;
 	font-weight: normal;
-	color: @bgColor;
+	color: @postColor;
 	text-align: left;
 	> .heading {
-		&:extend(.panel .topic_title_post);
+		position: relative;
+		display: block;
+		padding: 0;
+		margin: 0;
+		text-align: right;
 		h2 {
+			display: block;
+			color: @hrefButtonColor;
+			text-align: center;
+			font-size: 1.5rem;
+			box-sizing: border-box;
+			padding: 0.3rem;
 			margin: 0;
-			color: mix(@color, @postColor, 50%);
 		}
 		a {
 			display: none;
@@ -1968,42 +2286,39 @@ HTML{
 	.comment-list {
 		display: block;
 		.comment-list {	
-			padding-left: 0.25rem;
+			padding-left: 0.2rem;
 			@media screen {
 				@media (min-width: 320px) {
 					padding-left: 0.5rem;
 				}
 				@media (min-width: 480px) {
-					padding-left: 0.75rem;
+					padding-left: 0.7rem;
 				}
 				@media (min-width: 640px) {
 					padding-left: 1rem;
 				}
 				@media (min-width: 720px) {
-					padding-left: 1.5rem;
+					padding-left: 1.2rem;
 				}
 			}
 		}
 	}
 	li {
-		&:extend(.post-block.hidden);
+		display: block;
 		text-align: left;
-		margin: 0.5rem 0;
+		margin: 0.5rem;
 		padding: 0 0 1px;
 		word-break: break-word;
+		.Radius;
+		border: 1px solid @borderColor;
 		background: @postColor;
-		.shadow;
+		.BoxShadow(1);
 		li {
-			margin: 0 0.1rem 0.5rem 0;
+			margin: 0 0 0.5rem;
 			padding: 0;
-			-webkit-box-shadow: none;
-			border-radius: none;
-//			border-left: 1px solid @borderColor;
 		}
 		> div {
-			display: block;
 			position: relative;
-//			border: 1px solid red;
 			margin: 0;
 			padding-bottom: 0.5rem;
 		}
@@ -2018,36 +2333,30 @@ HTML{
 		}
 		.heading {
 			display: block;
-			&:extend(.post-block.hidden > .block-title);
 			margin: 0;
-//			background: mix(@color, @bgColor, 40%);
-			border-bottom: 1px solid @borderColor;
-			&:before { display: none; }
+			padding: 0.25rem 0.5rem;
+			border-bottom: 2px groove @postColor + 30%;
 			.nickname {
 				margin-right: 0.3rem;
 				text-decoration: none;
 				font-style: normal !important;  
-				font-size: 1rem;
+				font-size: 0.9375rem;
 				font-weight: bold;
-				color: @linkColor;
-				line-height: 1.4;
-				.textShadow;
+				color: @color;
 			}
 			.karma {
 				float: right;
 				.icon-karma-up {
-//					border: 1px solid red;
 					padding: 0 0.3rem;
-					&:before { color: mix(@color, @postColor, 40%); }
+					&:before { color: mix(@color, @bgColor, 40%); }
 				}
 				.icon-hide-comment {
 					display: none;
 				}
 				.num-wrap {
 					.num {
-//						border: 1px solid red;
 						padding: 0 0.3rem;
-						color: mix(@color, @postColor, 60%);
+						color: mix(@color, @bgColor, 50%);
 					}
 				}
 			}
@@ -2060,27 +2369,25 @@ HTML{
 				text-align: left;
 				text-decoration: none;
 				font-weight: normal;
-				font-size: 0.7rem;
+				font-size: 0.625rem;
 				color: mix(@color, @bgColor, 50%);
-//				border: 1px solid red;
 				margin-top: 0;
 				margin-right: 0.2em;
-				height: 1.4rem;
-				line-height: 1.4rem;
+				height: 1.2rem;
+				line-height: 1.2rem;
 				a {
 					position: absolute;
 					display: inline-block;
 					top: 0;
 					margin: 0;
 					padding: 0 0.3rem;
-					height: 1.4rem;
-					line-height: 1.4rem;
+					height: 1.2rem;
+					line-height: 1.2rem;
 					.icon-link {
 						position: absolute;
 						top: 0;
-						height: 1.4rem;
-						line-height: 1.4rem;
-//						border: 1px solid red;
+						height: 1.2rem;
+						line-height: 1.2rem;
 						margin: 0;
 						padding: 0;
 						vertical-align: middle;
@@ -2089,261 +2396,286 @@ HTML{
 							margin: 0;
 							padding: 0;
 							opacity: 0.5;
-							height: 1.4rem;
-							line-height: 1.4rem;
+							height: 1.2rem;
+							line-height: 1.2rem;
 							color: @linkColor;
-//							border: 1px solid red;
 						}
 					}
 				}
 			}
 		}
 		.content {
-			padding: 0.5rem 0.5rem 1.8rem;
+			padding: 0.5rem 0.5rem 1.5rem;
 			margin: 0;
 			color: @color;
 		}
 		DIV[id*="comment-form-reply"] {
 			position: absolute;
-			right: 4rem;
-			top: 0;
+			right: 4.5rem;
+			top: 0.125rem;
 			display: block;
 			text-align: right;
 			margin: 0;
-//			border-right: 1px solid @borderColor;
-//			border-left: 1px solid @borderColor;
 			a {
 				display: inline-block;
 				color: @linkColor;
 				text-decoration: none;
-				font-size: 0.9rem;
+				font-size: 0.875rem;
 				font-weight: bold;
 				padding: 0 0.5rem;
-				height: 1.4rem;
-				line-height: 1.3rem;
+				height: 1.4em;
 			}
 		}
+	}
+}
+
+.video-thumb-wrapper {
+	display: block; 
+	width: 100%; 
+	height: auto;
+	margin: auto;
+	max-width: 480px; 	
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 3.5rem;
+//	background-image: url(images/play_video.png);
+	background-image: url(file:///android_asset/forum/style_images/play_video.png);
+	.video-thumb {
+		width: auto;
+		height: auto;
+		opacity: .5; 
+		margin: 0.5rem 0;
+	}
+}
+
+::-webkit-scrollbar,
+::webkit-scrollbar {
+	width: 0.25rem;
+	height: 0.25rem;
+ 	&-thumb {
+		border-radius: 0.125rem;
+		background: @scroll-color;
 	}
 }
 
 /*
 *	PROFILE
 */
-#profile {
-	.user-profile-list {
+
+#profile .user-profile-list {
+	display: block;
+	max-width: @width;
+	font-size: 1rem;
+	text-align: left;
+	list-style-type: none;
+	margin: 0 auto;
+	padding: 0;
+	.margin-block {
+		visibility: hidden;
+	}
+	> li {
 		display: block;
-		margin: 0 auto;
-		padding: 0;
-		max-width: @width;
-		text-align: left;
-		list-style-type: none;
-		.margin-block {
-			visibility: hidden;
-		}
-		> li {
+		padding: 0.75rem;
+		margin: 0.5rem;
+		.Radius;
+		.BoxShadow(1);
+		overflow: hidden;
+		border: 1px solid @borderColor;
+		background: @postColor;
+		.user-box {
 			display: block;
-			padding: 0.7rem;
-			margin: 0.7rem 0;
-			.radius;
-			.shadow;
-			overflow: hidden;
-			border: 1px solid @borderColor;
-			background: @postColor;
-			a {
-				color: @linkColor;
-				&[title="Изменить данные о себе"] {
-//					float: right;
+			text-align: center;
+			margin: -0.75rem -0.75rem 1rem;
+			padding: 0.75rem;
+			background: -webkit-gradient(linear, left top, left bottom,
+					color-stop(2%, @blue), 
+					color-stop(50%, @blue), 
+					color-stop(100%, @postColor));
+			.photo {
+				padding: 0;
+				margin: 0 0 0.5rem;
+				.img {
 					display: inline-block;
-					margin: 1rem 0.3rem 0.5rem;
-					padding: 0.2rem 0.5rem;
-					font-weight: bold;
-					color: mix(@linkColor, @bgColor, 80%);
-					text-decoration: none;
-					.radius;
-					border:1px solid mix(@linkColor, @bgColor, 40%);
+					width: 8rem;
+					height: 8rem;
+					.Radius;
+					background-position: center;
+					background-size: contain;
+					background-repeat: no-repeat;
+					&.circle {
+						border-radius: 10rem;
+						overflow: hidden;
+					}
 				}
 			}
-			.user-box {
+			h1 {
 				display: block;
-				margin: -0.7rem -0.7rem 0.7rem;
-				padding: 0.7rem;
-				text-align: center;
-				.textShadow;
-				border-bottom: 1px solid mix(@color, @bgColor, 15%);
-				background: -webkit-gradient(linear, left top, left bottom,
-				color-stop(2%, @tmColor), 
-				color-stop(50%, @tmColor), 
-				color-stop(100%, @postColor));
-				.photo {
-					padding: 0;
-					margin: 0 0.5rem 0 0;
-					.img {
-						display: inline-block;
-						width: 5.5rem;
-						height: 5.5rem;
-						border-radius: 0.2rem;
-						background-position: center;
-						background-size: contain;
-						background-repeat: no-repeat;
-					}
-				}
-				h1 {
+				font-size: 1.5rem;
+				margin: 0;
+			}
+			h2 {
+				display: block;
+				font-size: 1rem;
+				margin: 0;
+				span {
 					display: block;
-					font-size: 1.5rem;
-					margin: 0;
-					line-height: 1.4em;
-				}
-				h2 {
-					display: block;
-					font-size: 1rem;
+					font-size: 1em;
 					font-weight: normal;
-					margin: 0;
-					line-height: 1.4em;
-					span {
-						font-size: 1em;
-						font-weight: normal;
-					}
-				}
-			}
-			.u-note {
-				margin-top: 0.7rem;
-				&:before {
-					content:'Подпись';
-					display: block;
-					margin: 0 -0.7rem 0.5rem;
-//					font-size: 0.8rem;
-					font-weight: bold;
-					padding: 0.7rem 0.7rem 0;
-					color: mix(@color, @bgColor, 50%);
-					border-top: 1px solid mix(@color, @bgColor, 15%);
-				}
-			}
-			.profile-edit-links {
-				margin-top: 1rem;
-				.col {
-					display: inline-block;
-					margin-right: -3px;
-					width: 50%;
-					vertical-align: middle;
-					+ .col {
-						text-align: right;
-					}
-					a {
-						display: inline-block;
-						padding: 0.5rem;
-						font-weight: bold;
-						text-align: center;
-						text-decoration: none;
-						text-transform: uppercase;
-						color: @linkColor;
-					}
 				}
 			}
 		}
-		.info-list.black-link {
-//			border: 1px solid red;
-			list-style-type: none;
+		.u-note {
+			margin-top: 0.7rem;
+		}
+		.profile-edit-links {
+			margin: 1rem -0.5rem -0.5rem;
+			.col {
+				display: inline-block;
+				margin-right: -3px;
+				width: 50%;
+				vertical-align: middle;
+				+ .col {
+					text-align: right;
+				}
+				a {
+					display: inline-block;
+					padding: 0.5rem;
+					font-weight: bold;
+					text-align: center;
+					text-transform: uppercase;
+					color: @linkColor;
+				}
+			}
+		}
+	}
+	.info-list.black-link {
+		list-style-type: none;
+		padding: 0;
+		li {
+			display: block;
 			padding: 0;
-			.title {
+		}
+		.title {
+			font-weight: bold;
+			vertical-align: middle;
+		}
+		.area {
+			display: inline-block;
+			margin: 0;
+			vertical-align: middle;
+			a {
+				display: inline-block;
 				font-weight: bold;
 			}
-			.area {
-
-				display: inline-block;
-			}
-			
-// устройства
-			
-			&[id*="device-list"] {
+		}
+		
+// утройства
+		
+		&[id*="device-list"] {
+			display: block;
+			li {
+				position: relative;
 				display: block;
-				li {
-					position: relative;
-					display: block;
-					margin: 0;
-					padding: 0.5rem 0;
-					overflow: hidden;
-//					border: 1px solid red;
-					> a:not(.noico) {
+				margin: 0;
+				padding: 0.5rem 0;
+				overflow: hidden;
+				> a:not(.noico) {
+					display: inline-block;
+					.icon-pencil { display: none }
+				}
+				&:last-child {
+					.noico {
 						display: inline-block;
-						.icon-pencil { display: none }
+						font-weight: bold;
 					}
-					&:last-child {
-						.noico {
-							display: inline-block;
-							font-weight: bold;
-						}
+				}
+				&:first-of-type {
+					font-weight: bold;
+					&:after {
+						content:'';
+						font-size: 1rem;
+						display: inline-block;
+						margin: 0 1rem;
+						height: 0.7rem;
+						width: 0.4rem;
+						border-bottom: 3*@rem solid grey;
+						border-right: 3*@rem solid grey;
+						-webkit-transform: rotate(45deg);
+						transform: rotate(45deg);
 					}
-					span {
-						position: relative;
-						height: 1.4rem;
-						line-height: 1.4rem;
-						text-align: center;
-						&[style="float:right;overflow:hidden;margin:.15em 0"] {
-							margin: 0 !important;
-							a {
-								display: inline-block;
-								width: 2.5rem;
-								i { display: none }
-								&:before {
-									content:'×';
-									display: inline-block;
-									vertical-align: middle;
-									font-size: 2rem;
-									color: mix(@color, @bgColor, 50%);
-								}
-							}
-						}
-						label {
-							position: relative;
+				}
+				span {
+					position: relative;
+					text-align: center;
+					&[style="float:right;overflow:hidden;margin:.15em 0"] {
+						margin: 0 !important;
+						a {
 							display: inline-block;
-							text-align: center;
 							width: 2.5rem;
-							i:before { display: none }
-							input[type="radio"] {
-								opacity: 0;
-								position: absolute;
-								width: 100%;
-								height: 100%;
-								font-size: 1rem;
-								+ i {
-									display: inline-block;
-									height: 1rem;
-									width: 1rem;
-									vertical-align: middle;
-									border-radius: 1rem;
-									border: 0.15rem solid mix(@color, @bgColor, 50%);
-									transition: 0.2s ease-out;
-									overflow: hidden;
-									background: @bgColor;
-									-webkit-box-shadow: inset 0 0 0 2rem @postColor;
-								}
-								&:checked + i {
-									background: @linkColor;
-									border: 0.15rem solid @linkColor;
-									-webkit-box-shadow: inset 0 0 0 0.2rem @postColor;
-								}
+							i { display: none }
+							&:before {
+								content:'×';
+								display: inline-block;
+								vertical-align: middle;
+								font-size: 2rem;
+								color: mix(@color, @bgColor, 50%);
 							}
-						}	
+						}
 					}
+					label {
+						position: relative;
+						display: inline-block;
+						text-align: center;
+						width: 2.5rem;
+						i:before { display: none }
+						input[type="radio"] {
+							opacity: 0;
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							+ i {
+								display: inline-block;
+								height: 1em;
+								width: 1em;
+								vertical-align: middle;
+								border-radius: 1em;
+								border: 0.125rem solid mix(@color, @bgColor, 50%);
+								transition: all 0.25s;
+								overflow: hidden;
+								background: @bgColor;
+								-webkit-box-shadow: inset 0 0 0 1rem @bgColor;
+								box-shadow: inset 0 0 0 1rem @bgColor;
+							}
+							&:checked + i {
+								background: @linkColor;
+								border: 0.125rem solid @linkColor;
+								-webkit-box-shadow: inset 0 0 0 0.2rem @bgColor;
+								box-shadow: inset 0 0 0 0.2rem @bgColor;
+							}
+						}
+					}	
 				}
 			}
 		}
 	}
 	li {
+		> DIV {
+			overflow: hidden;
+		}
 		.heading {
 			position: relative;
-			padding: 0.2rem 0.2rem 0.7rem;
+			padding: 0.25rem;
 			margin: 0 0 1rem;
 			overflow: hidden;
-			border-bottom: 1px solid mix(@color, @postColor, 10%);
 			.ico {
 				float: left;
-				margin-right: 1rem;
+				display: inline-block;
+				margin: 0.125rem 1rem 0 0;
 				i {
 					display: inline-block;
 					&:before {
 						display: inline-block;
-						font-size: 1.4rem;
+						font-size: 1.5rem;
 						color: mix(@color, @bgColor, 40%) !important; 
 					}
 				}
@@ -2352,13 +2684,11 @@ HTML{
 				display: inline-block;
 				margin: 0;
 				padding: 0;
-				font-size: 1.2rem;
-				color: mix(@color, @bgColor, 70%); 
+				font-size: 1.5rem;
 			}
 		}
 		h3 {
 			display: block;
-			color: mix(@color, @bgColor, 50%);
 			text-align: left;
 		}
 		.contact-social {
@@ -2368,37 +2698,33 @@ HTML{
 				margin-left: -0.5rem;
 				li {
 					display: inline-block;
-					line-height: 1.4rem;
-					&:before {
-						content:'•';
-						position: relative;
-						top: 0.4rem;
-						display: inline-block;
-						font-size: 2rem;
-						margin: 0 0.7rem;
-						line-height: 1.4rem;
-					}
+					padding: 0.5rem;
 				}
 			}
 		}
 		.statistic-box {
 			.col {
-				float: left;
-				width: 49%;
+				display: inline-block;
+				width: 50%;
+				min-width: 9rem;
+				margin-right: -3px;
 				h3 {
 					margin: 0 0 0.7rem;
 					padding: 0;
-//					border: 1px solid red;
 				}
 				ul {
 					list-style-type: none;
 					padding: 0;
 					li {
 						.title {
+							margin: 0;
 							margin-right: 0.3rem;
+							vertical-align: middle;
 						}
 						.area {
 							display: inline-block;
+							font-weight: bold;
+							vertical-align: middle;
 							A[title="Просмотреть репутацию"] {
 								margin: 0;
 							}
@@ -2406,12 +2732,12 @@ HTML{
 								strong {
 									display: inline-block;
 									margin: 0;
-									width: 1rem;
-									height: 1rem;
-									line-height: 1rem;
+									width: 1em;
+									height: 1em;
+									line-height: 1em;
 									text-align: center;
 									color: @bgColor;
-									.radius;
+									.Radius;
 								}
 							}
 							.warn-btn[title="Опустить репутацию"] {
@@ -2451,21 +2777,18 @@ HTML{
 			}
 			.wlog-pos,
 			.wlog-neg {
-				border-bottom: 1px solid mix(@color, @bgColor, 15%);
-				padding-bottom: 0.7rem;
-				margin-bottom: 0.7rem;
+				padding-bottom: 0.1rem;
+				margin-bottom: 0.1rem;
 				.a-heading {
 					position: relative;
 					h4 {
-						margin: 0 0 0.7rem;
-						line-height: 1.4rem;
+						margin: 0 0 0.1rem;
 					}
 					span {
 						position: absolute;
 						right: 0;
 						top: 0;
-						font-size: 0.8rem;
-						line-height: 1.4rem;
+						font-size: 0.875rem;
 						color: mix(@color, @bgColor, 60%);
 					}
 				}
@@ -2484,18 +2807,16 @@ HTML{
 */
 
 #edit_profile {
-	margin: 0;
-	padding: 0 0 0.5rem;
 	form {
 		display: block;
 		.field {
 			display: block;
+			font-size: 1rem;
 			margin: 0.5rem;
 			padding: 0.5rem;
-			.radius;
-			.shadow;
-			border: 1px solid @borderColor;
-			background: @postColor;
+			.Radius;
+			.BoxShadow(1);
+			background: @bgColor;
 			[type="hidden"] {
 				display: none;
 			}
@@ -2508,7 +2829,7 @@ HTML{
 				margin: 0;
 				color: @color;
 				strong {
-					font-size: 1.2rem;
+					font-size: 1.125rem;
 					line-height: 1.2em;
 					color: @color;
 				}
@@ -2527,12 +2848,11 @@ HTML{
 			.row1 {
 				padding: 0.5rem !important;
 				color: mix(@color, @bgColor, 35%);
-				font-size: 0.8rem;
+				font-size: 1.125rem;
 				@media screen and (max-width: (@width)) {
 					padding: 0.5rem 0.5rem 0!important;
 				}
 				b {
-					font-size: 1rem;
 					font-weight: normal;
 					color: mix(@color, @bgColor, 70%);
 				}
@@ -2546,48 +2866,51 @@ HTML{
 				input,
 				select,
 				textarea {
-					font-size: 1rem;
 					-webkit-appearance: none;
+					appearance: none;
 					outline: none;
 					border: none;
+					max-width: 100%;
 				}	
 				input[type="text"] {
-					display: block;
-					width: 100%;
 					padding: 0 0 0.5rem;
 					color: @color;
 					border-bottom: 1px solid @borderColor;
-					background: @postColor;
+					background: @bgColor;
 					&:focus {						
-						border-bottom: 2px solid @tmColor;
+						border-bottom: 2px solid @spoilColor;
 					}
 				}
 				select {
-					display: inline-block;
 					padding: 0.5rem;
-					padding-right: 1.5rem;
+					padding-right: 1.2rem;
 					font-weight: bold;
 					color: @color;
-					background: @postColor;
+					background: @bgColor;
 					border-bottom: 1px solid @borderColor;
-					background-image: url(file:///android_asset/profile/down_grey600_24dp.png);
-					background-image: url(profile/down_grey600_24dp.png);
-					background-image: url(steel_src/down_grey600_24dp.png);
+					background-image: url(.../android_asset/profile/down_grey600_24dp.png),
+					                  url(profile/down_grey600_24dp.png),
+					                  url(steel_src/down_grey600_24dp.png);
 					background-repeat: no-repeat;
 					background-position: right;
-					background-size: 1.5rem;
+					background-size: 1.2rem;
 					&:focus {						
-						border-bottom: 2px solid @tmColor;
+						border-bottom: 2px solid @spoilColor;
 					}
 				}
 				.editor_button {
 					margin-top: 1rem;
 					input {
 						-webkit-appearance: none;
-						width: 1.8rem;
-						height: 1.8rem;
-						&:extend(.buttonStyle);
-						margin: 0.5rem 0.5rem 0.5rem 0;
+						appearance: none;
+						width: 1.4rem;
+						height: 1.4rem;
+						font-weight: bold;
+						line-height: 1.8em;
+						margin: 0.3rem 0.3rem 0.3rem 0;
+						color: @bgColor;
+						.Radius;
+						background: grey;
 						&:focus {
 							opacity: 0.5;
 						}
@@ -2599,9 +2922,9 @@ HTML{
 					textarea {
 						border: 1px solid @borderColor;
 						color: @color;
-						background: @postColor;
+						background: @bgColor;
 						&:focus {						
-							border: 2px solid @tmColor;
+							border: 2px solid @spoilColor;
 						}
 					}
 				}
@@ -2611,11 +2934,17 @@ HTML{
 					text-align: right;
 				}
 				input {
-					&:extend(.buttonStyle);
-					padding: 0.2rem 0.5rem 0.3rem;
-					margin: 0.5rem;
+					font-weight: bold;
+					padding: 0.7rem;
+					font-size: 1rem;
+					margin: 0;
+					color: @linkColor;
+					-webkit-appearance: none;
+					appearance: none;
+					text-transform: uppercase;
 					outline: none;
 					border: none;
+					background: transparent;
 					&:active {
 						background: rgba(130,130,130, 0.2);
 					}
@@ -2624,58 +2953,221 @@ HTML{
 		}
 	}
 }
+
+/*
+*		MULTIMODERATION
+*/
+
+#curator {
+	.panel {
+		position: relative;
+		display: block;
+		margin: 0;
+		padding: 1rem 0;
+		text-align: center;
+		.first-page,
+		.last-page {
+			display: inline-block;
+			max-width: 30%;
+			width: 10rem;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			box-sizing: border-box;
+			vertical-align: middle;
+			a, b {
+				display: block;
+				padding: 0.5rem 0;
+				font-weight: bold;
+			}
+			b:before, a:before {
+				display: inline-block;
+			}
+		}
+		.first-page {
+			b:before, a:before {
+				content:'<<';
+			}
+		}
+		.last-page {
+			b:before, a:before {
+				content:'>>';
+			}
+		}
+		.pages {
+			display: inline-block;
+			font-size: 1rem;
+			padding: 0;
+			margin: auto;
+			overflow-y: auto;
+			box-sizing: border-box;
+			width: 10rem;
+			vertical-align: middle;
+			z-index: 999;
+			a, b {
+				display: block;
+				margin: 0;
+				padding: 0.5rem 0;
+				text-decoration: none !important;
+				font-weight: bold;
+			}
+			&.close {
+				height: 2.4em;
+				overflow: hidden;
+				a, b {
+					pointer-events: none;
+					color: @hrefButtonColor;
+				}
+			}
+			&.open {
+				position: fixed;
+				top: 2rem;
+				bottom: 2rem;
+				padding: 1rem 0;
+				margin-left: -100px;
+				width: 200px;
+				max-width: 80%;
+				.Radius;
+				background: @bgColor;
+				.BoxShadow(3);
+				a, b {
+					padding: 1rem;
+					pointer-events: auto;
+				}
+			}
+		}
+		a { color: @hrefButtonColor; }
+		b { color: mix(@tmColor, @hrefButtonColor, 70%);}
+		
+		.controls {
+			margin: 1rem auto;
+			button {
+				display: inline-block;
+				padding: 0.75rem;
+				margin: 0;
+				cursor: pointer;
+				font-size: 1rem;
+				font-weight: bold;
+				text-transform: uppercase;
+				color: @hrefButtonColor;
+				outline: none;
+				border: none;
+				background: none;
+			}
+		}
+	}
+	.post_header {
+		position: relative;
+		padding: 0 0 0.5rem;
+		a {
+			text-decoration: none !important;
+		}
+		.inf {
+			display: block;
+			font-size: 14*@rem;
+			color: mix(@color, @bgColor, 50%);
+		}
+		.nick {
+			padding: 0.5rem 0;
+			font-size: 18*@rem;
+			color: @color;
+			@media screen and (max-width: (@width)) {
+				padding: 0.5rem 0.75rem;
+				margin-right: 3rem;
+			}
+		}
+		.link {
+			padding: 0.5rem 0;
+			font-weight: bold;
+			@media screen and (max-width: (@width)) {
+				padding: 0.25rem 0.75rem;
+			}
+		}
+		.date-link {
+			@media screen and (max-width: (@width)) {
+				position: absolute;
+				right: 0.75rem;
+				bottom: 0.75rem;
+			}
+		}
+		.checkbox {
+			display: block;
+			padding: 1rem;
+			cursor: pointer;
+			text-align: center;
+			@media screen and (max-width: (@width)) {
+				position: absolute;
+				right: 0;
+				top: 0;
+				padding: 0.75rem 0.75rem;
+			}
+			.icon {
+				position: relative;
+			}
+			input {
+				display: none;
+				+ .icon {
+					display: inline-block;
+					position: relative;
+					height: 1rem;
+					width: 1rem;
+					.Radius;
+					overflow: hidden;
+					border: 0.125rem solid mix(@color, @bgColor, 50%);
+					background: @bgColor;
+					&:before {
+						content:'';
+						position: absolute;
+						display: inline-block;
+						height: 12*@rem;
+						width: 6*@rem;
+						border-bottom: 2.5*@rem solid @bgColor;
+						border-right: 2.5*@rem solid @bgColor;
+						-webkit-transition: -webkit-transform 0.3s;
+						transition: transform 0.3s;
+						-webkit-transform: rotate(45deg) translate(-4*@rem, 2*@rem) scale(0,0);
+						transform: rotate(45deg) translate(-4*@rem, 2*@rem) scale(0,0);
+					}
+				}
+				&:checked + .icon {
+					background: @linkColor;
+					border-color: @linkColor;
+					&:before {
+						-webkit-transform: rotate(45deg) translate(-4*@rem, 2*@rem) scale(1,1);
+						transform: rotate(45deg) translate(-4*@rem, 2*@rem) scale(1,1);
+					}
+				}
+			}	
+		}
+	}
+}
+
 /*
 *	OTHER
 */
 
-.video-thumb-wrapper {
-	display: block; 
-	width: 100%; 
-	height: auto;
-	margin: auto;
-	max-width: 480px; 	
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 3.5rem;
-//	background-image: url(images/play_video.png);
-	background-image: url(file:///android_asset/forum/style_images/play_video.png);
-	.video-thumb {
-		width: auto;
-		height: auto;
-		opacity: .5; 
-		margin: 0.5rem 0;
-	}
-}
-
-::-webkit-scrollbar {
-	width: 0.25rem;
-	height: 0.25rem;
-//	&-track {
-//	}
- 	&-thumb {
-		border-radius: 0.1rem;
-		background: @scroll-color;
-	}
-}
-
 img[src*="style_emoticons"]{
-	min-height: 1.4rem !important;
-	min-width: 1.4rem !important;
+	min-height: 1.2rem !important;
+	min-width: 1.2rem !important;
 	vertical-align: middle;
 }
-
-.post_footer ~ br {
-	display: none;
+.img {
+	&[style*="av.png"] {
+		background-image: url(profile/logo.png),
+		                  url("file:///android_asset/profile/logo.png") !important;
+	}
 }
-.between_messages{
-}
-
-#bottomMargin {
-	display: block;
-	height: 100px;
-}
+.between_messages{}
+#bottomMargin {}
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-	color: @linkColor;
+	color: mix(@color, @tmColor, 30%);
 }
+#rules {
+	.post_body {
+		margin: 0.5rem;
+	}
+}
+
+@import 'my_style.css';

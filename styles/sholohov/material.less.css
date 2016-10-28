@@ -6,15 +6,18 @@
 
 //                                ---- COLOR ----
 
-		@import 'styles/material_light';
-//		@import 'styles/material_dark';
-//		@import 'styles/material_black';
+		@import '@{patch}/material_light_color';
+//		@import '@{patch}/material_dark_color';
+//		@import '@{patch}/material_black_color';
 
-@width:					50rem;
-@widthPoll:				30rem;
-@rem:					0.0625rem;
-@em:					0.0625em;
-@codeLineHeight:		22*@rem;
+		@patch:				~'styles/sholohov/modules';
+		@img_patch:			~'img/src';
+//		@img_patch:			~'material_src';  // old patch
+		@width:				50rem;
+		@widthPoll:			30rem;
+		@rem:				0.0625rem;
+		@em:				0.0625em;
+		@codeLineHeight:	22*@rem;
 
 .Radius(@r: 0.125rem)	{ border-radius: @r; } // радиус блоков
 
@@ -89,7 +92,7 @@ HTML{
 *         FONT_SIZE
 */
 
-@import 'styles/font-size';
+@import '@{patch}/font-size';
 
 /*
 *         POST_BLOCK
@@ -148,6 +151,10 @@ HTML{
 		padding: 0;
 		overflow: hidden;
 		background: mix(@bg-code, @bgColor, 40%);
+		.line {
+			display: block;
+			min-height: @codeLineHeight;
+		}
 		.num-wrap,
 		.num-pre {
 			position: absolute;
@@ -206,7 +213,7 @@ HTML{
 				display: block;
 				width: 1.5rem;
 				height: 1.5rem;
-				background: url(material_src/wrap_text.svg), url(../material_src/wrap_text.svg) center no-repeat;
+				background: url('/@{img_patch}/wrap_text.svg') center no-repeat;
 				background-size: 1.5rem;
 			}
 		}
@@ -969,7 +976,9 @@ HTML{
 			width: 2rem;
 			height: 2rem;
 			text-align: center;
-			background: url(material_src/more.svg) center no-repeat;
+			background-image: url('/@{img_patch}/more.svg');
+			background-position: center;
+			bacground-repeat: no-repeat;
 			background-size: 1.625rem;
 			cursor: pointer;
 			@media screen and (max-width: (@width)) {
@@ -1025,7 +1034,7 @@ HTML{
 				height: 1.5rem;
 				margin-right: 0.3rem;
 				content:'';
-				background-image: url(material_src/attach.svg), url(../material_src/attach.svg);
+				background-image: url('/@{img_patch}/attach.svg');
 				background-repeat: no-repeat;
 				background-size: 1.5rem;
 				vertical-align: middle;
@@ -2187,11 +2196,15 @@ div[data-post] {
 							width: 3rem;
 							height: 3.5rem;
 							color: transparent;
-							background: url(material_src/home.png) no-repeat center;
+							background: url('/@{img_patch}/home.png');
+							background-position: center;
+							background-repeat: no-repeat;
 							background-size: 2.5rem;
 						}
 						a[href="https://play.google.com/store/apps/details?id=com.clamotty"] {
-							background: url(material_src/play_shopping.png) no-repeat center;
+							background-image: url('/@{img_patch}/play_shopping.png');
+							background-position: center;
+							background-repeat: no-repeat;
 							background-size: 2.5rem;
 						}
 					}
@@ -2508,7 +2521,7 @@ div[data-post] {
 				width: 2.5rem;
 				height: 1.25rem;
 				font-size: 1rem;
-				background: url(material_src/reply.svg);
+				background: url('/@{img_patch}/reply.svg');
 				background-repeat: no-repeat;
 				background-position: center;
 				background-size: 1.5rem;
@@ -2526,8 +2539,7 @@ div[data-post] {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 3.5rem;
-//	background-image: url(images/play_video.png);
-	background-image: url(file:///android_asset/forum/style_images/play_video.png);
+	background-image: url('/@{img_patch}/play_video.png');
 	.video-thumb {
 		width: auto;
 		height: auto;
@@ -2580,7 +2592,7 @@ div[data-post] {
 			margin: -0.75rem -0.75rem 1rem;
 			padding: 0.75rem;
 			border-bottom: 1px solid @borderColor;
-			background-image: url(../profile.png);
+			background-image: url('/@{img_patch}/profile.png');
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
@@ -2898,158 +2910,6 @@ div[data-post] {
 }
 
 /*
-*	EDIT PROFILE
-*/
-
-#edit_profile {
-	form {
-		display: block;
-		.field {
-			display: block;
-			font-size: 1rem;
-			margin: 0.5rem;
-			padding: 0.5rem;
-			.Radius;
-			.BoxShadow(1);
-			background: @bgColor;
-			[type="hidden"] {
-				display: none;
-			}
-			~ br {
-				display: none;
-			}
-			h2 {
-				display: block;
-				padding: 0.5rem;
-				margin: 0;
-				color: @color;
-				strong {
-					font-size: 1.125rem;
-					line-height: 1.2em;
-					color: @color;
-				}
-			}
-			@media screen and (max-width: (@width)) {
-				table,
-				tbody,
-				tr,
-				td {
-					display: block;
-					margin: 0;
-					padding: 0;
-					width: auto !important;
-				}
-			}
-			.row1 {
-				padding: 0.5rem !important;
-				color: mix(@color, @bgColor, 35%);
-				font-size: 1.125rem;
-				@media screen and (max-width: (@width)) {
-					padding: 0.5rem 0.5rem 0!important;
-				}
-				b {
-					font-weight: normal;
-					color: mix(@color, @bgColor, 70%);
-				}
-			}
-			.row2 {
-				padding: 0.5rem !important;
-				color: mix(@color, @bgColor, 50%);
-				@media screen and (max-width: (@width)) {
-					padding: 0 0.5rem 0.5rem !important;
-				}
-				input,
-				select,
-				textarea {
-					-webkit-appearance: none;
-					appearance: none;
-					outline: none;
-					border: none;
-					max-width: 100%;
-				}	
-				input[type="text"] {
-					padding: 0 0 0.5rem;
-					color: @color;
-					border-bottom: 1px solid @borderColor;
-					background: @bgColor;
-					&:focus {
-						border-bottom: 2px solid @spoilColor;
-					}
-				}
-				select {
-					padding: 0.5rem;
-					padding-right: 1.2rem;
-					font-weight: bold;
-					color: @color;
-					background: @bgColor;
-					border-bottom: 1px solid @borderColor;
-					background-image: url(.../android_asset/profile/down_grey600_24dp.png),
-					                  url(profile/down_grey600_24dp.png),
-					                  url(material_src/down_grey600_24dp.png);
-					background-repeat: no-repeat;
-					background-position: right;
-					background-size: 1.2rem;
-					&:focus {
-						border-bottom: 2px solid @spoilColor;
-					}
-				}
-				.editor_button {
-					margin-top: 1rem;
-					input {
-						-webkit-appearance: none;
-						appearance: none;
-						width: 1.4rem;
-						height: 1.4rem;
-						font-weight: bold;
-						line-height: 1.8em;
-						margin: 0.3rem 0.3rem 0.3rem 0;
-						color: @bgColor;
-						.Radius;
-						background: grey;
-						&:focus {
-							opacity: 0.5;
-						}
-					}
-					[value="B"] { font-weight: bold; }
-					[value="I"] { font-style: italic; }
-					[value="U"] { text-decoration: underline; }
-					[value="S"] { text-decoration: line-through; }
-					textarea {
-						border: 1px solid @borderColor;
-						color: @color;
-						background: @bgColor;
-						&:focus {						
-							border: 2px solid @spoilColor;
-						}
-					}
-				}
-			}
-			.formbuttonrow {
-				@media screen and (min-width: (@width)) {
-					text-align: right;
-				}
-				input {
-					font-weight: bold;
-					padding: 0.7rem;
-					font-size: 1rem;
-					margin: 0;
-					color: @linkColor;
-					-webkit-appearance: none;
-					appearance: none;
-					text-transform: uppercase;
-					outline: none;
-					border: none;
-					background: transparent;
-					&:active {
-						background: rgba(130,130,130, 0.2);
-					}
-				}
-			}
-		}
-	}
-}
-
-/*
 *		MULTIMODERATION
 */
 
@@ -3258,9 +3118,7 @@ img[src*="style_emoticons"]{
 }
 .img {
 	&[style*="av.png"] {
-//		background-image: url(profile/logo.png), url("file:///android_asset/profile/logo.png") !important;
-		background-image: url(material_src/person.svg) !important;
-		
+		background-image: url('@{img_patch}/person.svg') !important;		
 	}
 }
 .between_messages{}

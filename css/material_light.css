@@ -218,7 +218,7 @@ span[style*="font-size:8pt"] * {
   display: block;
   width: 1.5rem;
   height: 1.5rem;
-  background: url(material_src/wrap_text.svg), url(../material_src/wrap_text.svg) center no-repeat;
+  background: url('/img/src/wrap_text.svg') center no-repeat;
   background-size: 1.5rem;
 }
 .post-block.code > .block-title {
@@ -918,7 +918,9 @@ span[style*="font-size:8pt"] * {
   width: 2rem;
   height: 2rem;
   text-align: center;
-  background: url(material_src/more.svg) center no-repeat;
+  background-image: url('/img/src/more.svg');
+  background-position: center;
+  bacground-repeat: no-repeat;
   background-size: 1.625rem;
   cursor: pointer;
 }
@@ -990,7 +992,7 @@ span[style*="font-size:8pt"] * {
   height: 1.5rem;
   margin-right: 0.3rem;
   content: '';
-  background-image: url(material_src/attach.svg), url(../material_src/attach.svg);
+  background-image: url('/img/src/attach.svg');
   background-repeat: no-repeat;
   background-size: 1.5rem;
   vertical-align: middle;
@@ -1020,6 +1022,7 @@ span[style*="font-size:8pt"] * {
 #multimoderation > form .edit {
   display: block;
   font-size: 0.875rem !important;
+  font-style: italic;
   color: #808080;
 }
 .post_body .post-edit-reason,
@@ -2151,11 +2154,15 @@ div[data-post] > a {
   width: 3rem;
   height: 3.5rem;
   color: transparent;
-  background: url(material_src/home.png) no-repeat center;
+  background: url('/img/src/home.png');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: 2.5rem;
 }
 #news .table4site tbody TR .links p strong a[href="https://play.google.com/store/apps/details?id=com.clamotty"] {
-  background: url(material_src/play_shopping.png) no-repeat center;
+  background-image: url('/img/src/play_shopping.png');
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: 2.5rem;
 }
 #news .mb_source {
@@ -2463,7 +2470,7 @@ div[data-post] > a {
   width: 2.5rem;
   height: 1.25rem;
   font-size: 1rem;
-  background: url(material_src/reply.svg);
+  background: url('/img/src/reply.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 1.5rem;
@@ -2477,7 +2484,7 @@ div[data-post] > a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 3.5rem;
-  background-image: url(file:///android_asset/forum/style_images/play_video.png);
+  background-image: url('/img/src/play_video.png');
 }
 .video-thumb-wrapper .video-thumb {
   width: auto;
@@ -2529,7 +2536,7 @@ div[data-post] > a {
   margin: -0.75rem -0.75rem 1rem;
   padding: 0.75rem;
   border-bottom: 1px solid #e6e6e6;
-  background-image: url(../profile.png);
+  background-image: url('/img/src/profile.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2829,165 +2836,6 @@ div[data-post] > a {
   margin-top: 0.7rem;
 }
 /*
-*	EDIT PROFILE
-*/
-#edit_profile form {
-  display: block;
-}
-#edit_profile form .field {
-  display: block;
-  font-size: 1rem;
-  margin: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.125rem;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.2);
-  background: white;
-}
-#edit_profile form .field [type="hidden"] {
-  display: none;
-}
-#edit_profile form .field ~ br {
-  display: none;
-}
-#edit_profile form .field h2 {
-  display: block;
-  padding: 0.5rem;
-  margin: 0;
-  color: black;
-}
-#edit_profile form .field h2 strong {
-  font-size: 1.125rem;
-  line-height: 1.2em;
-  color: black;
-}
-@media screen and (max-width: 50rem) {
-  #edit_profile form .field table,
-  #edit_profile form .field tbody,
-  #edit_profile form .field tr,
-  #edit_profile form .field td {
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: auto !important;
-  }
-}
-#edit_profile form .field .row1 {
-  padding: 0.5rem !important;
-  color: #a6a6a6;
-  font-size: 1.125rem;
-}
-@media screen and (max-width: 50rem) {
-  #edit_profile form .field .row1 {
-    padding: 0.5rem 0.5rem 0!important;
-  }
-}
-#edit_profile form .field .row1 b {
-  font-weight: normal;
-  color: #4d4d4d;
-}
-#edit_profile form .field .row2 {
-  padding: 0.5rem !important;
-  color: #808080;
-}
-@media screen and (max-width: 50rem) {
-  #edit_profile form .field .row2 {
-    padding: 0 0.5rem 0.5rem !important;
-  }
-}
-#edit_profile form .field .row2 input,
-#edit_profile form .field .row2 select,
-#edit_profile form .field .row2 textarea {
-  -webkit-appearance: none;
-  appearance: none;
-  outline: none;
-  border: none;
-  max-width: 100%;
-}
-#edit_profile form .field .row2 input[type="text"] {
-  padding: 0 0 0.5rem;
-  color: black;
-  border-bottom: 1px solid #e6e6e6;
-  background: white;
-}
-#edit_profile form .field .row2 input[type="text"]:focus {
-  border-bottom: 2px solid #3490c3;
-}
-#edit_profile form .field .row2 select {
-  padding: 0.5rem;
-  padding-right: 1.2rem;
-  font-weight: bold;
-  color: black;
-  background: white;
-  border-bottom: 1px solid #e6e6e6;
-  background-image: url(.../android_asset/profile/down_grey600_24dp.png), url(profile/down_grey600_24dp.png), url(material_src/down_grey600_24dp.png);
-  background-repeat: no-repeat;
-  background-position: right;
-  background-size: 1.2rem;
-}
-#edit_profile form .field .row2 select:focus {
-  border-bottom: 2px solid #3490c3;
-}
-#edit_profile form .field .row2 .editor_button {
-  margin-top: 1rem;
-}
-#edit_profile form .field .row2 .editor_button input {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1.4rem;
-  height: 1.4rem;
-  font-weight: bold;
-  line-height: 1.8em;
-  margin: 0.3rem 0.3rem 0.3rem 0;
-  color: white;
-  border-radius: 0.125rem;
-  background: grey;
-}
-#edit_profile form .field .row2 .editor_button input:focus {
-  opacity: 0.5;
-}
-#edit_profile form .field .row2 .editor_button [value="B"] {
-  font-weight: bold;
-}
-#edit_profile form .field .row2 .editor_button [value="I"] {
-  font-style: italic;
-}
-#edit_profile form .field .row2 .editor_button [value="U"] {
-  text-decoration: underline;
-}
-#edit_profile form .field .row2 .editor_button [value="S"] {
-  text-decoration: line-through;
-}
-#edit_profile form .field .row2 .editor_button textarea {
-  border: 1px solid #e6e6e6;
-  color: black;
-  background: white;
-}
-#edit_profile form .field .row2 .editor_button textarea:focus {
-  border: 2px solid #3490c3;
-}
-@media screen and (min-width: 50rem) {
-  #edit_profile form .field .formbuttonrow {
-    text-align: right;
-  }
-}
-#edit_profile form .field .formbuttonrow input {
-  font-weight: bold;
-  padding: 0.7rem;
-  font-size: 1rem;
-  margin: 0;
-  color: #3490c3;
-  -webkit-appearance: none;
-  appearance: none;
-  text-transform: uppercase;
-  outline: none;
-  border: none;
-  background: transparent;
-}
-#edit_profile form .field .formbuttonrow input:active {
-  background: rgba(130, 130, 130, 0.2);
-}
-/*
 *		MULTIMODERATION
 */
 #curator .panel {
@@ -3208,7 +3056,7 @@ img[src*="style_emoticons"] {
   vertical-align: middle;
 }
 .img[style*="av.png"] {
-  background-image: url(material_src/person.svg) !important;
+  background-image: url('img/src/person.svg') !important;
 }
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
@@ -3217,3 +3065,4 @@ img[src*="style_emoticons"] {
 #rules .post_body {
   margin: 0.5rem;
 }
+

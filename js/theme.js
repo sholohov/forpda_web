@@ -47,8 +47,9 @@ document.addEventListener('DOMContentLoaded', blocksOpenClose);
  */
 
 function scrollToAnchor() {
+	var links = document.querySelectorAll('a');
 	var link = document.querySelector('.topic_title_post a');
-	var anchor = document.querySelector('a[name="' + link.hash.match(/[^#].*/) + '"]');
+	var anchor = document.querySelector('[name="' + link.hash.match(/[^#].*/) + '"]');
 	var p = anchor;
 	if (anchor) {
 		while (!p.classList.contains('post_body')) {
@@ -60,6 +61,9 @@ function scrollToAnchor() {
 		}
 	}
 	anchor.scrollIntoView();
+	for (var i = 0; i < links.length; i++) {
+		links[i].addEventListener('click',scrollToAnchor);
+	}
 }
 document.addEventListener('DOMContentLoaded', scrollToAnchor);
 

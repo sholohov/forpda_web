@@ -6,9 +6,9 @@
 
 //                                ---- COLOR ----
 
-//		@import '@{patch}/material_light_color';
+		@import '@{patch}/material_light_color';
 //		@import '@{patch}/material_dark_color';
-		@import '@{patch}/material_black_color';
+//		@import '@{patch}/material_black_color';
 
 		@patch:				~'styles/sholohov/modules';
 		@img_patch:			~'img/src';

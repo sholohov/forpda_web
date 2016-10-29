@@ -57,20 +57,6 @@ function scrollToAnchor(name) {
 }
 document.addEventListener('DOMContentLoaded', scrollToAnchor);
 
-/* SELECTED TEXT */
-
-function getSelectedText() {
-	var txt = '';
-	if (window.getSelection) {
-		txt = window.getSelection();
-	} else if (document.getSelection) {
-		txt = document.getSelection();
-	} else if (document.selection) {
-		txt = document.selection.createRange().text;
-	} else return;
-	return txt;
-};
-
 /* CODE LINE NUMBERING */
 
 function numberingCodeLinesFoo() {
@@ -165,6 +151,7 @@ function getAttaches() {
 	}
 	return jsonArr;
 }
-window.onload = function() {
+window.addEventListener('load', getAttachesFoo); 
+function getAttachesFoo() {
 	HTMLOUT.sendPostsAttaches(JSON.stringify(getAttaches()));
 };

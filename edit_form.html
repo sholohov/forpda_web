@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/fonts/roboto/import.css">
+		<link rel="stylesheet" type="text/css" href="/fonts/flaticons/import.css">
+		<link rel="stylesheet" type="text/css" href="/fonts/fontello/import.css">
+		<link rel="stylesheet" type="text/css" href="/css/material_light.css">
+		<script type="text/javascript" src="/js/theme.js"></script>
+		<script type="text/javascript" src="/js/blockeditor.js"></script>
+		<script type="text/javascript" src="/js/emoticons.js"></script>
+		<title>Форма ввода и редактировани сообщения</title>
+	</head>
+	<body id="bbcodes" style="font-family:inherit;">
+		<script type="text/javascript" src="/js/less-dev.js"></script>
+		<div class="bb_codes_editor">
+			<div class="bb_panel">
+				<span class="button bold"><img src="bold.svg"></span>
+				<span class="button italic"><img src="italic.svg"></span>
+				<span class="button underline"><img src="underline.svg"></span>
+				<span class="button strikethrough"><img src="strikethrough.svg"></span>
+				<span class="button sub"><img src="sub.svg"></span>
+				<span class="button sup"><img src="sup.svg"></span>
+				<span class="button align_left"><img src="align_left.svg"></span>
+				<span class="button align_center"><img src="align_center.svg"></span>
+				<span class="button align_right"><img src="align_right.svg"></span>
+				<span class="button link"><img src="link.svg"></span>
+				<span class="button quote"><img src="quote.svg"></span>
+				<span class="button offtop"><img src="offtop.svg"></span>
+				<span class="button code"><img src="code.svg"></span>
+				<span class="button spoiler"><img src="spoiler.svg"></span>
+				<span class="button hide"><img src="hide.svg"></span>
+				<span class="button list_numbered"><img src="list_numbered.svg"></span>
+				<span class="button list_bulleted"><img src="list_bulleted.svg"></span>
+				<span class="button color_text"><img src="color_text.svg"></span>
+				<span class="button color_fill"><img src="color_fill.svg"></span>
+				<span class="button size"><img src="size.svg"></span>
+				<span class="button cur"><img src="cur.svg"></span>
+			</div>
+			<div class="text_form">
+				<textarea rows="17" placeholder="Введите текст"></textarea>
+<!--[center] [size=5]~ Тестовый Пост (ТП) ~[/size] [/center]
+
+
+[size=7] SIZE=7 [/size][size=6] SIZE=6 [/size][size=5] SIZE=5 [/size][size=4] SIZE=4 [/size][size=3] SIZE=3 [/size][size=2] SIZE=2 [/size][size=1] SIZE=1 [/size]
+Основной размер текста поста (должен быть чуть больше SIZE=1)
+
+[size=5]Текст [color=royalblue]одного [color=coral]размера[/color][/color][/size]
+
+[color=black]Black[/color][color=white] white [/color] [color=skyblue] skyblue [/color][color=royalblue] royalblue [/color][color=blue] blue [/color][color=darkblue] darkblue [/color][color=orange] orange [/color][color=orangered] orangered [/color][color=crimson] crimson [/color][color=red] red [/color][color=darkred] darkred [/color][color=green] green [/color][color=limegreen] limegreen [/color][color=seagreen] seagreen [/color][color=deeppink] deeppink [/color][color=tomato] tomato [/color][color=coral] coral [/color][color=purple] purple [/color][color=indigo] indigo [/color][color=burlywood] burlywood [/color][color=sandybrown][/color][color=sienna] sienna [/color][color=chocolate] chocolate [/color][color=teal] teal [/color][color=silver] silver [/color]
+
+[url="Http://ssilka.test/ne_kuda_ne_vedet"]Http://ssilka.test/ne_kuda_ne_vedet[/url]
+
+[list][*]Обычный текст 
+[*][b]Жирный текст[/b]
+[*][b][i]Жирный наклонный[/i][/b]
+[*][i]Наклонный[/i]
+[list=1][*][offtop]Оффтоп[/offtop]
+[*][u]Подчеркнутый[/u]
+[*][sub]Нижний регистр[/sub]
+[*][sup]Верхний регистр[/sup][/list][/list]
+[left]Текст слева[/left][center]Текст по центру[/center][right]Текст справа[/right]
+
+[b]Список с блоками[/b][list]
+[*][quote]содержимое блока цитаты[/quote]
+[*][offtop]содержимое блока оффтопа[/offtop]
+[*][code]содержимое блока кода[/code]
+[*][hide]содержимое  блока скрытого текста[/hide]
+[/list]
+
+[offtop]*** OFFTOP ***
+Текст, [url="http://4pda.ru/forum/index.php?showtopic=541046"]ссылка[/url], снова текст...
+[snapback]12345678[/snapback] [b]snapback[/b]
+[quote name="Name" date="00.00.0000" post=28827885]Содержимое цитаты :offtopic:
+[spoiler]
+Содержимое спойлера
+[/spoiler][/quote][/offtop]
+
+[snapback]12345678[/snapback] [b]snapback[/b]
+[snapback]12345678[/snapback] [b]snapback[/b]
+
+[anchor]test[/anchor] Якорь
+
+[spoiler=якорь в спойлере]
+[anchor]testspoil[/anchor]
+[attachment="7692813:attach_image.png"]
+[/spoiler]
+
+[quote name="Name" date="00.00.0000" post=28827885]Цитата
+[spoiler]
+-
+-
+-
+[/spoiler][/quote]
+[code] .poll {
+margin: 0.2rem 0;
+}
+.poll .hidetop {
+background: #E4EAF2;
+border-right: 1px dotted #4373C3;
+color: #000;
+font-weight: bold;
+font-size: 100%;
+padding: 0.2em;
+margin: 3px 0px;
+text-align: center;
+margin: 0 !important;
+height: 1.6rem;
+line-height: 1.6rem;
+border-top: 1px dotted #4373C3;
+}
+.poll .hidetop b {
+position: relative;
+font-size: 1.2rem;
+}
+.poll .hidetop b {
+position: relative;
+top: 0;
+}
+.poll .hidemain {
+padding: 0;
+margin: 1px 0 0 !important;
+overflow-x: auto;
+}
+.poll .hidemain form > .ipbtable {
+display: table-block;
+border-spacing: 0;
+width: 100%;
+background: #ddecff;
+}
+.poll .hidemain form > .ipbtable > tbody {
+border-spacing: 0;
+}
+.poll .hidemain form > .ipbtable > tbody > tr {
+display: block;
+}
+.poll .hidemain form > .ipbtable > tbody > tr:first-child {
+display: block;
+margin: 0;
+padding: 0.2rem;
+color: #2e4f86;
+border-top: 0.1rem solid white;
+border-bottom: 0.1rem solid #4373c3;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #b2e8ff), color-stop(80%, #94caf4));
+}
+.poll .hidemain form > .ipbtable > tbody > tr td[align="center"] {
+display: block;
+padding: 0.3rem 0;
+margin: 0 !important;
+color: black;
+border-top: 1px solid white;
+border-bottom: 1px solid white;
+background: #ddecff;
+}
+.poll .hidemain form > .ipbtable > tbody > tr .formbuttonrow {
+display: block;
+padding: 0.3rem 0;
+color: black;
+text-align: center;
+border-top: 1px solid #4373c3;
+background: #ddecff;
+}
+.poll .hidemain form > .ipbtable > tbody > tr .formbuttonrow .button {
+display: inline-block;
+padding: 0.2rem 0.5rem;
+border: 1px solid #4373c3;
+background: #ebeff5;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 {
+display: block;
+border-top: 0.1rem solid white;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap {
+display: block;
+margin: 0.3rem 0;
+padding: 0;
+border: 1px solid #4373c3;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .row1 {
+display: block;
+color: black;
+padding: 0.4rem 0.5rem;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable {
+width: 100%;
+background: #f0f7ff;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable tbody tr .post2 {
+color: black;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable tbody tr .post2 img {
+border: 1px solid #3b5377;
+height: 0 !important;
+padding: 0.35rem 0;
+margin-top: -0.2em;
+vertical-align: middle;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #89b9ff), color-stop(25%, #4d7dcd), color-stop(80%, #75a5f5), color-stop(100%, #4373c3));
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable tbody tr .post2 img:first-child,
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable tbody tr .post2 img:last-child {
+display: none;
+}
+.poll .hidemain form > .ipbtable > tbody tr > .row1 > .borderwrap .ipbtable tbody tr .post2 .radiobutton ~ b {
+position: relative;
+top: 0.15rem;
+} [/code]
+[hide]Скрытый Текст[/hide]
+
+[spoiler=Spoiler - Матрёшка][spoiler=Spoiler 1][spoiler=Spoiler 2][spoiler=Spoiler 3][spoiler=Spoiler 4] [cur] Тест [/cur] [/spoiler][/spoiler][/spoiler][/spoiler][/spoiler]
+
+[cur][spoiler=спойлер][/spoiler][quote]цитата[/quote][hide]скрытый текст[/hide][code]код[/code][/cur]
+[spoiler=Картинка в двух спойлерах][spoiler][attachment="7692762:AoynvvQaY1g.jpg"][/spoiler][/spoiler]
+[attachment="7692813:attach_image.png"][attachment="7692813:attach_image.png"]
+
+[url="anchor=test"]ссылка на якорь[/url]
+
+[url="anchor=testspoil"]ссылка на якорь в спойлере[/url]
+				-->
+			</div>
+			<div class="convert_btn">
+				<button onclick="bbToHtml()">Показать результат</button>
+			</div>
+		</div>
+		<div class="posts_list">
+			<div name="entry12345678" class="jump" id="entry12345678"></div>
+			<div class="post_container active" name="del12345678">
+				<div class="post_header">
+					<div class="header_wrapper">
+						<div class="avatar " onclick="">
+							<div class="img" style="background-image:url(/img/src/av.png);"></div>
+						</div><a class="inf nick online" onclick=""><span><b>Ник</b></span></a>
+						<div class="inf group"><span style="">Группа пользователя</span></div><a class="inf reputation" onclick=""><span>0000</span></a>
+						<div class="date-link"><span class="inf date"><span>00.00.00, 00:00</span></span><a class="inf link" onclick="alert('Кнопка работает...');"><span><span class="sharp">#</span>00</span></a></div><a class="inf menu" onclick=""><span>Меню</span></a></div>
+				</div>
+				<div class="post_body "></div>
+				<div class="post_footer"><a class="link button claim" href=""><span>Жалоба</span></a><a class="button nick" onclick=""><span>Ник</span></a><a class="button quote" onclick=""><span>Цитата</span></a><a class="button edit" id="edit-but-12345678" href=""><span>Изменить</span></a><a class="button delete" href=""><span>Удалить</span></a></div>
+				<div class="between_messages"></div>
+			</div>
+		</div>
+	</body>
+</html>

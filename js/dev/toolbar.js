@@ -12,7 +12,8 @@ devToolBarStyle.innerHTML = 'body {\
 }\
 #dev_toolbar {\
 	border-top: 1px solid white;\
-	background-color: #202020;\
+	opacity: 1;\
+	background-color: rgb(10,10,10);\
 }\
 #dev_toolbar .button {\
 	display: inline-block;\
@@ -70,7 +71,8 @@ function toolBarHide() {
 		text-align: center;\
 		outline: 1px solid white;\
 		color: white;\
-		background:#222222;\
+		opacity: 0.5;\
+		background:rgb(128,128,128);\
 		z-index:999;";
 		body.appendChild(toolBarHideButton);
 		

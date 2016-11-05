@@ -15,7 +15,7 @@
 	z-index:9999;\
 	overflow:hidden;\
 	text-align: left;\
-	background:#222!important;\
+	background:rgb(128,128,128)!important;\
 	color:#fff!important;\
 	padding:0!important;\
 	margin:0!important;\
@@ -24,6 +24,7 @@
 	-moz-box-shadow: 0 3px 3px rgba(0,0,0,0.3);\
 	-webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.3);\
 	box-shadow: 0 3px 3px rgba(0,0,0,0.3);\
+	opacity: 0.5;\
 	* {font-size: 16px !important;}\
 	input,button{\
 		-moz-box-sizing:border-box;\
@@ -96,6 +97,8 @@
 		width:auto;\
 		left:0;\
 		display:block;\
+		opacity:1;\
+		background:rgb(10,10,10)!important;\
 		#dev-content {\
 			display:block;\
 			h1 {\

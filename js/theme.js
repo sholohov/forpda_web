@@ -1,7 +1,7 @@
 /* CLOSE \ OPEN BLOCKS */
 
 function blocksOpenClose() {
-	var blockTitleAll = document.querySelectorAll('.post-block.spoil>.block-title,.post-block.code>.block-title'),
+	var blockTitleAll = document.querySelectorAll('.post-block>.block-title'),
 		bt;
 
 	if (!blockTitleAll[0]) return;
@@ -20,13 +20,14 @@ function blocksOpenClose() {
 			var target = event.target || event.srcElement;
 			return {e: event, t: target};
 		}
-		if (p.classList.contains('spoil')) toggler("close", "open");
+		if (p.classList.contains('spoil') || p.classList.contains('header')) toggler("close", "open");
 		if (p.classList.contains('code')) toggler("unbox", "box");
 		function toggler(c, o) {
 			if (p.classList.contains(c)) {
 				p.classList.remove(c);
 				p.classList.add(o);
-			} else if (p.classList.contains(o)) {
+			}
+			else if (p.classList.contains(o)) {
 				p.classList.remove(o);
 				p.classList.add(c);
 			}
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', scrollToAnchor);
 
 /* CODE LINE NUMBERING */
 
-function numberingCodeLinesFoo() {
+function numberingCodeLines() {
 	var codeBlockAll = document.querySelectorAll('.post-block.code');
 	for (var i = 0; i < codeBlockAll.length; i++) {
 		var codeBlock = codeBlockAll[i],
@@ -85,12 +86,13 @@ function numberingCodeLinesFoo() {
 		for (var i = 0; i < codeBlockAll.length; i++) {
 			if (codeBlockAll[i].getAttribute('wraptext') == 'wrap') {
 				codeBlockAll[i].setAttribute('wraptext', 'pre');
-			} else codeBlockAll[i].setAttribute('wraptext', 'wrap');
+			}
+			else codeBlockAll[i].setAttribute('wraptext', 'wrap');
 		}
 	}
 }
 
-document.addEventListener('DOMContentLoaded', numberingCodeLinesFoo);
+document.addEventListener('DOMContentLoaded', numberingCodeLines);
 
 /* HIDE IMAGES IN SPOILER */
 
@@ -155,3 +157,147 @@ window.addEventListener('load', getAttachesFoo);
 function getAttachesFoo() {
 	HTMLOUT.sendPostsAttaches(JSON.stringify(getAttaches()));
 };
+
+/* SELECT ELEMENT TEXT */
+
+function setSelection(target) {
+	alert(target.textContent);
+	var rng, sel;
+	if (document.createRange) {
+		rng = document.createRange();
+		rng.selectNode(target);
+		sel = window.getSelection();
+		sel.removeAllRanges();
+		sel.addRange(rng);
+	}
+	else {
+		var rng = document.body.createTextRange();
+		rng.moveToElementText(target);
+		rng.select();
+	}
+}
+
+/* get selected text */
+
+
+function getSelectedText() {
+	var txt = '';
+	if (window.getSelection) {
+		txt = window.getSelection();
+	} else if (document.getSelection) {
+		txt = document.getSelection();
+	} else if (document.selection) {
+		txt = document.selection.createRange().text;
+	} else return;
+	return txt;
+};
+
+/* BB-Codes */
+
+function changeBBCodesTheme() {
+	if (document.body.id != 'bbcodes') return;
+
+	var head = document.querySelector('head'),
+		lightTheme = head.querySelector('link[rel*="stylesheet"][href*="light"]'),
+		imgAll = document.querySelectorAll('.bb_panel img');
+
+	for (var i = 0; i < imgAll.length; i++) {
+		var img = imgAll[i],
+			theme = '';
+		(lightTheme) ? theme = 'light' : theme = 'dark';
+		img.setAttribute('src', 'img/bbcodes/' + theme + '/' + img.getAttribute('src'));
+	}
+}
+document.addEventListener("DOMContentLoaded", changeBBCodesTheme);
+
+function bbToHtml() {
+	var tex = document.querySelector('.text_form > textarea');
+	var str = tex.value;
+	var post = document.querySelector('.post_body');
+	
+//	var rex = /\[([^\]]+)\]([\s\S]*?)\[\/\1\]/gi;
+//	var result = tex.replace(rex,'<$1>$2</$1>');
+	
+	var bb = [/\n/gi,
+	/\[b\]/gi,/\[\/b\]/gi,
+	/\[i\]/gi,/\[\/i\]/gi,
+	/\[u\]/gi,/\[\/u\]/gi,
+	/\[sup\]/gi,/\[\/sup\]/gi,
+	/\[sub\]/gi,/\[\/sub\]/gi,
+	/\[left\]/gi,/\[\/left\]/gi,
+	/\[center\]/gi,/\[\/center\]/gi,
+	/\[right\]/gi,/\[\/right\]/gi,
+	/\[url[ ="]*([\s\S]*?)["]*\]/gi,/\[\/url\]/gi,
+	/\[quote([^\]]*?)?\]/gi,/\[\/quote\]/gi,
+	/\[offtop\]/gi,/\[\/offtop\]/gi,
+	/\[hide[^\]]?\]/gi,/\[\/hide\]/gi,
+	/\[size=["]*(\d)*?["]*\]/gi,/\[\/size\]/gi,
+	/\[code[ ="]*([\s\S]*?)["]?\]/gi,/\[\/code\]/gi,
+	/\[spoiler[ ="]*([\s\S]*?)["]?\]/gi,/\[\/spoiler\]/gi,
+	/\[color[ ="]*([\s\S]*?)["]?\]/gi,/\[\/color\]/gi,
+	/\[background[ ="]*([\s\S]*?)["]?\]/gi,/\[\/background\]/gi,
+	/\[cur\]/gi,/\[\/cur\]/gi,
+	/\[mod\]/gi,/\[\/mod\]/gi,
+	/\[ex\]/gi,/\[\/ex\]/gi,
+	/\[snapback\](\d)+?\[\/snapback\]/gi,
+	/\[anchor\]([\s\S]*?)\[\/anchor\]/gi,
+	/\[font\]/gi,/\[\/font\]/gi,
+	/\[list[^\]]*?\]/gi,/\[\/list\]/gi,
+	/\[\*\]([\s\S]*?)(?:\[\*\]|\[\/list\])/gi,
+	/\[img\]([\s\S]*?)\[\/img\]/gi,
+	/\[attachment=["]?([\s\S]*?)["]?\]/gi];
+
+	var html = ['<br>',
+	'<b>','</b>',
+	'<i>','</i>',
+	'<u>','</u>',
+	'<sup>','</sup>',
+	'<sub>','</sub>',
+	'<div align="left">','</div>',
+	'<div align="center">','</div>',
+	'<div align="right">','</div>',
+	'<a href="$1">','</a>',
+	'<div class="post-block quote"><div class="block-title">$1</div><div class="block-body">','</div></div>',
+	'<font style="font-size:9px;color:gray;">','</font>',
+	'<div class="post-block hidden"><div class="block-title"></div><div class="block-body">','</div></div>',
+	'<span style="font-size:$1">','</span>',
+	'<div class="post-block code box"><div class="block-title">$1</div><div class="block-body">','</div></div>',
+	'<div class="post-block spoil close"><div class="block-title">$1</div><div class="block-body">','</div></div>',
+	'<span style="color:$1">','</span>',
+	'<span style="background-color:$1">','</span>',
+	'<div class="post-block tbl cur"><div class="block-title">K</div><div class="block-body">','</div></div>',
+	'<div class="post-block tbl mod"><div class="block-title">M</div><div class="block-body">','</div></div>',
+	'<div class="post-block tbl ex"><div class="block-title">!</div><div class="block-body">','</div></div>',
+	'<a href="/forum/index.php?act=findpost&amp;pid=$1" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>',
+	'<a name="$1" title="$1"></a>',
+	'<span style="font-family:$1">','</span>',
+	'<ul>','</ul>',
+	'<li>$1</li>',
+	'<img alt="Изображение" src="$1">',
+	'<div><strong><span class="edit">Прикреплённый файл</span></strong></div><br><span>example.exe</span><br><br>'];
+	
+	var bbCodesfontSize = ['0', '8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt'];
+	
+	for (var i = 0; i < bb.length; i++) {
+		str = str.replace(bb[i], html[i]);
+	}
+	post.innerHTML = str;
+	blocksOpenClose();
+	numberingCodeLines();
+}
+
+function bbCodesSelect() {
+	document.querySelector('.bb_panel').addEventListener('click',clickBtn);
+	function clickBtn(event) {
+		var event = event || window.event;
+		var target = event.target || event.srcElement;
+		while (target != this) {
+			if (target.classList.contains('button')) {
+				alert(getSelectedText());
+				return;
+			}
+			target = target.parentNode;
+		}
+	}
+}
+document.addEventListener('DOMContentLoaded',bbCodesSelect);

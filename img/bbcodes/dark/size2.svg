@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sb="http://simplector.lyoshka.net/base/2.0"
+   xmlns:sp="http://simplector.lyoshka.net/pro/2.0"
+   width="24.0px"
+   height="24.0px"
+   viewBox="0 0 24.0 24.0"
+   sb:fontSize="Custom"
+   sb:pageOrientation="Portrait"
+   version="1.1"
+   sb:version="2.0.19"
+   >
+   <desc>Created in Simplector Pro</desc>
+   <g
+      id="83"
+
+      sb:layerName="TextFigure-82"
+      sb:layerVisible="true"
+      sb:layerLocked="false"
+      >
+      <path
+         id="84"
+         transform="matrix(0.00883856,0.0,0.0,-0.009355707,3.3495355,17.803528)"
+         fill="rgb(0,0,0)"
+         fill-opacity="1.0"
+         stroke-width="91.42857"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         stroke-miterlimit="2.0"
+         stroke="rgb(0,0,0)"
+         stroke-opacity="0.0"
+         d="
+         M 866.0 406.54614 Q 864.1692 460.43347 800.4794 523.4774 T 645.0 611.0 Q 380.0 687.0 228.88882 809.4403 
+         T 73.59393 1101.803 Q 83.06287 1256.8024 249.3887 1362.3887 T 661.0 1477.0 Q 906.0 1477.0 1055.0 1351.0 
+         T 1204.9999 1047.866 L 866.0 1047.866 Q 876.04407 1152.0104 809.6074 1206.082 T 638.6769 1260.7996 
+         Q 537.0 1255.0 474.0 1204.0 T 411.0 1070.0 Q 411.0 994.0 478.0 948.0 T 716.0 848.0 
+         Q 961.0 779.0 1083.0 672.0 T 1205.0 382.0 Q 1205.0 191.0 1060.0 85.0 T 668.0 -21.0 
+         Q 425.0 -21.0 250.0 100.0 T 75.00003 406.54614 L 413.99997 406.54614 Q 423.34592 308.03552 481.98453 254.79199 
+         T 639.8518 189.98254 Q 753.635 201.13574 809.1029 248.90442 T 867.5951 403.73474 
+         
+         "
+
+         sb:layerName="unit-0 (S)"
+         sb:layerVisible="true"
+         sb:layerLocked="false"
+         sb:pathType="path"
+         >
+      </path>
+   </g>
+   <rect
+      id="85"
+      fill="rgb(0,0,0)"
+      fill-opacity="1.0"
+      stroke-width="1.0"
+      stroke-linecap="butt"
+      stroke-linejoin="miter"
+      stroke-miterlimit="2.0"
+      stroke="rgb(0,0,0)"
+      stroke-opacity="0.0"
+      x="17.0"
+      y="5.0"
+      width="3.0"
+      height="12.0"
+      rx="0.0"
+      ry="0.0"
+
+      sb:layerName="RectFigure-85"
+      sb:layerVisible="true"
+      sb:layerLocked="false"
+      >
+   </rect>
+</svg>

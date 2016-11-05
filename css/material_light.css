@@ -371,18 +371,18 @@ span[style*="font-size:8pt"] * {
 /*
 *	ADM TAGS
 */
-.cur > .block-title {
+.post-block.cur > .block-title {
   background: #009600;
 }
-.mod > .block-title {
+.post-block.mod > .block-title {
   background: #0096e1;
 }
-.ex > .block-title {
+.post-block.ex > .block-title {
   background: #e14628;
 }
-.cur,
-.mod,
-.ex {
+.post-block.cur,
+.post-block.mod,
+.post-block.ex {
   margin: 1rem 0;
   display: table;
   width: 100%;
@@ -390,9 +390,9 @@ span[style*="font-size:8pt"] * {
   overflow: hidden;
   border-radius: 0.125rem;
 }
-.cur > .block-title,
-.mod > .block-title,
-.ex > .block-title {
+.post-block.cur > .block-title,
+.post-block.mod > .block-title,
+.post-block.ex > .block-title {
   display: table-cell;
   vertical-align: middle;
   color: white;
@@ -402,9 +402,9 @@ span[style*="font-size:8pt"] * {
   font-size: 3rem;
   border-radius: 0;
 }
-.cur > .block-body,
-.mod > .block-body,
-.ex > .block-body {
+.post-block.cur > .block-body,
+.post-block.mod > .block-body,
+.post-block.ex > .block-body {
   display: table-cell;
   vertical-align: middle;
   text-align: left;
@@ -3070,3 +3070,61 @@ img[src*="style_emoticons"] {
   margin: 0.5rem;
 }
 
+/* BB-Codes */
+#bbcodes {
+	margin: 0;
+	padding: 0;
+}
+.bb_codes_editor {}
+.bb_panel {
+	display: block;
+	margin: 1rem auto;
+	white-space: nowrap;
+	overflow-x: auto;
+	text-align: center;
+}
+.bb_panel span {
+	display: inline-block;
+	margin: 0 -0.125rem -0.25rem;
+	padding: 12px;
+	cursor: pointer;
+}
+.bb_panel span img {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+.bb_codes_editor .text_form {
+	margin: 1rem 0.5rem;
+	overflow: hidden;
+	border-radius: 2px;
+}
+.bb_codes_editor .text_form textarea {
+	display: block;
+	padding: 8px;
+	box-sizing: border-box;
+	width: 100%;
+	font-family: 'roboto mono';
+	font-size: 1rem;
+	border: none;
+	outline: none;
+	background-color: white;
+}
+.bb_codes_editor .convert_btn {
+	display: block;
+	margin: 1rem 0.5rem;
+}
+.bb_codes_editor .convert_btn button {
+	width: 100%;
+	padding: 8px;
+	font-weight: bold;
+	opacity: 1;
+	border-radius: 2px;
+	text-transform: uppercase;
+	border: none;
+	outline: none;
+	background-color: rgba(128,128,128,0.25);
+}
+.bb_codes_editor .convert_btn button:active {
+	opacity: 0.5;
+}

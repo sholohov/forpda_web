@@ -3078,12 +3078,12 @@ img[src*="style_emoticons"] {
 .bb_codes_editor {}
 .bb_panel {
 	display: block;
-	margin: 1rem auto;
+	margin: auto;
 	white-space: nowrap;
 	overflow-x: auto;
 	text-align: center;
 }
-.bb_panel span {
+.bb_panel .btn {
 	display: inline-block;
 	margin: 0 -0.125rem -0.25rem;
 	padding: 12px;
@@ -3095,7 +3095,7 @@ img[src*="style_emoticons"] {
 	height: 24px;
 }
 .bb_codes_editor .text_form {
-	margin: 1rem 0.5rem;
+	margin: 0 0.5rem;
 	overflow: hidden;
 	border-radius: 2px;
 }

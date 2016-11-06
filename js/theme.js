@@ -161,7 +161,6 @@ function getAttachesFoo() {
 /* SELECT ELEMENT TEXT */
 
 function setSelection(target) {
-	alert(target.textContent);
 	var rng, sel;
 	if (document.createRange) {
 		rng = document.createRange();
@@ -177,18 +176,21 @@ function setSelection(target) {
 	}
 }
 
-/* get selected text */
+/* GET SELECTED TEXT */
 
 
 function getSelectedText() {
 	var txt = '';
 	if (window.getSelection) {
 		txt = window.getSelection();
-	} else if (document.getSelection) {
+	}
+	else if (document.getSelection) {
 		txt = document.getSelection();
-	} else if (document.selection) {
+	}
+	else if (document.selection) {
 		txt = document.selection.createRange().text;
-	} else return;
+	}
+	else return;
 	return txt;
 };
 
@@ -214,90 +216,114 @@ function bbToHtml() {
 	var tex = document.querySelector('.text_form > textarea');
 	var str = tex.value;
 	var post = document.querySelector('.post_body');
-	
+	var unit = ['16px','8pt','10pt','12pt','14pt','18pt','24pt','36pt'];
+	var openTag = /\[([^\]]+)\]/gi;
+	var closeTag = /\[\/([^\]]+)\]/gi;
+	var jjj = [];
+	function fontSize(num) {
+		jjj.push(num);
+	}
+
+//	for (var i = 0; i < .length; i++) {
+
+//	}
+
 //	var rex = /\[([^\]]+)\]([\s\S]*?)\[\/\1\]/gi;
+
 //	var result = tex.replace(rex,'<$1>$2</$1>');
-	
+
 	var bb = [/\n/gi,
-	/\[b\]/gi,/\[\/b\]/gi,
-	/\[i\]/gi,/\[\/i\]/gi,
-	/\[u\]/gi,/\[\/u\]/gi,
-	/\[sup\]/gi,/\[\/sup\]/gi,
-	/\[sub\]/gi,/\[\/sub\]/gi,
-	/\[left\]/gi,/\[\/left\]/gi,
-	/\[center\]/gi,/\[\/center\]/gi,
-	/\[right\]/gi,/\[\/right\]/gi,
-	/\[url[ ="]*([\s\S]*?)["]*\]/gi,/\[\/url\]/gi,
-	/\[quote([^\]]*?)?\]/gi,/\[\/quote\]/gi,
-	/\[offtop\]/gi,/\[\/offtop\]/gi,
-	/\[hide[^\]]?\]/gi,/\[\/hide\]/gi,
-	/\[size=["]*(\d)*?["]*\]/gi,/\[\/size\]/gi,
-	/\[code[ ="]*([\s\S]*?)["]?\]/gi,/\[\/code\]/gi,
-	/\[spoiler[ ="]*([\s\S]*?)["]?\]/gi,/\[\/spoiler\]/gi,
-	/\[color[ ="]*([\s\S]*?)["]?\]/gi,/\[\/color\]/gi,
-	/\[background[ ="]*([\s\S]*?)["]?\]/gi,/\[\/background\]/gi,
-	/\[cur\]/gi,/\[\/cur\]/gi,
-	/\[mod\]/gi,/\[\/mod\]/gi,
-	/\[ex\]/gi,/\[\/ex\]/gi,
-	/\[snapback\](\d)+?\[\/snapback\]/gi,
-	/\[anchor\]([\s\S]*?)\[\/anchor\]/gi,
-	/\[font\]/gi,/\[\/font\]/gi,
-	/\[list[^\]]*?\]/gi,/\[\/list\]/gi,
-	/\[\*\]([\s\S]*?)(?:\[\*\]|\[\/list\])/gi,
-	/\[img\]([\s\S]*?)\[\/img\]/gi,
-	/\[attachment=["]?([\s\S]*?)["]?\]/gi];
+		/\[b\]([\s\S]*?)\[\/b\]/gi,
+		/\[i\]([\s\S]*?)\[\/i\]/gi,
+		/\[u\]([\s\S]*?)\[\/u\]/gi,
+		/\[s\]([\s\S]*?)\[\/s\]/gi,
+		/\[sup\]([\s\S]*?)\[\/sup\]/gi,
+		/\[sub\]([\s\S]*?)\[\/sub\]/gi,
+		/\[left\]([\s\S]*?)\[\/left\]/gi,
+		/\[center\]([\s\S]*?)\[\/center\]/gi,
+		/\[right\]([\s\S]*?)\[\/right\]/gi,
+		/\[url[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/url\]/gi,
+		/\[offtop\]([\s\S]*?)\[\/offtop\]/gi,
+		/\[size[ ="]*(\d)*?["]?\]([\s\S]*?)\[\/size\]/gi,
+		/\[color[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/color\]/gi,
+		/\[background[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/background\]/gi,
+		/\[snapback\](\d)+?\[\/snapback\]/gi,
+		/\[anchor\]([\s\S]*?)\[\/anchor\]/gi,
+		/\[font\]([\s\S]*?)\[\/font\]/gi,
+		/\[\*\]/gi,
+		/\[list\]([\s\S]*?)\[\/list\]/gi,
+		/\[list[ ]?=["]?1["]?\]([\s\S]*?)\[\/list\]/gi,
+		/\[img\]([\s\S]*?)\[\/img\]/gi,
+		/\[attachment=["]?\d*:([\s\S]*?)["]?\]/gi,
+		/\[quote([^\]]*?)?\]([\s\S]*?)\[\/quote\]/gi,
+		/\[code[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/code\]/gi,
+		/\[spoiler[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/spoiler\]/gi,
+		/\[hide[^\]]*?\]([\s\S]*?)\[\/hide\]/gi,
+		/\[cur\]([\s\S]*?)\[\/cur\]/gi,
+		/\[mod\]([\s\S]*?)\[\/mod\]/gi,
+		/\[ex\]([\s\S]*?)\[\/ex\]/gi];
 
 	var html = ['<br>',
-	'<b>','</b>',
-	'<i>','</i>',
-	'<u>','</u>',
-	'<sup>','</sup>',
-	'<sub>','</sub>',
-	'<div align="left">','</div>',
-	'<div align="center">','</div>',
-	'<div align="right">','</div>',
-	'<a href="$1">','</a>',
-	'<div class="post-block quote"><div class="block-title">$1</div><div class="block-body">','</div></div>',
-	'<font style="font-size:9px;color:gray;">','</font>',
-	'<div class="post-block hidden"><div class="block-title"></div><div class="block-body">','</div></div>',
-	'<span style="font-size:$1">','</span>',
-	'<div class="post-block code box"><div class="block-title">$1</div><div class="block-body">','</div></div>',
-	'<div class="post-block spoil close"><div class="block-title">$1</div><div class="block-body">','</div></div>',
-	'<span style="color:$1">','</span>',
-	'<span style="background-color:$1">','</span>',
-	'<div class="post-block tbl cur"><div class="block-title">K</div><div class="block-body">','</div></div>',
-	'<div class="post-block tbl mod"><div class="block-title">M</div><div class="block-body">','</div></div>',
-	'<div class="post-block tbl ex"><div class="block-title">!</div><div class="block-body">','</div></div>',
-	'<a href="/forum/index.php?act=findpost&amp;pid=$1" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>',
-	'<a name="$1" title="$1"></a>',
-	'<span style="font-family:$1">','</span>',
-	'<ul>','</ul>',
-	'<li>$1</li>',
-	'<img alt="Изображение" src="$1">',
-	'<div><strong><span class="edit">Прикреплённый файл</span></strong></div><br><span>example.exe</span><br><br>'];
+		'<b>$1</b>',
+		'<i>$1</i>',
+		'<u>$1</u>',
+		'<del>$1</del>',
+		'<sup>$1</sup>',
+		'<sub>$1</sub>',
+		'<div align="left">$1</div>',
+		'<div align="center">$1</div>',
+		'<div align="right">$1</div>',
+		'<a href="$1">$1</a>',
+		'<font style="font-size:9px;color:gray;">$1</font>',
+		'<span style="font-size:$1">$2</span>',
+		'<span style="color:$1">$2</span>',
+		'<span style="background-color:$1">$2</span>',
+		'<a href="/forum/index.php?act=findpost&amp;pid=$1" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>',
+		'<a name="$1" title="$1"></a>',
+		'<span style="font-family:$1">$2</span>',
+		'<li>',
+		'<ul>$1</ul>',
+		'<ol>$1</ol>',
+		'<img alt="Изображение" src="$1">',
+		'<a attach_id="12345678" s="" href="" data-rel="lyteframe" rev="width:728px;height:628px;scrolling:no;" title="Скачать $1" target="_blank"><img src="http://s.4pda.to/rPN7Bp5p2BENcUkIowGTdSc4Dcz27s13tNLLWGXkIuwv6XCUfsN4vOBXz22SsgUjvk.gif" alt="Прикрепленный файл" style="margin-right:3px;">$1</a> ( 0 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>',
+		'<div class="post-block quote"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
+		'<div class="post-block code box"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
+		'<div class="post-block spoil close"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
+		'<div class="post-block hidden"><div class="block-title"></div><div class="block-body">$1</div></div>',
+		'<div class="post-block tbl cur"><div class="block-title">K</div><div class="block-body">$1</div></div>',
+		'<div class="post-block tbl mod"><div class="block-title">M</div><div class="block-body">$1</div></div>',
+		'<div class="post-block tbl ex"><div class="block-title">!</div><div class="block-body">$1</div></div>'];
 	
-	var bbCodesfontSize = ['0', '8pt', '10pt', '12pt', '14pt', '18pt', '24pt', '36pt'];
-	
-	for (var i = 0; i < bb.length; i++) {
-		str = str.replace(bb[i], html[i]);
+	var rex = /\[[^\]]*?\]|\[\/[^\]]*?]/gi;
+	while (rex.test(str)) {
+		for (var i = 0; i < bb.length; i++) {
+			str = str.replace(bb[i], html[i]);
+		}
 	}
+	
 	post.innerHTML = str;
 	blocksOpenClose();
 	numberingCodeLines();
+	alert(jjj);
 }
 
-function bbCodesSelect() {
-	document.querySelector('.bb_panel').addEventListener('click',clickBtn);
-	function clickBtn(event) {
-		var event = event || window.event;
-		var target = event.target || event.srcElement;
-		while (target != this) {
-			if (target.classList.contains('button')) {
-				alert(getSelectedText());
-				return;
-			}
-			target = target.parentNode;
+var newSel;
+function bbCode(openTag, closeTag) {
+    var textComponent = document.getElementById('text');
+	var sel;
+	var bbStr = openTag + closeTag;
+	if (textComponent.selectionStart != undefined) {
+        textComponent.focus();
+        var startPos = textComponent.selectionStart;
+        var endPos = textComponent.selectionEnd;
+		if (startPos != endPos) {
+			sel = textComponent.value.substring(startPos, endPos);
+			newSel = openTag + sel + closeTag;
+			textComponent.value = textComponent.value.substr(0, startPos) + newSel + textComponent.value.substr(endPos);
+			textComponent.setSelectionRange(startPos,endPos+bbStr.length);
 		}
-	}
+		else {
+			alert("Текст не выделен");
+		}
+    }
 }
-document.addEventListener('DOMContentLoaded',bbCodesSelect);

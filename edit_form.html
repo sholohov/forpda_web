@@ -16,31 +16,31 @@
 		<script type="text/javascript" src="/js/less-dev.js"></script>
 		<div class="bb_codes_editor">
 			<div class="bb_panel">
-				<span class="button bold"><img src="bold.svg"></span>
-				<span class="button italic"><img src="italic.svg"></span>
-				<span class="button underline"><img src="underline.svg"></span>
-				<span class="button strikethrough"><img src="strikethrough.svg"></span>
-				<span class="button sub"><img src="sub.svg"></span>
-				<span class="button sup"><img src="sup.svg"></span>
-				<span class="button align_left"><img src="align_left.svg"></span>
-				<span class="button align_center"><img src="align_center.svg"></span>
-				<span class="button align_right"><img src="align_right.svg"></span>
-				<span class="button link"><img src="link.svg"></span>
-				<span class="button quote"><img src="quote.svg"></span>
-				<span class="button offtop"><img src="offtop.svg"></span>
-				<span class="button code"><img src="code.svg"></span>
-				<span class="button spoiler"><img src="spoiler.svg"></span>
-				<span class="button hide"><img src="hide.svg"></span>
-				<span class="button list_numbered"><img src="list_numbered.svg"></span>
-				<span class="button list_bulleted"><img src="list_bulleted.svg"></span>
-				<span class="button color_text"><img src="color_text.svg"></span>
-				<span class="button color_fill"><img src="color_fill.svg"></span>
-				<span class="button size"><img src="size.svg"></span>
-				<span class="button cur"><img src="cur.svg"></span>
+				<span class="btn bold" onclick="bbCode('[B]','[/B]')"><img src="bold.svg"></span>
+				<span class="btn italic" onclick="bbCode('[I]','[/I]')"><img src="italic.svg"></span>
+				<span class="btn underline" onclick="bbCode('[U]','[/U]')"><img src="underline.svg"></span>
+				<span class="btn strikethrough" onclick="bbCode('[S]','[/S]')"><img src="strikethrough.svg"></span>
+				<span class="btn sub" onclick="bbCode('[SUB]','[/SUB]')"><img src="sub.svg"></span>
+				<span class="btn sup" onclick="bbCode('[SUP]','[/SUP]')"><img src="sup.svg"></span>
+				<span class="btn align_left" onclick="bbCode('[LEFT]','[/LEFT]')"><img src="align_left.svg"></span>
+				<span class="btn align_center" onclick="bbCode('[CENTER]','[/CENTER]')"><img src="align_center.svg"></span>
+				<span class="btn align_right" onclick="bbCode('[RIGHT]','[/RIGHT]')"><img src="align_right.svg"></span>
+				<span class="btn link" onclick="bbCode('[URL]','[/URL]')"><img src="link.svg"></span>
+				<span class="btn quote" onclick="bbCode('[QUOTE]','[/QUOTE]')"><img src="quote.svg"></span>
+				<span class="btn offtop" onclick="bbCode('[OFFTOP]','[/OFFTOP]')"><img src="offtop.svg"></span>
+				<span class="btn code" onclick="bbCode('[CODE]','[/CODE]')"><img src="code.svg"></span>
+				<span class="btn spoiler" onclick="bbCode('[SPOILER]','[/SPOILER]')"><img src="spoiler.svg"></span>
+				<span class="btn hide" onclick="bbCode('[HIDE]','[/HIDE]')"><img src="hide.svg"></span>
+				<span class="btn list_numbered" onclick="bbCode('[LIST=1][*]','[/LIST]')"><img src="list_numbered.svg"></span>
+				<span class="btn list_bulleted" onclick="bbCode('[LIST][*]','[/LIST]')"><img src="list_bulleted.svg"></span>
+				<span class="btn color_text" onclick="bbCode('[COLOR]','[/COLOR]')"><img src="color_text.svg"></span>
+				<span class="btn color_fill" onclick="bbCode('[BACKGROUND]','[/BACKGROUND]')"><img src="color_fill.svg"></span>
+				<span class="btn size" onclick="bbCode('[SIZE]','[/SIZE]')"><img src="size.svg"></span>
+				<span class="btn cur" onclick="bbCode('[CUR]','[/CUR]')"><img src="cur.svg"></span>
 			</div>
 			<div class="text_form">
-				<textarea rows="17" placeholder="Введите текст"></textarea>
-<!--[center] [size=5]~ Тестовый Пост (ТП) ~[/size] [/center]
+				<textarea id="text" rows="17" onMouseUp="copySelection();" placeholder="Введите текст">
+[center] [size=5]~ Тестовый Пост (ТП) ~[/size] [/center]
 
 
 [size=7] SIZE=7 [/size][size=6] SIZE=6 [/size][size=5] SIZE=5 [/size][size=4] SIZE=4 [/size][size=3] SIZE=3 [/size][size=2] SIZE=2 [/size][size=1] SIZE=1 [/size]
@@ -216,7 +216,7 @@ top: 0.15rem;
 [url="anchor=test"]ссылка на якорь[/url]
 
 [url="anchor=testspoil"]ссылка на якорь в спойлере[/url]
-				-->
+				</textarea>
 			</div>
 			<div class="convert_btn">
 				<button onclick="bbToHtml()">Показать результат</button>

@@ -3082,6 +3082,7 @@ img[src*="style_emoticons"] {
 	white-space: nowrap;
 	overflow-x: auto;
 	text-align: center;
+	background-color: rgb(235,235,235);
 }
 .bb_panel .btn {
 	display: inline-block;

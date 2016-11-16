@@ -1,8 +1,12 @@
+// change bb-codes buttons theme
+// lite or dark(all else)
+// value get from style name  
 function changeBBCodesTheme() {
+	textComponent = document.getElementById('text');
 	if (document.body.id != 'bbcodes') return;
 
 	var head = document.querySelector('head'),
-		lightTheme = head.querySelector('link[rel*="stylesheet"][href*="light"]'),
+		lightTheme = document.querySelector('link[rel*="stylesheet"][href*="light"]' || 'link[rel*="stylesheet"][href*="white"]'),
 		imgAll = document.querySelectorAll('.bb_panel img');
 
 	for (var i = 0; i < imgAll.length; i++) {
@@ -11,10 +15,101 @@ function changeBBCodesTheme() {
 		(lightTheme) ? theme = 'light' : theme = 'dark';
 		img.setAttribute('src', 'img/bbcodes/' + theme + '/' + img.getAttribute('src'));
 	}
-	var tex = document.querySelector('.text_form > textarea');
-	tex.addEventListener('click', function() {tex.scrollIntoView();});
 }
 document.addEventListener("DOMContentLoaded", changeBBCodesTheme);
+
+var customDialogOBJ = {
+	tag: '',
+	type: '',
+	text: ''
+};
+
+function bbDialog(tagName) {
+	customDialogOBJ.tag = tagName;
+
+	if (tagName == 'URL') createDialog('URL адрес', 'http://site.com', 'all');
+	if (tagName == 'SPOILER') createDialog('Название спойлера', 'Спойлер', 'all');
+	if (tagName == 'SIZE') createDialog('Размер текста', 'Число от 1 до 7', 'all');
+	if (tagName == 'LIST' || tagName == 'LIST=1') createDialog('Название пункта списка', 'Пункт списка', 'list');
+	if (tagName == 'COLOR') createDialog('Цвет текста', 'royalblue', 'color');
+	if (tagName == 'BACKGROUND') createDialog('Цвет фона', 'grey', 'color');
+}
+
+function createDialog(message, hint, type) {
+	var color = document.querySelector('#color'),
+		prompt = document.querySelector('#prompt');
+
+	customDialogOBJ.type = type;
+
+	if (type == 'list') {
+		bbCode('[' + customDialogOBJ.tag + ']', '[/list]');
+	}
+	if (type == 'all' || type == 'list') {
+		prompt.removeAttribute('style');
+		prompt.querySelector('.title').innerHTML = message;
+		prompt.querySelector('textarea').placeholder = hint;
+		prompt.querySelector('textarea').focus();
+	}
+	if (type == 'color') {
+		color.removeAttribute('style');
+		color.querySelector('.title').innerHTML = message;
+		color.onclick = onClickColorCell;
+		function onClickColorCell(e) {
+			var el = e.target;
+			bbCode('[' + customDialogOBJ.tag + '=' + el.textContent + ']', '[/' + customDialogOBJ.tag + ']');
+			cancelDialog(color);
+		}
+	}
+}
+
+function cancelDialog(el) {
+	while (el != document.body) {
+		if (el.classList.contains('parent_dialog')) {
+			if (el.querySelector('textarea')) el.querySelector('textarea').value = '';
+			el.style.display = 'none';
+			return null;
+		}
+		el = el.parentElement;
+	}
+}
+
+function confirmDialog(el) {
+	var textarea = document.querySelector('#prompt textarea');
+	var text = textarea.value;
+
+	customDialogOBJ.text = text;
+
+	if (customDialogOBJ.type == 'all') {
+		if (text == '') bbCode('[' + customDialogOBJ.tag + ']', '[/' + customDialogOBJ.tag + ']');
+		else if (text == null) bbCode('', '');
+		else bbCode('[' + customDialogOBJ.tag + '=' + text + ']', '[/' + customDialogOBJ.tag + ']');
+		cancelDialog(el);
+	}
+	if (customDialogOBJ.type == 'list') {
+		if (text != '') {
+			bbCode('[*]' + text, '');
+			textarea.focus();
+			textarea.value = '';
+		}
+	}
+}
+
+var newSel;
+function bbCode(openTag, closeTag) {
+	var textComponent = document.getElementById('text'),
+		sel,
+		bbStr = openTag + closeTag,
+		startPos = textComponent.selectionStart,
+		endPos = textComponent.selectionEnd;
+
+	textComponent.focus();
+
+	sel = textComponent.value.substring(startPos, endPos);
+	newSel = openTag + sel + closeTag;
+	textComponent.value = textComponent.value.substr(0, startPos) + newSel + textComponent.value.substr(endPos);
+	if (startPos != endPos) textComponent.setSelectionRange(startPos, endPos + bbStr.length);
+	else textComponent.setSelectionRange(startPos + openTag.length, endPos + openTag.length);
+}
 
 function bbToHtml() {
 	var tex = document.querySelector('.text_form > textarea');
@@ -96,24 +191,34 @@ function bbToHtml() {
 	}
 
 	post.innerHTML = str;
+
+	// reinicialisation functions
 	blocksOpenClose();
 	numberingCodeLines();
+	document.querySelector('div[name="entry12345678"]').scrollIntoView();
 }
 
-var newSel;
-function bbCode(openTag, closeTag) {
-    var textComponent = document.getElementById('text'),
-		sel,
-		bbStr = openTag + closeTag,
-		startPos = textComponent.selectionStart,
-		endPos = textComponent.selectionEnd;
+// save content textarea
+document.addEventListener('DOMContentLoaded', repastTextareaContent);
+function repastTextareaContent() {
+	var textarea = document.querySelector('#text');
+	window.addEventListener('resize', windowLoaded);
+	function windowLoaded() {
+		var innerText = textarea.value;
+		textarea.value = innerText;
+	}
+}
 
-	textComponent.focus();
+// hak for android 4.4.2 - not rerun css property vh after resize window
+window.addEventListener('resize', changeBodyHeight);
+function changeBodyHeight() {
+	var b = document.body;
+	b.style.height = '99%';
+	setInterval(function() {b.style.height = '';}, 1);
+}
 
-	if (startPos != endPos) {
-		sel = textComponent.value.substring(startPos, endPos);
-		newSel = openTag + sel + closeTag;
-		textComponent.value = textComponent.value.substr(0, startPos) + newSel + textComponent.value.substr(endPos);
-		textComponent.setSelectionRange(startPos, endPos + bbStr.length);
-    }
+// remove attribute "hidden" in body after load window
+window.addEventListener('load', removeAttributeHidden);
+function removeAttributeHidden() {
+	document.body.removeAttribute('hidden');
 }

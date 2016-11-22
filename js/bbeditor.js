@@ -5,14 +5,11 @@ function changeBBCodesTheme() {
 	textComponent = document.getElementById('text');
 	if (document.body.id != 'bbcodes') return;
 
-	var head = document.querySelector('head'),
-		lightTheme = document.querySelector('link[rel*="stylesheet"][href*="light"]' || 'link[rel*="stylesheet"][href*="white"]'),
-		imgAll = document.querySelectorAll('.bb_panel img');
-
+	var imgAll = document.querySelectorAll('.bb_panel img');
 	for (var i = 0; i < imgAll.length; i++) {
 		var img = imgAll[i],
 			theme = '';
-		(lightTheme) ? theme = 'light' : theme = 'dark';
+		(document.body.classList.contains('light_theme')) ? theme = 'light' : theme = 'dark';
 		img.setAttribute('src', 'img/bbcodes/' + theme + '/' + img.getAttribute('src'));
 	}
 }
@@ -56,8 +53,11 @@ function createDialog(message, hint, type) {
 		color.onclick = onClickColorCell;
 		function onClickColorCell(e) {
 			var el = e.target;
-			bbCode('[' + customDialogOBJ.tag + '=' + el.textContent + ']', '[/' + customDialogOBJ.tag + ']');
-			cancelDialog(color);
+			if (el.classList.contains('cell')) {
+				bbCode('[' + customDialogOBJ.tag + '=' + el.textContent + ']', '[/' + customDialogOBJ.tag + ']');
+				cancelDialog(color);
+			}
+			return;
 		}
 	}
 }
@@ -128,26 +128,28 @@ function bbToHtml() {
 		/\[left\]([\s\S]*?)\[\/left\]/gi,
 		/\[center\]([\s\S]*?)\[\/center\]/gi,
 		/\[right\]([\s\S]*?)\[\/right\]/gi,
-		/\[url[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/url\]/gi,
 		/\[offtop\]([\s\S]*?)\[\/offtop\]/gi,
+		/\[url[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/url\]/gi,
+		/\[email[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/email\]/gi,
 		/\[size[ ="]*(\d)*?["]?\]([\s\S]*?)\[\/size\]/gi,
-		/\[color[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/color\]/gi,
+		/\[color=(")?([^\1\]]*?)\1\]([\s\S]*?)\[\/color\]/gi,
 		/\[background[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/background\]/gi,
 		/\[snapback\](\d)+?\[\/snapback\]/gi,
 		/\[anchor\]([\s\S]*?)\[\/anchor\]/gi,
-		/\[font\]([\s\S]*?)\[\/font\]/gi,
+		/\[font[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/font\]/gi,
 		/\[\*\]/gi,
 		/\[list\]([\s\S]*?)\[\/list\]/gi,
-		/\[list[ ]?=["]?1["]?\]([\s\S]*?)\[\/list\]/gi,
+		/\[list[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/list\]/gi,
 		/\[img\]([\s\S]*?)\[\/img\]/gi,
-		/\[attachment=["]?\d*:([\s\S]*?)["]?\]/gi,
-		/\[quote([^\]]*?)?\]([\s\S]*?)\[\/quote\]/gi,
-		/\[code[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/code\]/gi,
-		/\[spoiler[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/spoiler\]/gi,
-		/\[hide[^\]]*?\]([\s\S]*?)\[\/hide\]/gi,
+		/\[attachment=(")?(\d*):([\s\S]*?)\1\]/gi,
 		/\[cur\]([\s\S]*?)\[\/cur\]/gi,
 		/\[mod\]([\s\S]*?)\[\/mod\]/gi,
-		/\[ex\]([\s\S]*?)\[\/ex\]/gi];
+		/\[ex\]([\s\S]*?)\[\/ex\]/gi,
+		/\[code[ ="]*([\s\S]*?)\]([\s\S]*?)\[\/code\]/gi,
+		/\[spoiler[ ="]*([\s\S]*?)["]?\]([\s\S]*?)\[\/spoiler\]/gi,
+		/\[hide[^\]]*?\]([\s\S]*?)\[\/hide\]/gi,
+		/\[quote( \w+=(")?([^"\] ]*)\2)?( \w+=(")?([^"\] ]*)\5)?( \w+=(")?([^"\] ]*)\8)?\]([\s\S]*?)\[\/quote]/gi
+	];
 
 	var html = ['<br>',
 		'<b>$1</b>',
@@ -159,29 +161,34 @@ function bbToHtml() {
 		'<div align="left">$1</div>',
 		'<div align="center">$1</div>',
 		'<div align="right">$1</div>',
-		'<a href="$1">$1</a>',
 		'<font style="font-size:9px;color:gray;">$1</font>',
+		'<a href="$1">$2</a>',
+		'<a href="mailto:$1">$2</a>',
 		function(str, p1, p2) {
 			var unit = ['8pt','10pt','12pt','14pt','18pt','24pt','36pt'];
 			return '<span style="font-size:' + unit[p1 - 1] + '">' + p2 + '</span>';
 		},
-		'<span style="color:$1">$2</span>',
+		'<span style="color:$2">$3</span>',
 		'<span style="background-color:$1">$2</span>',
-		'<a href="/forum/index.php?act=findpost&amp;pid=$1" target="_blank" title="Перейти к сообщению"><img src="/forum/style_images/1/post_snapback.gif" alt="*" border="0"></a>',
-		'<a name="$1" title="$1"></a>',
+		'<a href="/forum/index.php?act=findpost&amp;pid=$1" target="_blank" title="Перейти к сообщению"><img src="img/forum/post_snapback.gif" alt="*" border="0"></a>',
+		'<a name="$1" title="$1"> ˇ </a>',
 		'<span style="font-family:$1">$2</span>',
 		'<li>',
 		'<ul>$1</ul>',
-		'<ol>$1</ol>',
+		'<ol type="$1">$2</ol>',
 		'<img alt="Изображение" src="$1">',
-		'<a attach_id="12345678" s="" href="" data-rel="lyteframe" ;scrolling:no;" title="Скачать $1" target="_blank"><img src="img/forum/file_attach.gif" alt="Прикрепленный файл" style="margin-right:3px;">$1</a> ( 0 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>',
-		'<div class="post-block quote"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
+		'<a attach_id="$2" s="" href="" data-rel="lyteframe" ;scrolling:no;" title="Скачать $3" target="_blank"><img src="img/forum/file_attach.gif" alt="Прикрепленный файл" style="margin-right:3px;">$3</a> ( 0 КБ )<span class="desc">Кол-во скачиваний: 0</span><br>',
+		'<div class="post-block tbl cur"><div class="block-title">K</div><div class="block-body">$1</div></div>',
+		'<div class="post-block tbl mod"><div class="block-title">M</div><div class="block-body">$1</div></div>',
+		'<div class="post-block tbl ex"><div class="block-title">!</div><div class="block-body">$1</div></div>',
 		'<div class="post-block code box"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
 		'<div class="post-block spoil close"><div class="block-title">$1</div><div class="block-body">$2</div></div>',
 		'<div class="post-block hidden"><div class="block-title"></div><div class="block-body">$1</div></div>',
-		'<div class="post-block tbl cur"><div class="block-title">K</div><div class="block-body">$1</div></div>',
-		'<div class="post-block tbl mod"><div class="block-title">M</div><div class="block-body">$1</div></div>',
-		'<div class="post-block tbl ex"><div class="block-title">!</div><div class="block-body">$1</div></div>'];
+		function(a, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) {
+			var title = ((p3) ? p3 + ' @ ' : '') + ((p6) ? p6: '') + ((p9) ? ' <a href="/forum/index.php?act=findpost&amp;pid=' + p9 + '" target="_blank" title="Перейти к сообщению"><img src="img/forum/post_snapback.gif" alt="*" border="0"></a>': '');
+			return '<div class="post-block quote"><div class="block-title">' + title + '</div><div class="block-body">' + ((p10) ? p10 : '') + '</div></div>';
+		}
+	];
 
 	var rex = /\[[^\]]*?\]|\[\/[^\]]*?]/gi;
 	while (rex.test(str)) {
@@ -196,6 +203,7 @@ function bbToHtml() {
 	blocksOpenClose();
 	numberingCodeLines();
 	document.querySelector('div[name="entry12345678"]').scrollIntoView();
+
 }
 
 // save content textarea
